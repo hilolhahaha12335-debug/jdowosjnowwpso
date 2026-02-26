@@ -6,79 +6,84 @@ local TweenService = game:GetService("TweenService")
 local Workspace = game:GetService("Workspace")
 local Stats = game:GetService("Stats")
 
-local a = Players.LocalPlayer
-if not a.Character then a.CharacterAdded:Wait() end
+local localPlayer = Players.LocalPlayer
+if not localPlayer.Character then localPlayer.CharacterAdded:Wait() end
 task.wait(0.5)
 
-local b
-local c = "f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
+local adminRemote
+local adminUUID = "f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
 
-local function d()
-    local e = ReplicatedStorage:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
-    if not e then return end
-    local f = e:FindFirstChild("N".."e".."t")
-    if not f then return end
-    local g = f:GetChildren()
-    for h = 1, #g - 1 do
-        local i = g[h]
-        local j = g[h + 1]
-        if i:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and j:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            if j.Name == "R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s" then
-                b = i
+local function findAdminRemote()
+    local Packages = ReplicatedStorage:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
+    if not Packages then return end
+    local Net = Packages:FindFirstChild("N".."e".."t")
+    if not Net then return end
+    local children = Net:GetChildren()
+    for i = 1, #children - 1 do
+        local current = children[i]
+        local next = children[i + 1]
+        if current:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and next:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            if next.Name == "R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s" then
+                adminRemote = current
                 return
             end
         end
     end
-    for h = 1, #g - 1 do
-        local i = g[h]
-        local j = g[h + 1]
-        if i:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and j:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            if j.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e") then
-                b = i
+    for i = 1, #children - 1 do
+        local current = children[i]
+        local next = children[i + 1]
+        if current:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and next:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            if next.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e") then
+                adminRemote = current
                 return
             end
         end
     end
 end
 
-local k = false
+local remoteReady = false
 task.spawn(function()
-    local l = 10
-    local m = 0
-    while m < l and not k do
-        d()
-        if b and b:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            k = true
+    local maxWait = 10
+    local elapsed = 0
+    while elapsed < maxWait and not remoteReady do
+        findAdminRemote()
+        if adminRemote and adminRemote:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            remoteReady = true
             break
         end
-        m = m + 0.1
+        elapsed = elapsed + 0.1
         task.wait(0.1)
     end
 end)
 
-local n = false
-local o = 0
-local p = 3
-local q = 15
-local r = nil
-local s = {}
-local t = a.DisplayName
+local baseDefenderEnabled = false
+local baseDefenderLastUse = {}
+local baseDefenderCooldown = 10
 
-local function u()
-    local v = Workspace:FindFirstChild("P".."l".."o".."t".."s")
-    if not v then return nil end
-    for w, x in pairs(v:GetChildren()) do
-        local y = x:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
-        if y then
-            local z = y:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
-            if z then
-                local A = z:FindFirstChild("F".."r".."a".."m".."e")
-                if A then
-                    local B = A:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
-                    if B and B:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") then
-                        local C = B.Text
-                        if C:find(t) and C:find("'".."s".." ".."B".."a".."s".."e") then
-                            return x
+local antiTPScamEnabled = false
+local antiTPLastDefenseTime = 0
+local antiTPCooldown = 3
+local antiTPDistanceThreshold = 15
+
+local myPlot = nil
+local myPlotAnimalPodiums = {}
+local myDisplayName = localPlayer.DisplayName
+
+local function findMyPlot()
+    local plotsFolder = Workspace:FindFirstChild("P".."l".."o".."t".."s")
+    if not plotsFolder then return nil end
+    for _, plot in pairs(plotsFolder:GetChildren()) do
+        local plotSign = plot:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
+        if plotSign then
+            local surfaceGui = plotSign:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
+            if surfaceGui then
+                local frame = surfaceGui:FindFirstChild("F".."r".."a".."m".."e")
+                if frame then
+                    local textLabel = frame:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
+                    if textLabel and textLabel:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") then
+                        local plotText = textLabel.Text
+                        if plotText:find(myDisplayName) and plotText:find("'".."s".." ".."B".."a".."s".."e") then
+                            return plot
                         end
                     end
                 end
@@ -88,35 +93,151 @@ local function u()
     return nil
 end
 
-local function D(E)
-    local F = {}
-    local G = E:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
-    if not G then return F end
-    for H = 1, 10 do
-        local I = G:FindFirstChild(tostring(H))
-        if I and I:IsA("M".."o".."d".."e".."l") then
-            F[H] = I:GetPivot().Position
+local function getMyPlotAnimalPodiums(plot)
+    local podiumPositions = {}
+    local animalPodiumsFolder = plot:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
+    if not animalPodiumsFolder then return podiumPositions end
+    for i = 1, 10 do
+        local podium = animalPodiumsFolder:FindFirstChild(tostring(i))
+        if podium and podium:IsA("M".."o".."d".."e".."l") then
+            podiumPositions[i] = podium:GetPivot().Position
         end
     end
-    return F
+    return podiumPositions
 end
 
-local J = {}
-local K = {}
-local L2 = {}
-local M = a:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-local N = false
-local O = 0
-local P2 = 3
+local function getPlayerRootPart(plr)
+    local char = plr.Character
+    if not char then return nil end
+    return char:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")
+end
+
+local function getPlayersInMyPlot()
+    if not myPlot then return {} end
+    local players = {}
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= localPlayer and p.Character then
+            local hrp = getPlayerRootPart(p)
+            if hrp then
+                for _, podiumPos in ipairs(myPlotAnimalPodiums) do
+                    if (hrp.Position - podiumPos).Magnitude < 8 then
+                        table.insert(players, p)
+                        break
+                    end
+                end
+            end
+        end
+    end
+    return players
+end
+
+local function getNearestPlayer()
+    local char = localPlayer.Character
+    if not char or not char:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t") then return nil end
+    local hrp = char.HumanoidRootPart
+    local nearest, shortest = nil, math.huge
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= localPlayer and p.Character then
+            local phrp = getPlayerRootPart(p)
+            if phrp then
+                local dist = (hrp.Position - phrp.Position).Magnitude
+                if dist < shortest then
+                    shortest = dist
+                    nearest = p
+                end
+            end
+        end
+    end
+    return nearest
+end
+
+local function executeBaseDefenderNear(target)
+    adminRemote:FireServer(adminUUID, target, "r".."a".."g".."d".."o".."l".."l")
+    task.wait(0.1)
+    adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
+    task.wait(0.1)
+    adminRemote:FireServer(adminUUID, target, "j".."a".."i".."l")
+end
+
+local function executeBaseDefenderFar(target)
+    adminRemote:FireServer(adminUUID, target, "j".."a".."i".."l")
+end
+
+local function executeAutoDefense(target)
+    adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
+end
+
+local function getDistanceToBase(player)
+    if not player.Character then return math.huge end
+    local hrp = getPlayerRootPart(player)
+    if not hrp then return math.huge end
+    local minDist = math.huge
+    for _, podiumPos in ipairs(myPlotAnimalPodiums) do
+        local d = (hrp.Position - podiumPos).Magnitude
+        if d < minDist then minDist = d end
+    end
+    return minDist
+end
+
+task.spawn(function()
+    task.wait(2)
+    myPlot = findMyPlot()
+    if myPlot then
+        myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
+    end
+end)
+
+coroutine.wrap(function()
+    while true do
+        if baseDefenderEnabled and myPlot then
+            local playersInPlot = getPlayersInMyPlot()
+            if #playersInPlot >= 2 then
+                local distances = {}
+                for _, plr in ipairs(playersInPlot) do
+                    distances[plr] = getDistanceToBase(plr)
+                end
+                table.sort(playersInPlot, function(a, b)
+                    return distances[a] < distances[b]
+                end)
+                local now = tick()
+                local closest = playersInPlot[1]
+                local furthest = playersInPlot[#playersInPlot]
+                if closest and (not baseDefenderLastUse[closest.UserId] or (now - baseDefenderLastUse[closest.UserId]) > baseDefenderCooldown) then
+                    coroutine.wrap(executeBaseDefenderNear)(closest)
+                    baseDefenderLastUse[closest.UserId] = now
+                end
+                if furthest and furthest ~= closest and (not baseDefenderLastUse[furthest.UserId] or (now - baseDefenderLastUse[furthest.UserId]) > baseDefenderCooldown) then
+                    coroutine.wrap(executeBaseDefenderFar)(furthest)
+                    baseDefenderLastUse[furthest.UserId] = now
+                end
+            elseif #playersInPlot == 1 then
+                local now = tick()
+                local player = playersInPlot[1]
+                if not baseDefenderLastUse[player.UserId] or (now - baseDefenderLastUse[player.UserId]) > baseDefenderCooldown then
+                    coroutine.wrap(executeBaseDefenderNear)(player)
+                    baseDefenderLastUse[player.UserId] = now
+                end
+            end
+        end
+        task.wait()
+    end
+end)()
+
+local gui = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+local stealingDetected = false
+local lastDefenseTime = 0
+local defenseCooldown = 3
 
 coroutine.wrap(function()
     while true do
         task.wait(0.01)
-        for Q, R2 in ipairs(M:GetDescendants()) do
-            if R2:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") and R2.Visible and R2.Text ~= "" then
-                if R2.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r") then
-                    N = true
-                    break
+        if stealingDetected == false then
+            for _, g in ipairs(gui:GetDescendants()) do
+                if g:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") and g.Visible and g.Text ~= "" then
+                    if g.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r") then
+                        stealingDetected = true
+                        break
+                    end
                 end
             end
         end
@@ -124,34 +245,22 @@ coroutine.wrap(function()
 end)()
 
 task.spawn(function()
-    task.wait(2)
-    r = u()
-    if r then
-        s = D(r)
-    end
-end)
-
-task.spawn(function()
     while true do
-        if n and k and r and next(s) then
-            for S2, T2 in ipairs(Players:GetPlayers()) do
-                if T2 ~= a and T2.Character then
-                    local U2 = (function(V)
-                        local W2 = V.Character
-                        if not W2 then return nil end
-                        return W2:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")
-                    end)(T2)
-                    if U2 then
-                        local X = U2.Position
-                        for Y, Z in pairs(s) do
-                            local AA = (X - Z).Magnitude
-                            if AA < q then
-                                if tick() - o > p then
-                                    for AB, AC in ipairs({"b".."a".."l".."l".."o".."o".."n", "i".."n".."v".."e".."r".."s".."e", "r".."o".."c".."k".."e".."t", "t".."i".."n".."y"}) do
-                                        b:FireServer(c, T2, AC)
+        if antiTPScamEnabled and remoteReady and myPlot and next(myPlotAnimalPodiums) then
+            for _, plr in ipairs(Players:GetPlayers()) do
+                if plr ~= localPlayer and plr.Character then
+                    local targetRoot = getPlayerRootPart(plr)
+                    if targetRoot then
+                        local playerPos = targetRoot.Position
+                        for _, podiumPos in pairs(myPlotAnimalPodiums) do
+                            local distance = (playerPos - podiumPos).Magnitude
+                            if distance < antiTPDistanceThreshold then
+                                if tick() - antiTPLastDefenseTime > antiTPCooldown then
+                                    for _, cmd in ipairs({"b".."a".."l".."l".."o".."o".."n", "i".."n".."v".."e".."r".."s".."e", "r".."o".."c".."k".."e".."t", "t".."i".."n".."y"}) do
+                                        adminRemote:FireServer(adminUUID, plr, cmd)
                                         task.wait(0.05)
                                     end
-                                    o = tick()
+                                    antiTPLastDefenseTime = tick()
                                     break
                                 end
                             end
@@ -166,38 +275,23 @@ end)
 
 task.spawn(function()
     while true do
-        if N and #J > 0 and k then
-            N = false
-            if tick() - O > P2 then
-                local AD = {}
-                for AE, AF in ipairs(J) do
-                    if AF and AF.Parent == Players then
-                        table.insert(AD, AF)
-                    end
-                end
-                if #AD > 0 then
-                    if #AD == 1 then
-                        for AG, AH in ipairs({"b".."a".."l".."l".."o".."o".."n", "r".."o".."c".."k".."e".."t", "i".."n".."v".."e".."r".."s".."e", "t".."i".."n".."y"}) do
-                            b:FireServer(c, AD[1], AH)
-                        end
-                    elseif #AD >= 2 then
-                        local AI, AJ = AD[1], AD[2]
-                        for AK, AL in ipairs({"b".."a".."l".."l".."o".."o".."n", "r".."o".."c".."k".."e".."t", "i".."n".."v".."e".."r".."s".."e", "t".."i".."n".."y"}) do
-                            b:FireServer(c, AI, AL)
-                            task.wait(0.05)
-                        end
-                        for AM, AN in ipairs({"r".."a".."g".."d".."o".."l".."l", "j".."a".."i".."l", "j".."u".."m".."p".."s".."c".."a".."r".."e", "m".."o".."r".."p".."h"}) do
-                            b:FireServer(c, AJ, AN)
-                            task.wait(0.05)
-                        end
-                    end
-                    O = tick()
+        if stealingDetected and remoteReady then
+            stealingDetected = false
+            if tick() - lastDefenseTime > defenseCooldown then
+                local target = getNearestPlayer()
+                if target then
+                    coroutine.wrap(executeAutoDefense)(target)
+                    lastDefenseTime = tick()
                 end
             end
         end
         task.wait(0.05)
     end
 end)
+
+local selectedPlayers = {}
+local selectedSet = {}
+local selectedUserIds = {}
 
 local activeGradients = {}
 local function registerGradient(gradient)
@@ -236,7 +330,7 @@ local function addAnimatedStroke(frame, thickness)
     return stroke
 end
 
-local playerGui = a:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+local playerGui = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
 local screenGui = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
 screenGui.Name = "A"..math.random(9999)
 screenGui.ResetOnSpawn = false
@@ -244,7 +338,7 @@ screenGui.Parent = playerGui
 
 local outer = Instance.new("F".."r".."a".."m".."e")
 outer.Name = "B"..math.random(9999)
-outer.Size = UDim2.new(0, 280, 0, 310)
+outer.Size = UDim2.new(0, 280, 0, 340)
 outer.Position = UDim2.new(1, -300, 0, 80)
 outer.BackgroundTransparency = 1
 outer.Parent = screenGui
@@ -317,60 +411,160 @@ plotStatus.TextSize = 9
 plotStatus.TextColor3 = Color3.fromRGB(180, 180, 180)
 plotStatus.TextXAlignment = Enum.TextXAlignment.Left
 
-local toggleFrame = Instance.new("F".."r".."a".."m".."e")
-toggleFrame.Name = "H"..math.random(9999)
-toggleFrame.Size = UDim2.new(1, -24, 0, 32)
-toggleFrame.Position = UDim2.new(0, 12, 0, 72)
-toggleFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-toggleFrame.BackgroundTransparency = 0.1
-toggleFrame.BorderSizePixel = 0
-toggleFrame.Parent = card
+local baseDefenderFrame = Instance.new("F".."r".."a".."m".."e")
+baseDefenderFrame.Name = "H"..math.random(9999)
+baseDefenderFrame.Size = UDim2.new(1, -24, 0, 32)
+baseDefenderFrame.Position = UDim2.new(0, 12, 0, 72)
+baseDefenderFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+baseDefenderFrame.BackgroundTransparency = 0.1
+baseDefenderFrame.BorderSizePixel = 0
+baseDefenderFrame.Parent = card
 
-local toggleCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-toggleCorner.CornerRadius = UDim.new(0, 8)
-toggleCorner.Parent = toggleFrame
+local baseDefenderCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+baseDefenderCorner.CornerRadius = UDim.new(0, 8)
+baseDefenderCorner.Parent = baseDefenderFrame
 
-local toggleLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-toggleLabel.Name = "I"..math.random(9999)
-toggleLabel.Parent = toggleFrame
-toggleLabel.BackgroundTransparency = 1
-toggleLabel.Position = UDim2.new(0, 12, 0, 0)
-toggleLabel.Size = UDim2.new(1, -60, 1, 0)
-toggleLabel.Text = "A".."u".."t".."o".."-".."D".."e".."f".."e".."n".."s".."e"
-toggleLabel.Font = Enum.Font.GothamBold
-toggleLabel.TextSize = 13
-toggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-toggleLabel.TextXAlignment = Enum.TextXAlignment.Left
+local baseDefenderLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+baseDefenderLabel.Name = "I"..math.random(9999)
+baseDefenderLabel.Parent = baseDefenderFrame
+baseDefenderLabel.BackgroundTransparency = 1
+baseDefenderLabel.Position = UDim2.new(0, 12, 0, 0)
+baseDefenderLabel.Size = UDim2.new(1, -60, 1, 0)
+baseDefenderLabel.Text = "B".."a".."s".."e".." ".."D".."e".."f".."e".."n".."d".."e".."r"
+baseDefenderLabel.Font = Enum.Font.GothamBold
+baseDefenderLabel.TextSize = 13
+baseDefenderLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+baseDefenderLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-local toggleButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-toggleButton.Name = "J"..math.random(9999)
-toggleButton.Parent = toggleFrame
-toggleButton.Size = UDim2.new(0, 50, 0, 24)
-toggleButton.Position = UDim2.new(1, -58, 0.5, -12)
-toggleButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
-toggleButton.Text = ""
-toggleButton.BorderSizePixel = 0
+local baseDefenderButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+baseDefenderButton.Name = "J"..math.random(9999)
+baseDefenderButton.Parent = baseDefenderFrame
+baseDefenderButton.Size = UDim2.new(0, 50, 0, 24)
+baseDefenderButton.Position = UDim2.new(1, -58, 0.5, -12)
+baseDefenderButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
+baseDefenderButton.Text = ""
+baseDefenderButton.BorderSizePixel = 0
 
-local toggleBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-toggleBtnCorner.CornerRadius = UDim.new(0, 12)
-toggleBtnCorner.Parent = toggleButton
+local baseDefenderBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+baseDefenderBtnCorner.CornerRadius = UDim.new(0, 12)
+baseDefenderBtnCorner.Parent = baseDefenderButton
 
-local toggleIndicator = Instance.new("F".."r".."a".."m".."e")
-toggleIndicator.Name = "K"..math.random(9999)
-toggleIndicator.Parent = toggleButton
-toggleIndicator.Size = UDim2.new(0, 20, 0, 20)
-toggleIndicator.Position = UDim2.new(0, 2, 0, 2)
-toggleIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
-toggleIndicator.BorderSizePixel = 0
+local baseDefenderIndicator = Instance.new("F".."r".."a".."m".."e")
+baseDefenderIndicator.Name = "K"..math.random(9999)
+baseDefenderIndicator.Parent = baseDefenderButton
+baseDefenderIndicator.Size = UDim2.new(0, 20, 0, 20)
+baseDefenderIndicator.Position = UDim2.new(0, 2, 0, 2)
+baseDefenderIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+baseDefenderIndicator.BorderSizePixel = 0
 
-local indicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-indicatorCorner.CornerRadius = UDim.new(0, 10)
-indicatorCorner.Parent = toggleIndicator
+local baseDefenderIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+baseDefenderIndicatorCorner.CornerRadius = UDim.new(0, 10)
+baseDefenderIndicatorCorner.Parent = baseDefenderIndicator
+
+local autoDefenseFrame = Instance.new("F".."r".."a".."m".."e")
+autoDefenseFrame.Name = "L"..math.random(9999)
+autoDefenseFrame.Size = UDim2.new(1, -24, 0, 32)
+autoDefenseFrame.Position = UDim2.new(0, 12, 0, 114)
+autoDefenseFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+autoDefenseFrame.BackgroundTransparency = 0.1
+autoDefenseFrame.BorderSizePixel = 0
+autoDefenseFrame.Parent = card
+
+local autoDefenseCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+autoDefenseCorner.CornerRadius = UDim.new(0, 8)
+autoDefenseCorner.Parent = autoDefenseFrame
+
+local autoDefenseLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+autoDefenseLabel.Name = "M"..math.random(9999)
+autoDefenseLabel.Parent = autoDefenseFrame
+autoDefenseLabel.BackgroundTransparency = 1
+autoDefenseLabel.Position = UDim2.new(0, 12, 0, 0)
+autoDefenseLabel.Size = UDim2.new(1, -60, 1, 0)
+autoDefenseLabel.Text = "A".."u".."t".."o".." ".."D".."e".."f".."e".."n".."s".."e"
+autoDefenseLabel.Font = Enum.Font.GothamBold
+autoDefenseLabel.TextSize = 13
+autoDefenseLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+autoDefenseLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local autoDefenseButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+autoDefenseButton.Name = "N"..math.random(9999)
+autoDefenseButton.Parent = autoDefenseFrame
+autoDefenseButton.Size = UDim2.new(0, 50, 0, 24)
+autoDefenseButton.Position = UDim2.new(1, -58, 0.5, -12)
+autoDefenseButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
+autoDefenseButton.Text = ""
+autoDefenseButton.BorderSizePixel = 0
+
+local autoDefenseBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+autoDefenseBtnCorner.CornerRadius = UDim.new(0, 12)
+autoDefenseBtnCorner.Parent = autoDefenseButton
+
+local autoDefenseIndicator = Instance.new("F".."r".."a".."m".."e")
+autoDefenseIndicator.Name = "O"..math.random(9999)
+autoDefenseIndicator.Parent = autoDefenseButton
+autoDefenseIndicator.Size = UDim2.new(0, 20, 0, 20)
+autoDefenseIndicator.Position = UDim2.new(0, 2, 0, 2)
+autoDefenseIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+autoDefenseIndicator.BorderSizePixel = 0
+
+local autoDefenseIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+autoDefenseIndicatorCorner.CornerRadius = UDim.new(0, 10)
+autoDefenseIndicatorCorner.Parent = autoDefenseIndicator
+
+local antiTPFrame = Instance.new("F".."r".."a".."m".."e")
+antiTPFrame.Name = "P"..math.random(9999)
+antiTPFrame.Size = UDim2.new(1, -24, 0, 32)
+antiTPFrame.Position = UDim2.new(0, 12, 0, 156)
+antiTPFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+antiTPFrame.BackgroundTransparency = 0.1
+antiTPFrame.BorderSizePixel = 0
+antiTPFrame.Parent = card
+
+local antiTPCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+antiTPCorner.CornerRadius = UDim.new(0, 8)
+antiTPCorner.Parent = antiTPFrame
+
+local antiTPLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+antiTPLabel.Name = "Q"..math.random(9999)
+antiTPLabel.Parent = antiTPFrame
+antiTPLabel.BackgroundTransparency = 1
+antiTPLabel.Position = UDim2.new(0, 12, 0, 0)
+antiTPLabel.Size = UDim2.new(1, -60, 1, 0)
+antiTPLabel.Text = "A".."n".."t".."i".."-".."T".."P".." ".."S".."c".."a".."m"
+antiTPLabel.Font = Enum.Font.GothamBold
+antiTPLabel.TextSize = 13
+antiTPLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+antiTPLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local antiTPButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+antiTPButton.Name = "R"..math.random(9999)
+antiTPButton.Parent = antiTPFrame
+antiTPButton.Size = UDim2.new(0, 50, 0, 24)
+antiTPButton.Position = UDim2.new(1, -58, 0.5, -12)
+antiTPButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
+antiTPButton.Text = ""
+antiTPButton.BorderSizePixel = 0
+
+local antiTPBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+antiTPBtnCorner.CornerRadius = UDim.new(0, 12)
+antiTPBtnCorner.Parent = antiTPButton
+
+local antiTPIndicator = Instance.new("F".."r".."a".."m".."e")
+antiTPIndicator.Name = "S"..math.random(9999)
+antiTPIndicator.Parent = antiTPButton
+antiTPIndicator.Size = UDim2.new(0, 20, 0, 20)
+antiTPIndicator.Position = UDim2.new(0, 2, 0, 2)
+antiTPIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+antiTPIndicator.BorderSizePixel = 0
+
+local antiTPIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+antiTPIndicatorCorner.CornerRadius = UDim.new(0, 10)
+antiTPIndicatorCorner.Parent = antiTPIndicator
 
 local body = Instance.new("F".."r".."a".."m".."e")
-body.Name = "L"..math.random(9999)
-body.Size = UDim2.new(1, -24, 1, -120)
-body.Position = UDim2.new(0, 12, 0, 114)
+body.Name = "T"..math.random(9999)
+body.Size = UDim2.new(1, -24, 1, -210)
+body.Position = UDim2.new(0, 12, 0, 198)
 body.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
 body.BackgroundTransparency = 0.1
 body.BorderSizePixel = 0
@@ -383,7 +577,7 @@ bodyCorner.Parent = body
 local bodyStroke = addAnimatedStroke(body, 2)
 
 local list = Instance.new("S".."c".."r".."o".."l".."l".."i".."n".."g".."F".."r".."a".."m".."e")
-list.Name = "M"..math.random(9999)
+list.Name = "U"..math.random(9999)
 list.Parent = body
 list.BackgroundTransparency = 1
 list.Size = UDim2.new(1, -16, 1, -16)
@@ -475,27 +669,49 @@ checkLabel.TextSize = 16
 checkLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 checkLabel.Text = ""
 
-local execButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-execButton.Name = "E".."x".."e".."c".."u".."t".."e".."B".."u".."t".."t".."o".."n"
-execButton.Parent = card
-execButton.Size = UDim2.new(1, -24, 0, 32)
-execButton.Position = UDim2.new(0, 12, 1, -44)
-execButton.BackgroundColor3 = Color3.fromRGB(76, 175, 80)
-execButton.Text = "E".."X".."E".."C".."U".."T".."E".." ".."(".."F"..")"
-execButton.Font = Enum.Font.GothamBold
-execButton.TextSize = 14
-execButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-execButton.BorderSizePixel = 0
-execButton.Visible = UserInputService.TouchEnabled
+local spamButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+spamButton.Name = "V"..math.random(9999)
+spamButton.Parent = card
+spamButton.Size = UDim2.new(1, -24, 0, 32)
+spamButton.Position = UDim2.new(0, 12, 1, -44)
+spamButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
+spamButton.Text = "S".."P".."A".."M".." ".."(".."F"..")"
+spamButton.Font = Enum.Font.GothamBold
+spamButton.TextSize = 14
+spamButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+spamButton.BorderSizePixel = 0
 
-local execCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-execCorner.CornerRadius = UDim.new(0, 10)
-execCorner.Parent = execButton
+local spamCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+spamCorner.CornerRadius = UDim.new(0, 10)
+spamCorner.Parent = spamButton
 
-toggleButton.MouseButton1Click:Connect(function()
-    n = not n
+baseDefenderButton.MouseButton1Click:Connect(function()
+    baseDefenderEnabled = not baseDefenderEnabled
     local targetPos, targetColor, targetIndicatorColor
-    if n then
+    if baseDefenderEnabled then
+        targetPos = UDim2.new(1, -22, 0, 2)
+        targetColor = Color3.fromRGB(76, 175, 80)
+        targetIndicatorColor = Color3.fromRGB(255, 255, 255)
+        if not myPlot then
+            myPlot = findMyPlot()
+            if myPlot then
+                myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
+            end
+        end
+    else
+        targetPos = UDim2.new(0, 2, 0, 2)
+        targetColor = Color3.fromRGB(60, 60, 68)
+        targetIndicatorColor = Color3.fromRGB(180, 180, 180)
+    end
+    TweenService:Create(baseDefenderIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
+    TweenService:Create(baseDefenderButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
+    TweenService:Create(baseDefenderIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
+end)
+
+autoDefenseButton.MouseButton1Click:Connect(function()
+    stealingDetected = not stealingDetected
+    local targetPos, targetColor, targetIndicatorColor
+    if stealingDetected then
         targetPos = UDim2.new(1, -22, 0, 2)
         targetColor = Color3.fromRGB(76, 175, 80)
         targetIndicatorColor = Color3.fromRGB(255, 255, 255)
@@ -504,58 +720,83 @@ toggleButton.MouseButton1Click:Connect(function()
         targetColor = Color3.fromRGB(60, 60, 68)
         targetIndicatorColor = Color3.fromRGB(180, 180, 180)
     end
-    TweenService:Create(toggleIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
-    TweenService:Create(toggleButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
-    TweenService:Create(toggleIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
+    TweenService:Create(autoDefenseIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
+    TweenService:Create(autoDefenseButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
+    TweenService:Create(autoDefenseIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
 end)
 
-local function executeCommands()
-    if not k then return end
-    local validPlayers = {}
-    for _, plr in ipairs(J) do
-        if plr and plr.Parent == Players then
-            table.insert(validPlayers, plr)
+antiTPButton.MouseButton1Click:Connect(function()
+    antiTPScamEnabled = not antiTPScamEnabled
+    if antiTPScamEnabled and not myPlot then
+        myPlot = findMyPlot()
+        if myPlot then
+            myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
+        else
+            antiTPScamEnabled = false
+            return
         end
     end
-    if #validPlayers == 0 then return end
-    if #validPlayers == 1 then
-        for _, cmd in ipairs({"b".."a".."l".."l".."o".."o".."n", "r".."o".."c".."k".."e".."t", "i".."n".."v".."e".."r".."s".."e", "t".."i".."n".."y"}) do
-            b:FireServer(c, validPlayers[1], cmd)
-        end
-    elseif #validPlayers >= 2 then
-        local p1, p2 = validPlayers[1], validPlayers[2]
-        for _, cmd in ipairs({"b".."a".."l".."l".."o".."o".."n", "r".."o".."c".."k".."e".."t", "i".."n".."v".."e".."r".."s".."e", "t".."i".."n".."y"}) do
-            b:FireServer(c, p1, cmd)
-        end
-        for _, cmd in ipairs({"r".."a".."g".."d".."o".."l".."l", "j".."a".."i".."l", "j".."u".."m".."p".."s".."c".."a".."r".."e", "m".."o".."r".."p".."h"}) do
-            b:FireServer(c, p2, cmd)
-        end
+    local targetPos, targetColor, targetIndicatorColor
+    if antiTPScamEnabled then
+        targetPos = UDim2.new(1, -22, 0, 2)
+        targetColor = Color3.fromRGB(76, 175, 80)
+        targetIndicatorColor = Color3.fromRGB(255, 255, 255)
+    else
+        targetPos = UDim2.new(0, 2, 0, 2)
+        targetColor = Color3.fromRGB(60, 60, 68)
+        targetIndicatorColor = Color3.fromRGB(180, 180, 180)
+    end
+    TweenService:Create(antiTPIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
+    TweenService:Create(antiTPButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
+    TweenService:Create(antiTPIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
+end)
+
+local function executeSpam()
+    if not remoteReady then return end
+    local target = getNearestPlayer()
+    if target then
+        coroutine.wrap(function()
+            adminRemote:FireServer(adminUUID, target, "t".."i".."n".."y")
+            task.wait(0.1)
+            adminRemote:FireServer(adminUUID, target, "i".."n".."v".."e".."r".."s".."e")
+            task.wait(0.1)
+            adminRemote:FireServer(adminUUID, target, "r".."o".."c".."k".."e".."t")
+            task.wait(0.1)
+            adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
+        end)()
     end
 end
 
-execButton.MouseButton1Click:Connect(executeCommands)
+spamButton.MouseButton1Click:Connect(executeSpam)
+
+UserInputService.InputBegan:Connect(function(input, gpe)
+    if gpe then return end
+    if input.KeyCode == Enum.KeyCode.F then
+        executeSpam()
+    end
+end)
 
 local function cleanupInvalidPlayers()
     local changed = false
     local newSelectedPlayers = {}
     local orderedUserIds = {}
-    for userId, order in pairs(L2) do
+    for userId, order in pairs(selectedUserIds) do
         table.insert(orderedUserIds, {userId = userId, order = order})
     end
     table.sort(orderedUserIds, function(a, b) return a.order < b.order end)
     for _, data in ipairs(orderedUserIds) do
         local plr = Players:GetPlayerByUserId(data.userId)
-        if plr and plr.Parent == Players and plr ~= a then
+        if plr and plr.Parent == Players and plr ~= localPlayer then
             table.insert(newSelectedPlayers, plr)
         else
-            L2[data.userId] = nil
+            selectedUserIds[data.userId] = nil
             changed = true
         end
     end
-    J = newSelectedPlayers
-    K = {}
-    for _, plr in ipairs(J) do
-        K[plr] = true
+    selectedPlayers = newSelectedPlayers
+    selectedSet = {}
+    for _, plr in ipairs(selectedPlayers) do
+        selectedSet[plr] = true
     end
     return changed
 end
@@ -571,7 +812,7 @@ local function updateCheckmarks()
             end
         end
     end
-    for i, plr in ipairs(J) do
+    for i, plr in ipairs(selectedPlayers) do
         if plr and plr.Parent == Players then
             local row = list:FindFirstChild(plr.Name.."_row")
             if row then
@@ -593,7 +834,7 @@ local function refreshList()
         end
     end
     for _, plr in ipairs(Players:GetPlayers()) do
-        if plr ~= a then
+        if plr ~= localPlayer then
             local row = template:Clone()
             row.Visible = true
             row.Name = plr.Name.."_row"
@@ -617,24 +858,24 @@ local function refreshList()
             end)
             row.InputBegan:Connect(function(input)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                    if L2[plr.UserId] then
-                        L2[plr.UserId] = nil
-                        K[plr] = nil
-                        for i, p in ipairs(J) do
+                    if selectedUserIds[plr.UserId] then
+                        selectedUserIds[plr.UserId] = nil
+                        selectedSet[plr] = nil
+                        for i, p in ipairs(selectedPlayers) do
                             if p == plr then
-                                table.remove(J, i)
+                                table.remove(selectedPlayers, i)
                                 break
                             end
                         end
-                        for i, p in ipairs(J) do
-                            L2[p.UserId] = i
+                        for i, p in ipairs(selectedPlayers) do
+                            selectedUserIds[p.UserId] = i
                         end
                     else
-                        if #J < 2 then
-                            local newOrder = #J + 1
-                            L2[plr.UserId] = newOrder
-                            table.insert(J, plr)
-                            K[plr] = true
+                        if #selectedPlayers < 2 then
+                            local newOrder = #selectedPlayers + 1
+                            selectedUserIds[plr.UserId] = newOrder
+                            table.insert(selectedPlayers, plr)
+                            selectedSet[plr] = true
                         end
                     end
                     updateCheckmarks()
@@ -648,16 +889,16 @@ end
 
 task.spawn(function()
     task.wait(2)
-    r = u()
-    if r then
-        s = D(r)
+    myPlot = findMyPlot()
+    if myPlot then
+        myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
     else
         plotStatus.Text = "P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"
     end
 end)
 
 task.spawn(function()
-    while not k do
+    while not remoteReady do
         task.wait(0.1)
     end
     task.wait(0.5)
@@ -670,26 +911,19 @@ Players.PlayerAdded:Connect(function()
 end)
 
 Players.PlayerRemoving:Connect(function(removedPlayer)
-    L2[removedPlayer.UserId] = nil
-    K[removedPlayer] = nil
-    for i = #J, 1, -1 do
-        if J[i] == removedPlayer then
-            table.remove(J, i)
+    selectedUserIds[removedPlayer.UserId] = nil
+    selectedSet[removedPlayer] = nil
+    for i = #selectedPlayers, 1, -1 do
+        if selectedPlayers[i] == removedPlayer then
+            table.remove(selectedPlayers, i)
         end
     end
     refreshList()
 end)
 
-a.CharacterAdded:Connect(function()
+localPlayer.CharacterAdded:Connect(function()
     task.wait(1)
     refreshList()
-end)
-
-UserInputService.InputBegan:Connect(function(input, gpe)
-    if gpe then return end
-    if input.KeyCode == Enum.KeyCode.F then
-        executeCommands()
-    end
 end)
 
 local dragging = false
@@ -721,7 +955,7 @@ end)
 
 local topGui = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
 topGui.Name = "C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
-topGui.Parent = a:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+topGui.Parent = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
 topGui.ResetOnSpawn = false
 
 local topFrame = Instance.new("F".."r".."a".."m".."e")
