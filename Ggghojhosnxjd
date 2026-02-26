@@ -1,332 +1,680 @@
-local function _0x1a()local _0x2b,_0x3c,_0x4d,_0x5e,_0x6f,_0x7g=game:GetService(string.char(80,108,97,121,101,114,115)),game:GetService(string.char(82,101,112,108,105,99,97,116,101,100,83,116,111,114,97,103,101)),game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101)),game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101)),game:GetService(string.char(82,117,110,83,101,114,118,105,99,101)),game:GetService(string.char(87,111,114,107,115,112,97,99,101))
-local _0x8h=_0x2b.LocalPlayer
-if not _0x8h.Character then _0x8h.CharacterAdded:Wait()end
-task.wait(tonumber(0x1) and 0.5 or 0.5)
-local _0x9i
-local _0xa=function()local _0xb={0x66,0x38,0x38,0x38,0x65,0x65,0x36,0x65,0x2d,0x63,0x38,0x36,0x64,0x2d,0x34,0x36,0x65,0x31,0x2d,0x39,0x33,0x64,0x37,0x2d,0x30,0x36,0x33,0x39,0x64,0x36,0x36,0x33,0x35,0x64,0x34,0x32}local _0xc=""for _0xd=1,#_0xb do _0xc=_0xc..string.char(_0xb[_0xd])end return _0xc end
-local _0xe=_0xa()
-local _0xf=function()local _0x10=_0x3c:FindFirstChild(string.char(80,97,99,107,97,103,101,115))if not _0x10 then return end
-local _0x11=_0x10:FindFirstChild(string.char(78,101,116))if not _0x11 then return end
-local _0x12=_0x11:GetChildren()for _0x13=1,#_0x12-1 do local _0x14=_0x12[_0x13]local _0x15=_0x12[_0x13+1]if _0x14:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))and _0x15:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then if _0x15.Name==string.char(82,69,47,65,100,109,105,110,80,97,110,101,108,83,101,114,118,105,99,101,47,68,101,97,108,87,105,116,104,84,104,105,115)then _0x9i=_0x14 return end end end
-for _0x13=1,#_0x12-1 do local _0x14=_0x12[_0x13]local _0x15=_0x12[_0x13+1]if _0x14:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))and _0x15:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then if _0x15.Name:match(string.char(65,100,109,105,110,80,97,110,101,108,83,101,114,118,105,99,101))then _0x9i=_0x14 return end end end end
-local _0x16=false
-task.spawn(function()local _0x17=tonumber(0xa)or 10 local _0x18=0 while _0x18<_0x17 and not _0x16 do _0xf()if _0x9i and _0x9i:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then _0x16=true break end _0x18=_0x18+0.1 task.wait(0.1)end end)
-local _0x19=false
-local _0x1b=0
-local _0x1c=tonumber(0x3)or 3
-local _0x1d=tonumber(0xf)or 15
-local _0x1e=nil
-local _0x1f={}
-local _0x20=_0x8h.DisplayName
-local _0x21=function()local _0x22=_0x7g:FindFirstChild(string.char(80,108,111,116,115))if not _0x22 then return nil end
-for _0x23,_0x24 in pairs(_0x22:GetChildren())do local _0x25=_0x24:FindFirstChild(string.char(80,108,111,116,83,105,103,110))if _0x25 then local _0x26=_0x25:FindFirstChild(string.char(83,117,114,102,97,99,101,71,117,105))if _0x26 then local _0x27=_0x26:FindFirstChild(string.char(70,114,97,109,101))if _0x27 then local _0x28=_0x27:FindFirstChild(string.char(84,101,120,116,76,97,98,101,108))if _0x28 and _0x28:IsA(string.char(84,101,120,116,76,97,98,101,108))then local _0x29=_0x28.Text if _0x29:find(_0x20)and _0x29:find(string.char(39,115,32,66,97,115,101))then return _0x24 end end end end end end end return nil end
-local _0x2a=function(_0x2b)local _0x2c={}local _0x2d=_0x2b:FindFirstChild(string.char(65,110,105,109,97,108,80,111,100,105,117,109,115))if not _0x2d then return _0x2c end
-for _0x2e=1,tonumber(0xa)or 10 do local _0x2f=_0x2d:FindFirstChild(tostring(_0x2e))if _0x2f and _0x2f:IsA(string.char(77,111,100,101,108))then _0x2c[_0x2e]=_0x2f:GetPivot().Position end end
-return _0x2c end
-local _0x30={}
-local _0x31={}
-local _0x32={}
-local _0x33=_0x8h:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
-local _0x34=false
-local _0x35=0
-local _0x36=tonumber(0x3)or 3
-coroutine.wrap(function()while true do task.wait(0.01)for _0x37,_0x38 in ipairs(_0x33:GetDescendants())do if _0x38:IsA(string.char(84,101,120,116,76,97,98,101,108))and _0x38.Visible and _0x38.Text~=""then if _0x38.Text:find(string.char(83,111,109,101,111,110,101,32,105,115,32,115,116,101,97,108,105,110,103,32,121,111,117,114))then _0x34=true break end end end end end)()
-task.spawn(function()task.wait(2)_0x1e=_0x21()if _0x1e then _0x1f=_0x2a(_0x1e)end end)
-task.spawn(function()while true do if _0x19 and _0x16 and _0x1e and next(_0x1f)then for _0x39,_0x3a in ipairs(_0x2b:GetPlayers())do if _0x3a~=_0x8h and _0x3a.Character then local _0x3b=(function(_0x3c)local _0x3d=_0x3c.Character if not _0x3d then return nil end return _0x3d:FindFirstChild(string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116))end)(_0x3a)if _0x3b then local _0x3e=_0x3b.Position for _0x3f,_0x40 in pairs(_0x1f)do local _0x41=(_0x3e-_0x40).Magnitude if _0x41<_0x1d then if tick()-_0x1b>_0x1c then for _0x42,_0x43 in ipairs({string.char(98,97,108,108,111,111,110),string.char(105,110,118,101,114,115,101),string.char(114,111,99,107,101,116),string.char(116,105,110,121)})do _0x9i:FireServer(_0xe,_0x3a,_0x43)task.wait(0.05)end _0x1b=tick()break end end end end end end end end task.wait(0.1)end end)
-task.spawn(function()while true do if _0x34 and #_0x30>0 and _0x16 then _0x34=false if tick()-_0x35>_0x36 then local _0x44={}for _0x45,_0x46 in ipairs(_0x30)do if _0x46 and _0x46.Parent==_0x2b then table.insert(_0x44,_0x46)end end if #_0x44>0 then if #_0x44==1 then for _0x47,_0x48 in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do _0x9i:FireServer(_0xe,_0x44[1],_0x48)end elseif #_0x44>=2 then local _0x49,_0x4a=_0x44[1],_0x44[2]for _0x4b,_0x4c in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do _0x9i:FireServer(_0xe,_0x49,_0x4c)task.wait(0.05)end for _0x4d,_0x4e in ipairs({string.char(114,97,103,100,111,108,108),string.char(106,97,105,108),string.char(106,117,109,112,115,99,97,114,101),string.char(109,111,114,112,104)})do _0x9i:FireServer(_0xe,_0x4a,_0x4e)task.wait(0.05)end end _0x35=tick()end end end task.wait(0.05)end end)
-local _0x4f={}
-local _0x50=function(_0x51)table.insert(_0x4f,_0x51)end
-local _0x52=0
-_0x6f.Heartbeat:Connect(function(_0x53)_0x52=(_0x52+(_0x53*180))%360 for _0x54=#_0x4f,1,-1 do local _0x55=_0x4f[_0x54]if _0x55 and _0x55.Parent then _0x55.Rotation=_0x52 else table.remove(_0x4f,_0x54)end end end)
-local _0x56=function(_0x57,_0x58)local _0x59=Instance.new(string.char(85,73,83,116,114,111,107,101))_0x59.Name=string.char(83)..math.random(9999)_0x59.Color=Color3.fromRGB(tonumber(0x19)or 25,tonumber(0x19)or 25,tonumber(0x70)or 112)_0x59.Thickness=_0x58 or 3 _0x59.Transparency=0 _0x59.ApplyStrokeMode=Enum.ApplyStrokeMode.Border _0x59.Parent=_0x57 local _0x5a=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))_0x5a.Parent=_0x59 _0x5a.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0)})_0x50(_0x5a)return _0x59 end
-local _0x5b=_0x8h:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
-local _0x5c=Instance.new(string.char(83,99,114,101,101,110,71,117,105))
-_0x5c.Name=string.char(65)..math.random(9999)
-_0x5c.ResetOnSpawn=false
-_0x5c.Parent=_0x5b
-local _0x5d=Instance.new(string.char(70,114,97,109,101))
-_0x5d.Name=string.char(66)..math.random(9999)
-_0x5d.Size=UDim2.new(0,280,0,310)
-_0x5d.Position=UDim2.new(1,-300,0,80)
-_0x5d.BackgroundTransparency=1
-_0x5d.Parent=_0x5c
-local _0x5e=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x5e.CornerRadius=UDim.new(0,12)
-_0x5e.Parent=_0x5d
-local _0x5f=Instance.new(string.char(70,114,97,109,101))
-_0x5f.Name=string.char(67)..math.random(9999)
-_0x5f.Size=UDim2.new(1,-12,1,-12)
-_0x5f.BackgroundColor3=Color3.fromRGB(30,30,35)
-_0x5f.BackgroundTransparency=0.1
-_0x5f.BorderSizePixel=0
-_0x5f.Parent=_0x5d
-local _0x60=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x60.CornerRadius=UDim.new(0,12)
-_0x60.Parent=_0x5f
-local _0x61=_0x56(_0x5f,3)
-local _0x62=Instance.new(string.char(70,114,97,109,101))
-_0x62.Name=string.char(68)..math.random(9999)
-_0x62.Size=UDim2.new(1,0,0,60)
-_0x62.BackgroundColor3=Color3.fromRGB(40,40,48)
-_0x62.BackgroundTransparency=0.1
-_0x62.BorderSizePixel=0
-_0x62.Parent=_0x5f
-local _0x63=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x63.CornerRadius=UDim.new(0,12)
-_0x63.Parent=_0x62
-local _0x64=_0x56(_0x62,2)
-local _0x65=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x65.Name=string.char(69)..math.random(9999)
-_0x65.Parent=_0x62
-_0x65.BackgroundTransparency=1
-_0x65.Position=UDim2.new(0,18,0,8)
-_0x65.Size=UDim2.new(1,-36,0,26)
-_0x65.Text=string.char(99,104,105,114,97,113,32,72,117,98)
-_0x65.Font=Enum.Font.GothamBold
-_0x65.TextSize=16
-_0x65.TextColor3=Color3.fromRGB(255,255,255)
-_0x65.TextXAlignment=Enum.TextXAlignment.Left
-local _0x66=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x66.Name=string.char(70)..math.random(9999)
-_0x66.Parent=_0x62
-_0x66.BackgroundTransparency=1
-_0x66.Position=UDim2.new(0,18,0,30)
-_0x66.Size=UDim2.new(1,-36,0,18)
-_0x66.Text=string.char(83,101,108,101,99,116,32,112,108,97,121,101,114,115,32,98,101,108,111,119)
-_0x66.Font=Enum.Font.Gotham
-_0x66.TextSize=11
-_0x66.TextColor3=Color3.fromRGB(160,160,160)
-_0x66.TextXAlignment=Enum.TextXAlignment.Left
-local _0x67=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x67.Name=string.char(71)..math.random(9999)
-_0x67.Parent=_0x62
-_0x67.BackgroundTransparency=1
-_0x67.Position=UDim2.new(0,18,0,48)
-_0x67.Size=UDim2.new(1,-36,0,8)
-_0x67.Text=""
-_0x67.Font=Enum.Font.Gotham
-_0x67.TextSize=9
-_0x67.TextColor3=Color3.fromRGB(180,180,180)
-_0x67.TextXAlignment=Enum.TextXAlignment.Left
-local _0x68=Instance.new(string.char(70,114,97,109,101))
-_0x68.Name=string.char(72)..math.random(9999)
-_0x68.Size=UDim2.new(1,-24,0,32)
-_0x68.Position=UDim2.new(0,12,0,72)
-_0x68.BackgroundColor3=Color3.fromRGB(25,25,30)
-_0x68.BackgroundTransparency=0.1
-_0x68.BorderSizePixel=0
-_0x68.Parent=_0x5f
-local _0x69=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x69.CornerRadius=UDim.new(0,8)
-_0x69.Parent=_0x68
-local _0x6a=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x6a.Name=string.char(73)..math.random(9999)
-_0x6a.Parent=_0x68
-_0x6a.BackgroundTransparency=1
-_0x6a.Position=UDim2.new(0,12,0,0)
-_0x6a.Size=UDim2.new(1,-60,1,0)
-_0x6a.Text=string.char(65,117,116,111,45,68,101,102,101,110,115,101)
-_0x6a.Font=Enum.Font.GothamBold
-_0x6a.TextSize=13
-_0x6a.TextColor3=Color3.fromRGB(220,220,220)
-_0x6a.TextXAlignment=Enum.TextXAlignment.Left
-local _0x6b=Instance.new(string.char(84,101,120,116,66,117,116,116,111,110))
-_0x6b.Name=string.char(74)..math.random(9999)
-_0x6b.Parent=_0x68
-_0x6b.Size=UDim2.new(0,50,0,24)
-_0x6b.Position=UDim2.new(1,-58,0.5,-12)
-_0x6b.BackgroundColor3=Color3.fromRGB(60,60,68)
-_0x6b.Text=""
-_0x6b.BorderSizePixel=0
-local _0x6c=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x6c.CornerRadius=UDim.new(0,12)
-_0x6c.Parent=_0x6b
-local _0x6d=Instance.new(string.char(70,114,97,109,101))
-_0x6d.Name=string.char(75)..math.random(9999)
-_0x6d.Parent=_0x6b
-_0x6d.Size=UDim2.new(0,20,0,20)
-_0x6d.Position=UDim2.new(0,2,0,2)
-_0x6d.BackgroundColor3=Color3.fromRGB(180,180,180)
-_0x6d.BorderSizePixel=0
-local _0x6e=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x6e.CornerRadius=UDim.new(0,10)
-_0x6e.Parent=_0x6d
-local _0x6f=Instance.new(string.char(70,114,97,109,101))
-_0x6f.Name=string.char(76)..math.random(9999)
-_0x6f.Size=UDim2.new(1,-24,1,-120)
-_0x6f.Position=UDim2.new(0,12,0,114)
-_0x6f.BackgroundColor3=Color3.fromRGB(25,25,30)
-_0x6f.BackgroundTransparency=0.1
-_0x6f.BorderSizePixel=0
-_0x6f.Parent=_0x5f
-local _0x70=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x70.CornerRadius=UDim.new(0,12)
-_0x70.Parent=_0x6f
-local _0x71=_0x56(_0x6f,2)
-local _0x72=Instance.new(string.char(83,99,114,111,108,108,105,110,103,70,114,97,109,101))
-_0x72.Name=string.char(77)..math.random(9999)
-_0x72.Parent=_0x6f
-_0x72.BackgroundTransparency=1
-_0x72.Size=UDim2.new(1,-16,1,-16)
-_0x72.Position=UDim2.new(0,8,0,8)
-_0x72.CanvasSize=UDim2.new(0,0,0,0)
-_0x72.ScrollBarThickness=6
-local _0x73=Instance.new(string.char(85,73,76,105,115,116,76,97,121,111,117,116))
-_0x73.Parent=_0x72
-_0x73.Padding=UDim.new(0,8)
-_0x73.SortOrder=Enum.SortOrder.Name
-local _0x74=Instance.new(string.char(70,114,97,109,101))
-_0x74.Name=string.char(84,101,109,112,108,97,116,101)
-_0x74.Size=UDim2.new(1,0,0,40)
-_0x74.BackgroundColor3=Color3.fromRGB(40,40,48)
-_0x74.Visible=false
-_0x74.Parent=_0x72
-local _0x75=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x75.CornerRadius=UDim.new(0,8)
-_0x75.Parent=_0x74
-local _0x76=Instance.new(string.char(85,73,83,116,114,111,107,101))
-_0x76.Color=Color3.fromRGB(60,60,68)
-_0x76.Thickness=1
-_0x76.Parent=_0x74
-local _0x77=Instance.new(string.char(70,114,97,109,101))
-_0x77.Name=string.char(65,118,97,116,97,114,68,111,116)
-_0x77.Size=UDim2.new(0,28,0,28)
-_0x77.Position=UDim2.new(0,8,0,6)
-_0x77.BackgroundTransparency=1
-_0x77.Parent=_0x74
-local _0x78=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x78.CornerRadius=UDim.new(0,14)
-_0x78.Parent=_0x77
-local _0x79=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x79.Name=string.char(78,97,109,101,76,97,98,101,108)
-_0x79.Parent=_0x74
-_0x79.BackgroundTransparency=1
-_0x79.Position=UDim2.new(0,48,0,6)
-_0x79.Size=UDim2.new(1,-100,0,28)
-_0x79.Font=Enum.Font.Gotham
-_0x79.TextSize=14
-_0x79.TextColor3=Color3.fromRGB(220,220,220)
-_0x79.TextXAlignment=Enum.TextXAlignment.Left
-local _0x7a=Instance.new(string.char(70,114,97,109,101))
-_0x7a.Name=string.char(67,104,101,99,107,77,97,114,107)
-_0x7a.Parent=_0x74
-_0x7a.BackgroundColor3=Color3.fromRGB(40,40,48)
-_0x7a.BackgroundTransparency=0
-_0x7a.BorderSizePixel=0
-_0x7a.Position=UDim2.new(1,-38,0,6)
-_0x7a.Size=UDim2.new(0,28,0,28)
-_0x7a.Visible=false
-local _0x7b=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x7b.CornerRadius=UDim.new(0,14)
-_0x7b.Parent=_0x7a
-local _0x7c=Instance.new(string.char(85,73,83,116,114,111,107,101))
-_0x7c.Name=string.char(83)..math.random(9999)
-_0x7c.Color=Color3.fromRGB(25,25,112)
-_0x7c.Thickness=2
-_0x7c.Transparency=0
-_0x7c.Parent=_0x7a
-local _0x7d=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
-_0x7d.Parent=_0x7c
-_0x7d.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.1,0),NumberSequenceKeypoint.new(0.9,0),NumberSequenceKeypoint.new(1,1)})
-_0x50(_0x7d)
-local _0x7e=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0x7e.Name=string.char(78,117,109,98,101,114,76,97,98,101,108)
-_0x7e.Parent=_0x7a
-_0x7e.BackgroundTransparency=1
-_0x7e.Size=UDim2.new(1,0,1,0)
-_0x7e.Font=Enum.Font.GothamBold
-_0x7e.TextSize=16
-_0x7e.TextColor3=Color3.fromRGB(255,255,255)
-_0x7e.Text=""
-local _0x7f=Instance.new(string.char(84,101,120,116,66,117,116,116,111,110))
-_0x7f.Name=string.char(69,120,101,99,117,116,101,66,117,116,116,111,110)
-_0x7f.Parent=_0x5f
-_0x7f.Size=UDim2.new(1,-24,0,32)
-_0x7f.Position=UDim2.new(0,12,1,-44)
-_0x7f.BackgroundColor3=Color3.fromRGB(76,175,80)
-_0x7f.Text=string.char(69,88,69,67,85,84,69,32,40,70,41)
-_0x7f.Font=Enum.Font.GothamBold
-_0x7f.TextSize=14
-_0x7f.TextColor3=Color3.fromRGB(255,255,255)
-_0x7f.BorderSizePixel=0
-_0x7f.Visible=_0x4d.TouchEnabled
-local _0x80=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0x80.CornerRadius=UDim.new(0,10)
-_0x80.Parent=_0x7f
-_0x6b.MouseButton1Click:Connect(function()_0x19=not _0x19 local _0x81,_0x82,_0x83 if _0x19 then _0x81=UDim2.new(1,-22,0,2)_0x82=Color3.fromRGB(76,175,80)_0x83=Color3.fromRGB(255,255,255)else _0x81=UDim2.new(0,2,0,2)_0x82=Color3.fromRGB(60,60,68)_0x83=Color3.fromRGB(180,180,180)end _0x5e:Create(_0x6d,_0x5e.new(0.2,Enum.EasingStyle.Quad),{Position=_0x81}):Play()_0x5e:Create(_0x6b,_0x5e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=_0x82}):Play()_0x5e:Create(_0x6d,_0x5e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=_0x83}):Play()end)
-local _0x84=function()if not _0x16 then return end local _0x85={}for _0x86,_0x87 in ipairs(_0x30)do if _0x87 and _0x87.Parent==_0x2b then table.insert(_0x85,_0x87)end end if #_0x85==0 then return end if #_0x85==1 then for _0x88,_0x89 in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do _0x9i:FireServer(_0xe,_0x85[1],_0x89)end elseif #_0x85>=2 then local _0x8a,_0x8b=_0x85[1],_0x85[2]for _0x8c,_0x8d in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do _0x9i:FireServer(_0xe,_0x8a,_0x8d)end for _0x8e,_0x8f in ipairs({string.char(114,97,103,100,111,108,108),string.char(106,97,105,108),string.char(106,117,109,112,115,99,97,114,101),string.char(109,111,114,112,104)})do _0x9i:FireServer(_0xe,_0x8b,_0x8f)end end end
-_0x7f.MouseButton1Click:Connect(_0x84)
-local _0x90=function()local _0x91=false local _0x92={}local _0x93={}for _0x94,_0x95 in pairs(_0x32)do table.insert(_0x93,{userId=_0x94,order=_0x95})end table.sort(_0x93,function(_0x96,_0x97)return _0x96.order<_0x97.order end)for _0x98,_0x99 in ipairs(_0x93)do local _0x9a=_0x2b:GetPlayerByUserId(_0x99.userId)if _0x9a and _0x9a.Parent==_0x2b and _0x9a~=_0x8h then table.insert(_0x92,_0x9a)else _0x32[_0x99.userId]=nil _0x91=true end end _0x30=_0x92 _0x31={}for _0x9b,_0x9c in ipairs(_0x30)do _0x31[_0x9c]=true end return _0x91 end
-local _0x9d=function()_0x90()for _0x9e,_0x9f in ipairs(_0x72:GetChildren())do if _0x9f:IsA(string.char(70,114,97,109,101))and _0x9f~=_0x74 then local _0xa0=_0x9f:FindFirstChild(string.char(67,104,101,99,107,77,97,114,107))if _0xa0 then _0xa0.NumberLabel.Text="" _0xa0.Visible=false end end end for _0xa1,_0xa2 in ipairs(_0x30)do if _0xa2 and _0xa2.Parent==_0x2b then local _0xa3=_0x72:FindFirstChild(_0xa2.Name.."_row")if _0xa3 then local _0xa4=_0xa3:FindFirstChild(string.char(67,104,101,99,107,77,97,114,107))if _0xa4 then _0xa4.Visible=true _0xa4.NumberLabel.Text=tostring(_0xa1)end end end end end
-local _0xa5=function()_0x90()for _0xa6,_0xa7 in ipairs(_0x72:GetChildren())do if _0xa7:IsA(string.char(70,114,97,109,101))and _0xa7~=_0x74 then _0xa7:Destroy()end end for _0xa8,_0xa9 in ipairs(_0x2b:GetPlayers())do if _0xa9~=_0x8h then local _0xaa=_0x74:Clone()_0xaa.Visible=true _0xaa.Name=_0xa9.Name.."_row" _0xaa.Parent=_0x72 _0xaa.NameLabel.Text=_0xa9.DisplayName.." @".._0xa9.Name task.spawn(function()local _0xab,_0xac=pcall(function()return _0x2b:GetUserThumbnailAsync(_0xa9.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)if _0xab and _0xac and _0xaa and _0xaa.Parent then _0xaa.AvatarDot:ClearAllChildren()local _0xad=Instance.new(string.char(73,109,97,103,101,76,97,98,101,108))_0xad.Parent=_0xaa.AvatarDot _0xad.Size=UDim2.new(1,0,1,0)_0xad.BackgroundTransparency=1 _0xad.Image=_0xac local _0xae=Instance.new(string.char(85,73,67,111,114,110,101,114))_0xae.CornerRadius=UDim.new(0,14)_0xae.Parent=_0xad end end)_0xaa.InputBegan:Connect(function(_0xaf)if _0xaf.UserInputType==Enum.UserInputType.MouseButton1 or _0xaf.UserInputType==Enum.UserInputType.Touch then if _0x32[_0xa9.UserId]then _0x32[_0xa9.UserId]=nil _0x31[_0xa9]=nil for _0xb0,_0xb1 in ipairs(_0x30)do if _0xb1==_0xa9 then table.remove(_0x30,_0xb0)break end end for _0xb2,_0xb3 in ipairs(_0x30)do _0x32[_0xb3.UserId]=_0xb2 end else if #_0x30<2 then local _0xb4=#_0x30+1 _0x32[_0xa9.UserId]=_0xb4 table.insert(_0x30,_0xa9)_0x31[_0xa9]=true end end _0x9d()end end)end end _0x9d()_0x72.CanvasSize=UDim2.new(0,0,0,_0x73.AbsoluteContentSize.Y+12)end
-task.spawn(function()task.wait(2)_0x1e=_0x21()if _0x1e then _0x1f=_0x2a(_0x1e)else _0x67.Text=string.char(80,108,111,116,58,32,78,111,116,32,102,111,117,110,100)end end)
-task.spawn(function()while not _0x16 do task.wait(0.1)end task.wait(0.5)_0xa5()end)
-_0x2b.PlayerAdded:Connect(function()task.wait(0.5)_0xa5()end)
-_0x2b.PlayerRemoving:Connect(function(_0xb5)_0x32[_0xb5.UserId]=nil _0x31[_0xb5]=nil for _0xb6=#_0x30,1,-1 do if _0x30[_0xb6]==_0xb5 then table.remove(_0x30,_0xb6)end end _0xa5()end)
-_0x8h.CharacterAdded:Connect(function()task.wait(1)_0xa5()end)
-_0x4d.InputBegan:Connect(function(_0xb7,_0xb8)if _0xb8 then return end if _0xb7.KeyCode==Enum.KeyCode.F then _0x84()end end)
-local _0xb9=false local _0xba,_0xbb local _0xbc=function(_0xbd)local _0xbe=_0xbd.Position-_0xba _0x5d.Position=UDim2.new(_0xbb.X.Scale,_0xbb.X.Offset+_0xbe.X,_0xbb.Y.Scale,_0xbb.Y.Offset+_0xbe.Y)end
-_0x62.InputBegan:Connect(function(_0xbf)if _0xbf.UserInputType==Enum.UserInputType.MouseButton1 or _0xbf.UserInputType==Enum.UserInputType.Touch then _0xb9=true _0xba=_0xbf.Position _0xbb=_0x5d.Position _0xbf.Changed:Connect(function()if _0xbf.UserInputState==Enum.UserInputState.End then _0xb9=false end end)end end)
-_0x4d.InputChanged:Connect(function(_0xc0)if _0xb9 and (_0xc0.UserInputType==Enum.UserInputType.MouseMovement or _0xc0.UserInputType==Enum.UserInputType.Touch)then _0xbc(_0xc0)end end)end
+local P=game:GetService(string.char(80,108,97,121,101,114,115))
+local R=game:GetService(string.char(82,101,112,108,105,99,97,116,101,100,83,116,111,114,97,103,101))
+local U=game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101))
+local T=game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))
+local L=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101))
+local W=game:GetService(string.char(87,111,114,107,115,112,97,99,101))
+local S=game:GetService(string.char(83,116,97,116,115))
+
+local a=P.LocalPlayer
+
+if not a.Character then a.CharacterAdded:Wait()end
 task.wait(0.5)
-local _0xc1=function()local _0xc2,_0xc3,_0xc4=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101)),game:GetService(string.char(83,116,97,116,115)),game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))
-local _0xc5=Instance.new(string.char(83,99,114,101,101,110,71,117,105))
-_0xc5.Name=string.char(67,104,105,114,97,113,82,101,118,97,109,112,71,117,105)
-_0xc5.Parent=game:GetService(string.char(80,108,97,121,101,114,115)).LocalPlayer:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
-_0xc5.ResetOnSpawn=false
-local _0xc6=Instance.new(string.char(70,114,97,109,101))
-_0xc6.Name=string.char(77,97,105,110,70,114,97,109,101)
-_0xc6.Size=UDim2.new(0,360,0,89)
-_0xc6.Position=UDim2.new(0.5,-190,0,0)
-_0xc6.BackgroundColor3=Color3.fromRGB(10,10,10)
-_0xc6.BackgroundTransparency=0.10
-_0xc6.BorderSizePixel=0
-_0xc6.Parent=_0xc5
-local _0xc7=Instance.new(string.char(85,73,67,111,114,110,101,114))
-_0xc7.CornerRadius=UDim.new(0,20)
-_0xc7.Parent=_0xc6
-local _0xc8=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
-_0xc8.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(20,20,20)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(60,60,60)),ColorSequenceKeypoint.new(1,Color3.fromRGB(20,20,20))})
-_0xc8.Transparency=NumberSequence.new(0.2)
-_0xc8.Rotation=45
-_0xc8.Parent=_0xc6
-local _0xc9=Instance.new(string.char(85,73,83,116,114,111,107,101))
-_0xc9.Color=Color3.fromRGB(25,25,112)
-_0xc9.Thickness=3.2
-_0xc9.Transparency=0
-_0xc9.Parent=_0xc6
-_0xc4:Create(_0xc9,_0xc4.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
-local _0xca=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0xca.Size=UDim2.new(1,0,0,35)
-_0xca.Position=UDim2.new(0,0,0,10)
-_0xca.BackgroundTransparency=1
-_0xca.Text=string.char(67,104,105,114,97,113,32,82,101,118,97,109,112,32,45,45,32,66,121,32,100,105,115,99,111,114,100,46,103,103,47,114,101,118,117,108,104,117,98)
-_0xca.TextColor3=Color3.fromRGB(255,255,255)
-_0xca.Font=Enum.Font.GothamBold
-_0xca.TextSize=16
-_0xca.Parent=_0xc6
-local _0xcb=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
-_0xcb.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(140,140,140)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(160,160,160)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(140,140,140))})
-_0xcb.Parent=_0xca
-task.spawn(function()while true do _0xcb.Rotation=25 _0xcb.Offset=Vector2.new(-1,0)local _0xcc=_0xc4:Create(_0xcb,_0xc4.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})_0xcc:Play()_0xcc.Completed:Wait()task.wait(0.5)end end)
-local _0xcd=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0xcd.Size=UDim2.new(1,0,0,20)
-_0xcd.Position=UDim2.new(0,0,0,42)
-_0xcd.BackgroundTransparency=1
-_0xcd.Text=string.char(100,105,115,99,111,114,100,46,103,103,47,114,101,118,117,108,104,117,98,32,124,32,70,105,120,101,100,32,66,121,32,82,101,118,117,108,32,72,117,98)
-_0xcd.TextColor3=Color3.fromRGB(220,220,220)
-_0xcd.Font=Enum.Font.Gotham
-_0xcd.TextSize=13
-_0xcd.Parent=_0xc6
-local _0xce=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
-_0xce.Size=UDim2.new(1,0,0,30)
-_0xce.Position=UDim2.new(0,0,0,62)
-_0xce.BackgroundTransparency=1
-_0xce.Text=string.char(70,80,83,58,32,48,32,32,80,73,78,71,58,32,48,109,115)
-_0xce.TextColor3=Color3.fromRGB(255,255,255)
-_0xce.Font=Enum.Font.GothamMedium
-_0xce.TextSize=16
-_0xce.Parent=_0xc6
-_0xc2.RenderStepped:Connect(function(_0xcf)local _0xd0=math.floor(1/_0xcf)local _0xd1,_0xd2=pcall(function()return math.floor(_0xc3.Network.ServerStatsItem[string.char(68,97,116,97,32,80,105,110,103)]:GetValue())end)_0xce.Text=string.format(string.char(70,80,83,58,32,37,100,32,32,80,73,78,71,58,32,37,115),_0xd0,_0xd1 and tostring(_0xd2)..string.char(109,115)or string.char(45,45))end)end
-_0xc1()
-_0x1a()
+
+local b
+local c=string.char(102,56,56,56,101,101,54,101,45,99,56,54,100,45,52,54,101,49,45,57,51,100,55,45,48,54,51,57,100,54,54,51,53,100,52,50)
+
+local function d()
+    local e=R:FindFirstChild(string.char(80,97,99,107,97,103,101,115))
+    if not e then return end
+    local f=e:FindFirstChild(string.char(78,101,116))
+    if not f then return end
+    local g=f:GetChildren()
+    for h=1,#g-1 do
+        local i=g[h]
+        local j=g[h+1]
+        if i:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))and j:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then
+            if j.Name==string.char(82,69,47,65,100,109,105,110,80,97,110,101,108,83,101,114,118,105,99,101,47,68,101,97,108,87,105,116,104,84,104,105,115)then
+                b=i
+                return end end end
+    for h=1,#g-1 do
+        local i=g[h]
+        local j=g[h+1]
+        if i:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))and j:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then
+            if j.Name:match(string.char(65,100,109,105,110,80,97,110,101,108,83,101,114,118,105,99,101))then
+                b=i
+                return end end end end
+
+local k=false
+task.spawn(function()
+    local l=10
+    local m=0
+    while m<l and not k do
+        d()
+        if b and b:IsA(string.char(82,101,109,111,116,101,69,118,101,110,116))then
+            k=true
+            break end
+        m=m+0.1
+        task.wait(0.1)end end)
+
+local n=false
+local o=0
+local p=3
+local q=15
+local r=nil
+local s={}
+local t=a.DisplayName
+
+local function u()
+    local v=W:FindFirstChild(string.char(80,108,111,116,115))
+    if not v then return nil end
+    for w,x in pairs(v:GetChildren())do
+        local y=x:FindFirstChild(string.char(80,108,111,116,83,105,103,110))
+        if y then
+            local z=y:FindFirstChild(string.char(83,117,114,102,97,99,101,71,117,105))
+            if z then
+                local A=z:FindFirstChild(string.char(70,114,97,109,101))
+                if A then
+                    local B=A:FindFirstChild(string.char(84,101,120,116,76,97,98,101,108))
+                    if B and B:IsA(string.char(84,101,120,116,76,97,98,101,108))then
+                        local C=B.Text
+                        if C:find(t)and C:find(string.char(39,115,32,66,97,115,101))then
+                            return x end end end end end end end
+    return nil end
+
+local function D(E)
+    local F={}
+    local G=E:FindFirstChild(string.char(65,110,105,109,97,108,80,111,100,105,117,109,115))
+    if not G then return F end
+    for H=1,10 do
+        local I=G:FindFirstChild(tostring(H))
+        if I and I:IsA(string.char(77,111,100,101,108))then
+            F[H]=I:GetPivot().Position end end
+    return F end
+
+local J={}
+local K={}
+local L2={}
+local M=a:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
+local N=false
+local O=0
+local P2=3
+
+coroutine.wrap(function()
+    while true do
+        task.wait(0.01)
+        for Q,R2 in ipairs(M:GetDescendants())do
+            if R2:IsA(string.char(84,101,120,116,76,97,98,101,108))and R2.Visible and R2.Text~=""then
+                if R2.Text:find(string.char(83,111,109,101,111,110,101,32,105,115,32,115,116,101,97,108,105,110,103,32,121,111,117,114))then
+                    N=true
+                    break end end end end end)()
+
+task.spawn(function()
+    task.wait(2)
+    r=u()
+    if r then
+        s=D(r)end end)
+
+task.spawn(function()
+    while true do
+        if n and k and r and next(s)then
+            for S2,T2 in ipairs(P:GetPlayers())do
+                if T2~=a and T2.Character then
+                    local U2=(function(V)
+                        local W2=V.Character
+                        if not W2 then return nil end
+                        return W2:FindFirstChild(string.char(72,117,109,97,110,111,105,100,82,111,111,116,80,97,114,116))end)(T2)
+                    if U2 then
+                        local X=U2.Position
+                        for Y,Z in pairs(s)do
+                            local AA=(X-Z).Magnitude
+                            if AA<q then
+                                if tick()-o>p then
+                                    for AB,AC in ipairs({string.char(98,97,108,108,111,111,110),string.char(105,110,118,101,114,115,101),string.char(114,111,99,107,101,116),string.char(116,105,110,121)})do
+                                        b:FireServer(c,T2,AC)
+                                        task.wait(0.05)end
+                                    o=tick()
+                                    break end end end end end end end end
+        task.wait(0.1)end end)
+
+task.spawn(function()
+    while true do
+        if N and #J>0 and k then
+            N=false
+            if tick()-O>P2 then
+                local AD={}
+                for AE,AF in ipairs(J)do
+                    if AF and AF.Parent==P then
+                        table.insert(AD,AF)end end
+                if #AD>0 then
+                    if #AD==1 then
+                        for AG,AH in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do
+                            b:FireServer(c,AD[1],AH)end
+                    elseif #AD>=2 then
+                        local AI,AJ=AD[1],AD[2]
+                        for AK,AL in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do
+                            b:FireServer(c,AI,AL)
+                            task.wait(0.05)end
+                        for AM,AN in ipairs({string.char(114,97,103,100,111,108,108),string.char(106,97,105,108),string.char(106,117,109,112,115,99,97,114,101),string.char(109,111,114,112,104)})do
+                            b:FireServer(c,AJ,AN)
+                            task.wait(0.05)end end
+                    O=tick()end end end
+        task.wait(0.05)end end)
+
+local AO={}
+local function AP(AQ)table.insert(AO,AQ)end
+local AR=0
+L.Heartbeat:Connect(function(AS)
+    AR=(AR+(AS*180))%360
+    for AT=#AO,1,-1 do
+        local AU=AO[AT]
+        if AU and AU.Parent then
+            AU.Rotation=AR
+        else
+            table.remove(AO,AT)end end end)
+
+local function AV(AW,AX)
+    local AY=Instance.new(string.char(85,73,83,116,114,111,107,101))
+    AY.Name=string.char(83)..math.random(9999)
+    AY.Color=Color3.fromRGB(25,25,112)
+    AY.Thickness=AX or 3
+    AY.Transparency=0
+    AY.ApplyStrokeMode=Enum.ApplyStrokeMode.Border
+    AY.Parent=AW
+    local AZ=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
+    AZ.Parent=AY
+    AZ.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0)})
+    AP(AZ)
+    return AY end
+
+local BA=a:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
+local BB=Instance.new(string.char(83,99,114,101,101,110,71,117,105))
+BB.Name=string.char(65)..math.random(9999)
+BB.ResetOnSpawn=false
+BB.Parent=BA
+
+local BC=Instance.new(string.char(70,114,97,109,101))
+BC.Name=string.char(66)..math.random(9999)
+BC.Size=UDim2.new(0,280,0,310)
+BC.Position=UDim2.new(1,-300,0,80)
+BC.BackgroundTransparency=1
+BC.Parent=BB
+
+local BD=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BD.CornerRadius=UDim.new(0,12)
+BD.Parent=BC
+
+local BE=Instance.new(string.char(70,114,97,109,101))
+BE.Name=string.char(67)..math.random(9999)
+BE.Size=UDim2.new(1,-12,1,-12)
+BE.BackgroundColor3=Color3.fromRGB(30,30,35)
+BE.BackgroundTransparency=0.1
+BE.BorderSizePixel=0
+BE.Parent=BC
+
+local BF=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BF.CornerRadius=UDim.new(0,12)
+BF.Parent=BE
+
+local BG=AV(BE,3)
+
+local BH=Instance.new(string.char(70,114,97,109,101))
+BH.Name=string.char(68)..math.random(9999)
+BH.Size=UDim2.new(1,0,0,60)
+BH.BackgroundColor3=Color3.fromRGB(40,40,48)
+BH.BackgroundTransparency=0.1
+BH.BorderSizePixel=0
+BH.Parent=BE
+
+local BI=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BI.CornerRadius=UDim.new(0,12)
+BI.Parent=BH
+
+local BJ=AV(BH,2)
+
+local BK=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+BK.Name=string.char(69)..math.random(9999)
+BK.Parent=BH
+BK.BackgroundTransparency=1
+BK.Position=UDim2.new(0,18,0,8)
+BK.Size=UDim2.new(1,-36,0,26)
+BK.Text=string.char(99,104,105,114,97,113,32,72,117,98)
+BK.Font=Enum.Font.GothamBold
+BK.TextSize=16
+BK.TextColor3=Color3.fromRGB(255,255,255)
+BK.TextXAlignment=Enum.TextXAlignment.Left
+
+local BL=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+BL.Name=string.char(70)..math.random(9999)
+BL.Parent=BH
+BL.BackgroundTransparency=1
+BL.Position=UDim2.new(0,18,0,30)
+BL.Size=UDim2.new(1,-36,0,18)
+BL.Text=string.char(83,101,108,101,99,116,32,112,108,97,121,101,114,115,32,98,101,108,111,119)
+BL.Font=Enum.Font.Gotham
+BL.TextSize=11
+BL.TextColor3=Color3.fromRGB(160,160,160)
+BL.TextXAlignment=Enum.TextXAlignment.Left
+
+local BM=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+BM.Name=string.char(71)..math.random(9999)
+BM.Parent=BH
+BM.BackgroundTransparency=1
+BM.Position=UDim2.new(0,18,0,48)
+BM.Size=UDim2.new(1,-36,0,8)
+BM.Text=""
+BM.Font=Enum.Font.Gotham
+BM.TextSize=9
+BM.TextColor3=Color3.fromRGB(180,180,180)
+BM.TextXAlignment=Enum.TextXAlignment.Left
+
+local BN=Instance.new(string.char(70,114,97,109,101))
+BN.Name=string.char(72)..math.random(9999)
+BN.Size=UDim2.new(1,-24,0,32)
+BN.Position=UDim2.new(0,12,0,72)
+BN.BackgroundColor3=Color3.fromRGB(25,25,30)
+BN.BackgroundTransparency=0.1
+BN.BorderSizePixel=0
+BN.Parent=BE
+
+local BO=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BO.CornerRadius=UDim.new(0,8)
+BO.Parent=BN
+
+local BP=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+BP.Name=string.char(73)..math.random(9999)
+BP.Parent=BN
+BP.BackgroundTransparency=1
+BP.Position=UDim2.new(0,12,0,0)
+BP.Size=UDim2.new(1,-60,1,0)
+BP.Text=string.char(65,117,116,111,45,68,101,102,101,110,115,101)
+BP.Font=Enum.Font.GothamBold
+BP.TextSize=13
+BP.TextColor3=Color3.fromRGB(220,220,220)
+BP.TextXAlignment=Enum.TextXAlignment.Left
+
+local BQ=Instance.new(string.char(84,101,120,116,66,117,116,116,111,110))
+BQ.Name=string.char(74)..math.random(9999)
+BQ.Parent=BN
+BQ.Size=UDim2.new(0,50,0,24)
+BQ.Position=UDim2.new(1,-58,0.5,-12)
+BQ.BackgroundColor3=Color3.fromRGB(60,60,68)
+BQ.Text=""
+BQ.BorderSizePixel=0
+
+local BR=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BR.CornerRadius=UDim.new(0,12)
+BR.Parent=BQ
+
+local BS=Instance.new(string.char(70,114,97,109,101))
+BS.Name=string.char(75)..math.random(9999)
+BS.Parent=BQ
+BS.Size=UDim2.new(0,20,0,20)
+BS.Position=UDim2.new(0,2,0,2)
+BS.BackgroundColor3=Color3.fromRGB(180,180,180)
+BS.BorderSizePixel=0
+
+local BT=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BT.CornerRadius=UDim.new(0,10)
+BT.Parent=BS
+
+local BU=Instance.new(string.char(70,114,97,109,101))
+BU.Name=string.char(76)..math.random(9999)
+BU.Size=UDim2.new(1,-24,1,-120)
+BU.Position=UDim2.new(0,12,0,114)
+BU.BackgroundColor3=Color3.fromRGB(25,25,30)
+BU.BackgroundTransparency=0.1
+BU.BorderSizePixel=0
+BU.Parent=BE
+
+local BV=Instance.new(string.char(85,73,67,111,114,110,101,114))
+BV.CornerRadius=UDim.new(0,12)
+BV.Parent=BU
+
+local BW=AV(BU,2)
+
+local BX=Instance.new(string.char(83,99,114,111,108,108,105,110,103,70,114,97,109,101))
+BX.Name=string.char(77)..math.random(9999)
+BX.Parent=BU
+BX.BackgroundTransparency=1
+BX.Size=UDim2.new(1,-16,1,-16)
+BX.Position=UDim2.new(0,8,0,8)
+BX.CanvasSize=UDim2.new(0,0,0,0)
+BX.ScrollBarThickness=6
+
+local BY=Instance.new(string.char(85,73,76,105,115,116,76,97,121,111,117,116))
+BY.Parent=BX
+BY.Padding=UDim.new(0,8)
+BY.SortOrder=Enum.SortOrder.Name
+
+local BZ=Instance.new(string.char(70,114,97,109,101))
+BZ.Name=string.char(84,101,109,112,108,97,116,101)
+BZ.Size=UDim2.new(1,0,0,40)
+BZ.BackgroundColor3=Color3.fromRGB(40,40,48)
+BZ.Visible=false
+BZ.Parent=BX
+
+local CA=Instance.new(string.char(85,73,67,111,114,110,101,114))
+CA.CornerRadius=UDim.new(0,8)
+CA.Parent=BZ
+
+local CB=Instance.new(string.char(85,73,83,116,114,111,107,101))
+CB.Color=Color3.fromRGB(60,60,68)
+CB.Thickness=1
+CB.Parent=BZ
+
+local CC=Instance.new(string.char(70,114,97,109,101))
+CC.Name=string.char(65,118,97,116,97,114,68,111,116)
+CC.Size=UDim2.new(0,28,0,28)
+CC.Position=UDim2.new(0,8,0,6)
+CC.BackgroundTransparency=1
+CC.Parent=BZ
+
+local CD=Instance.new(string.char(85,73,67,111,114,110,101,114))
+CD.CornerRadius=UDim.new(0,14)
+CD.Parent=CC
+
+local CE=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+CE.Name=string.char(78,97,109,101,76,97,98,101,108)
+CE.Parent=BZ
+CE.BackgroundTransparency=1
+CE.Position=UDim2.new(0,48,0,6)
+CE.Size=UDim2.new(1,-100,0,28)
+CE.Font=Enum.Font.Gotham
+CE.TextSize=14
+CE.TextColor3=Color3.fromRGB(220,220,220)
+CE.TextXAlignment=Enum.TextXAlignment.Left
+
+local CF=Instance.new(string.char(70,114,97,109,101))
+CF.Name=string.char(67,104,101,99,107,77,97,114,107)
+CF.Parent=BZ
+CF.BackgroundColor3=Color3.fromRGB(40,40,48)
+CF.BackgroundTransparency=0
+CF.BorderSizePixel=0
+CF.Position=UDim2.new(1,-38,0,6)
+CF.Size=UDim2.new(0,28,0,28)
+CF.Visible=false
+
+local CG=Instance.new(string.char(85,73,67,111,114,110,101,114))
+CG.CornerRadius=UDim.new(0,14)
+CG.Parent=CF
+
+local CH=Instance.new(string.char(85,73,83,116,114,111,107,101))
+CH.Name=string.char(83)..math.random(9999)
+CH.Color=Color3.fromRGB(25,25,112)
+CH.Thickness=2
+CH.Transparency=0
+CH.Parent=CF
+
+local CI=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
+CI.Parent=CH
+CI.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.1,0),NumberSequenceKeypoint.new(0.9,0),NumberSequenceKeypoint.new(1,1)})
+AP(CI)
+
+local CJ=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+CJ.Name=string.char(78,117,109,98,101,114,76,97,98,101,108)
+CJ.Parent=CF
+CJ.BackgroundTransparency=1
+CJ.Size=UDim2.new(1,0,1,0)
+CJ.Font=Enum.Font.GothamBold
+CJ.TextSize=16
+CJ.TextColor3=Color3.fromRGB(255,255,255)
+CJ.Text=""
+
+local CK=Instance.new(string.char(84,101,120,116,66,117,116,116,111,110))
+CK.Name=string.char(69,120,101,99,117,116,101,66,117,116,116,111,110)
+CK.Parent=BE
+CK.Size=UDim2.new(1,-24,0,32)
+CK.Position=UDim2.new(0,12,1,-44)
+CK.BackgroundColor3=Color3.fromRGB(76,175,80)
+CK.Text=string.char(69,88,69,67,85,84,69,32,40,70,41)
+CK.Font=Enum.Font.GothamBold
+CK.TextSize=14
+CK.TextColor3=Color3.fromRGB(255,255,255)
+CK.BorderSizePixel=0
+CK.Visible=U.TouchEnabled
+
+local CL=Instance.new(string.char(85,73,67,111,114,110,101,114))
+CL.CornerRadius=UDim.new(0,10)
+CL.Parent=CK
+
+BQ.MouseButton1Click:Connect(function()
+    n=not n
+    local CM,CN,CO
+    if n then
+        CM=UDim2.new(1,-22,0,2)
+        CN=Color3.fromRGB(76,175,80)
+        CO=Color3.fromRGB(255,255,255)
+    else
+        CM=UDim2.new(0,2,0,2)
+        CN=Color3.fromRGB(60,60,68)
+        CO=Color3.fromRGB(180,180,180)
+    end
+    T:Create(BS,T.new(0.2,Enum.EasingStyle.Quad),{Position=CM}):Play()
+    T:Create(BQ,T.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CN}):Play()
+    T:Create(BS,T.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CO}):Play()end)
+
+local function CP()
+    if not k then return end
+    local CQ={}
+    for CR,CS in ipairs(J)do
+        if CS and CS.Parent==P then
+            table.insert(CQ,CS)end end
+    if #CQ==0 then return end
+    if #CQ==1 then
+        for CT,CU in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do
+            b:FireServer(c,CQ[1],CU)end
+    elseif #CQ>=2 then
+        local CV,CW=CQ[1],CQ[2]
+        for CX,CY in ipairs({string.char(98,97,108,108,111,111,110),string.char(114,111,99,107,101,116),string.char(105,110,118,101,114,115,101),string.char(116,105,110,121)})do
+            b:FireServer(c,CV,CY)end
+        for CZ,DA in ipairs({string.char(114,97,103,100,111,108,108),string.char(106,97,105,108),string.char(106,117,109,112,115,99,97,114,101),string.char(109,111,114,112,104)})do
+            b:FireServer(c,CW,DA)end end end
+
+CK.MouseButton1Click:Connect(CP)
+
+local function DB()
+    local DC=false
+    local DD={}
+    local DE={}
+    for DF,DG in pairs(L2)do
+        table.insert(DE,{userId=DF,order=DG})end
+    table.sort(DE,function(DH,DI)return DH.order<DI.order end)
+    for DJ,DK in ipairs(DE)do
+        local DL=P:GetPlayerByUserId(DK.userId)
+        if DL and DL.Parent==P and DL~=a then
+            table.insert(DD,DL)
+        else
+            L2[DK.userId]=nil
+            DC=true end end
+    J=DD
+    K={}
+    for DM,DN in ipairs(J)do
+        K[DN]=true end
+    return DC end
+
+local function DO()
+    DB()
+    for DP,DQ in ipairs(BX:GetChildren())do
+        if DQ:IsA(string.char(70,114,97,109,101))and DQ~=BZ then
+            local DR=DQ:FindFirstChild(string.char(67,104,101,99,107,77,97,114,107))
+            if DR then
+                DR.NumberLabel.Text=""
+                DR.Visible=false end end end
+    for DS,DT in ipairs(J)do
+        if DT and DT.Parent==P then
+            local DU=BX:FindFirstChild(DT.Name.."_row")
+            if DU then
+                local DV=DU:FindFirstChild(string.char(67,104,101,99,107,77,97,114,107))
+                if DV then
+                    DV.Visible=true
+                    DV.NumberLabel.Text=tostring(DS)end end end end end
+
+local function DW()
+    DB()
+    for DX,DY in ipairs(BX:GetChildren())do
+        if DY:IsA(string.char(70,114,97,109,101))and DY~=BZ then
+            DY:Destroy()end end
+    for DZ,EA in ipairs(P:GetPlayers())do
+        if EA~=a then
+            local EB=BZ:Clone()
+            EB.Visible=true
+            EB.Name=EA.Name.."_row"
+            EB.Parent=BX
+            EB.NameLabel.Text=EA.DisplayName.." @"..EA.Name
+            task.spawn(function()
+                local EC,ED=pcall(function()return P:GetUserThumbnailAsync(EA.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)
+                if EC and ED and EB and EB.Parent then
+                    EB.AvatarDot:ClearAllChildren()
+                    local EE=Instance.new(string.char(73,109,97,103,101,76,97,98,101,108))
+                    EE.Parent=EB.AvatarDot
+                    EE.Size=UDim2.new(1,0,1,0)
+                    EE.BackgroundTransparency=1
+                    EE.Image=ED
+                    local EF=Instance.new(string.char(85,73,67,111,114,110,101,114))
+                    EF.CornerRadius=UDim.new(0,14)
+                    EF.Parent=EE end end)
+            EB.InputBegan:Connect(function(EG)
+                if EG.UserInputType==Enum.UserInputType.MouseButton1 or EG.UserInputType==Enum.UserInputType.Touch then
+                    if L2[EA.UserId]then
+                        L2[EA.UserId]=nil
+                        K[EA]=nil
+                        for EH,EI in ipairs(J)do
+                            if EI==EA then
+                                table.remove(J,EH)
+                                break end end
+                        for EJ,EK in ipairs(J)do
+                            L2[EK.UserId]=EJ end
+                    else
+                        if #J<2 then
+                            local EL=#J+1
+                            L2[EA.UserId]=EL
+                            table.insert(J,EA)
+                            K[EA]=true end end
+                    DO()end end)end end
+    DO()
+    BX.CanvasSize=UDim2.new(0,0,0,BY.AbsoluteContentSize.Y+12)end
+
+task.spawn(function()
+    task.wait(2)
+    r=u()
+    if r then
+        s=D(r)
+    else
+        BM.Text=string.char(80,108,111,116,58,32,78,111,116,32,102,111,117,110,100)end end)
+
+task.spawn(function()
+    while not k do
+        task.wait(0.1)end
+    task.wait(0.5)
+    DW()end)
+
+P.PlayerAdded:Connect(function()
+    task.wait(0.5)
+    DW()end)
+
+P.PlayerRemoving:Connect(function(EM)
+    L2[EM.UserId]=nil
+    K[EM]=nil
+    for EN=#J,1,-1 do
+        if J[EN]==EM then
+            table.remove(J,EN)end end
+    DW()end)
+
+a.CharacterAdded:Connect(function()
+    task.wait(1)
+    DW()end)
+
+U.InputBegan:Connect(function(EO,EP)
+    if EP then return end
+    if EO.KeyCode==Enum.KeyCode.F then
+        CP()end end)
+
+local EQ=false
+local ER,ES
+local function ET(EU)
+    local EV=EU.Position-ER
+    BC.Position=UDim2.new(ES.X.Scale,ES.X.Offset+EV.X,ES.Y.Scale,ES.Y.Offset+EV.Y)end
+
+BH.InputBegan:Connect(function(EW)
+    if EW.UserInputType==Enum.UserInputType.MouseButton1 or EW.UserInputType==Enum.UserInputType.Touch then
+        EQ=true
+        ER=EW.Position
+        ES=BC.Position
+        EW.Changed:Connect(function()
+            if EW.UserInputState==Enum.UserInputState.End then
+                EQ=false end end)end end)
+
+U.InputChanged:Connect(function(EX)
+    if EQ and (EX.UserInputType==Enum.UserInputType.MouseMovement or EX.UserInputType==Enum.UserInputType.Touch)then
+        ET(EX)end end)
+
+local EY=Instance.new(string.char(83,99,114,101,101,110,71,117,105))
+EY.Name=string.char(67,104,105,114,97,113,82,101,118,97,109,112,71,117,105)
+EY.Parent=a:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))
+EY.ResetOnSpawn=false
+
+local EZ=Instance.new(string.char(70,114,97,109,101))
+EZ.Name=string.char(77,97,105,110,70,114,97,109,101)
+EZ.Size=UDim2.new(0,360,0,89)
+EZ.Position=UDim2.new(0.5,-190,0,0)
+EZ.BackgroundColor3=Color3.fromRGB(10,10,10)
+EZ.BackgroundTransparency=0.10
+EZ.BorderSizePixel=0
+EZ.Parent=EY
+
+local FA=Instance.new(string.char(85,73,67,111,114,110,101,114))
+FA.CornerRadius=UDim.new(0,20)
+FA.Parent=EZ
+
+local FB=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
+FB.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(20,20,20)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(60,60,60)),ColorSequenceKeypoint.new(1,Color3.fromRGB(20,20,20))})
+FB.Transparency=NumberSequence.new(0.2)
+FB.Rotation=45
+FB.Parent=EZ
+
+local FC=Instance.new(string.char(85,73,83,116,114,111,107,101))
+FC.Color=Color3.fromRGB(25,25,112)
+FC.Thickness=3.2
+FC.Transparency=0
+FC.Parent=EZ
+
+T:Create(FC,T.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
+
+local FD=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+FD.Size=UDim2.new(1,0,0,35)
+FD.Position=UDim2.new(0,0,0,10)
+FD.BackgroundTransparency=1
+FD.Text=string.char(67,104,105,114,97,113,32,82,101,118,97,109,112,32,45,45,32,66,121,32,100,105,115,99,111,114,100,46,103,103,47,114,101,118,117,108,104,117,98)
+FD.TextColor3=Color3.fromRGB(255,255,255)
+FD.Font=Enum.Font.GothamBold
+FD.TextSize=16
+FD.Parent=EZ
+
+local FE=Instance.new(string.char(85,73,71,114,97,100,105,101,110,116))
+FE.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(140,140,140)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(160,160,160)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(140,140,140))})
+FE.Parent=FD
+
+task.spawn(function()
+    while true do
+        FE.Rotation=25
+        FE.Offset=Vector2.new(-1,0)
+        local FF=T:Create(FE,T.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})
+        FF:Play()
+        FF.Completed:Wait()
+        task.wait(0.5)end end)
+
+local FG=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+FG.Size=UDim2.new(1,0,0,20)
+FG.Position=UDim2.new(0,0,0,42)
+FG.BackgroundTransparency=1
+FG.Text=string.char(100,105,115,99,111,114,100,46,103,103,47,114,101,118,117,108,104,117,98,32,124,32,70,105,120,101,100,32,66,121,32,82,101,118,117,108,32,72,117,98)
+FG.TextColor3=Color3.fromRGB(220,220,220)
+FG.Font=Enum.Font.Gotham
+FG.TextSize=13
+FG.Parent=EZ
+
+local FH=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
+FH.Size=UDim2.new(1,0,0,30)
+FH.Position=UDim2.new(0,0,0,62)
+FH.BackgroundTransparency=1
+FH.Text=string.char(70,80,83,58,32,48,32,32,80,73,78,71,58,32,48,109,115)
+FH.TextColor3=Color3.fromRGB(255,255,255)
+FH.Font=Enum.Font.GothamMedium
+FH.TextSize=16
+FH.Parent=EZ
+
+L.RenderStepped:Connect(function(FI)
+    local FJ=math.floor(1/FI)
+    local FK,FL=pcall(function()return math.floor(S.Network.ServerStatsItem[string.char(68,97,116,97,32,80,105,110,103)]:GetValue())end)
+    FH.Text=string.format(string.char(70,80,83,58,32,37,100,32,32,80,73,78,71,58,32,37,115),FJ,FK and tostring(FL)..string.char(109,115)or string.char(45,45))end)
