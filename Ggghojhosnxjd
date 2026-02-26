@@ -1,13 +1,12 @@
-local P=game:GetService(string.char(80,108,97,121,101,114,115))
-local R=game:GetService(string.char(82,101,112,108,105,99,97,116,101,100,83,116,111,114,97,103,101))
-local U=game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101))
-local T=game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))
-local L=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101))
-local W=game:GetService(string.char(87,111,114,107,115,112,97,99,101))
-local S=game:GetService(string.char(83,116,97,116,115))
+local RunService=game:GetService(string.char(82,117,110,83,101,114,118,105,99,101))
+local Players=game:GetService(string.char(80,108,97,121,101,114,115))
+local ReplicatedStorage=game:GetService(string.char(82,101,112,108,105,99,97,116,101,100,83,116,111,114,97,103,101))
+local UserInputService=game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101))
+local TweenService=game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))
+local Workspace=game:GetService(string.char(87,111,114,107,115,112,97,99,101))
+local Stats=game:GetService(string.char(83,116,97,116,115))
 
-local a=P.LocalPlayer
-
+local a=Players.LocalPlayer
 if not a.Character then a.CharacterAdded:Wait()end
 task.wait(0.5)
 
@@ -15,7 +14,7 @@ local b
 local c=string.char(102,56,56,56,101,101,54,101,45,99,56,54,100,45,52,54,101,49,45,57,51,100,55,45,48,54,51,57,100,54,54,51,53,100,52,50)
 
 local function d()
-    local e=R:FindFirstChild(string.char(80,97,99,107,97,103,101,115))
+    local e=ReplicatedStorage:FindFirstChild(string.char(80,97,99,107,97,103,101,115))
     if not e then return end
     local f=e:FindFirstChild(string.char(78,101,116))
     if not f then return end
@@ -56,7 +55,7 @@ local s={}
 local t=a.DisplayName
 
 local function u()
-    local v=W:FindFirstChild(string.char(80,108,111,116,115))
+    local v=Workspace:FindFirstChild(string.char(80,108,111,116,115))
     if not v then return nil end
     for w,x in pairs(v:GetChildren())do
         local y=x:FindFirstChild(string.char(80,108,111,116,83,105,103,110))
@@ -108,7 +107,7 @@ task.spawn(function()
 task.spawn(function()
     while true do
         if n and k and r and next(s)then
-            for S2,T2 in ipairs(P:GetPlayers())do
+            for S2,T2 in ipairs(Players:GetPlayers())do
                 if T2~=a and T2.Character then
                     local U2=(function(V)
                         local W2=V.Character
@@ -134,7 +133,7 @@ task.spawn(function()
             if tick()-O>P2 then
                 local AD={}
                 for AE,AF in ipairs(J)do
-                    if AF and AF.Parent==P then
+                    if AF and AF.Parent==Players then
                         table.insert(AD,AF)end end
                 if #AD>0 then
                     if #AD==1 then
@@ -154,7 +153,7 @@ task.spawn(function()
 local AO={}
 local function AP(AQ)table.insert(AO,AQ)end
 local AR=0
-L.Heartbeat:Connect(function(AS)
+RunService.Heartbeat:Connect(function(AS)
     AR=(AR+(AS*180))%360
     for AT=#AO,1,-1 do
         local AU=AO[AT]
@@ -422,7 +421,7 @@ CK.Font=Enum.Font.GothamBold
 CK.TextSize=14
 CK.TextColor3=Color3.fromRGB(255,255,255)
 CK.BorderSizePixel=0
-CK.Visible=U.TouchEnabled
+CK.Visible=UserInputService.TouchEnabled
 
 local CL=Instance.new(string.char(85,73,67,111,114,110,101,114))
 CL.CornerRadius=UDim.new(0,10)
@@ -440,15 +439,15 @@ BQ.MouseButton1Click:Connect(function()
         CN=Color3.fromRGB(60,60,68)
         CO=Color3.fromRGB(180,180,180)
     end
-    T:Create(BS,T.new(0.2,Enum.EasingStyle.Quad),{Position=CM}):Play()
-    T:Create(BQ,T.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CN}):Play()
-    T:Create(BS,T.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CO}):Play()end)
+    TweenService:Create(BS,TweenService.new(0.2,Enum.EasingStyle.Quad),{Position=CM}):Play()
+    TweenService:Create(BQ,TweenService.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CN}):Play()
+    TweenService:Create(BS,TweenService.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=CO}):Play()end)
 
 local function CP()
     if not k then return end
     local CQ={}
     for CR,CS in ipairs(J)do
-        if CS and CS.Parent==P then
+        if CS and CS.Parent==Players then
             table.insert(CQ,CS)end end
     if #CQ==0 then return end
     if #CQ==1 then
@@ -471,8 +470,8 @@ local function DB()
         table.insert(DE,{userId=DF,order=DG})end
     table.sort(DE,function(DH,DI)return DH.order<DI.order end)
     for DJ,DK in ipairs(DE)do
-        local DL=P:GetPlayerByUserId(DK.userId)
-        if DL and DL.Parent==P and DL~=a then
+        local DL=Players:GetPlayerByUserId(DK.userId)
+        if DL and DL.Parent==Players and DL~=a then
             table.insert(DD,DL)
         else
             L2[DK.userId]=nil
@@ -492,7 +491,7 @@ local function DO()
                 DR.NumberLabel.Text=""
                 DR.Visible=false end end end
     for DS,DT in ipairs(J)do
-        if DT and DT.Parent==P then
+        if DT and DT.Parent==Players then
             local DU=BX:FindFirstChild(DT.Name.."_row")
             if DU then
                 local DV=DU:FindFirstChild(string.char(67,104,101,99,107,77,97,114,107))
@@ -505,7 +504,7 @@ local function DW()
     for DX,DY in ipairs(BX:GetChildren())do
         if DY:IsA(string.char(70,114,97,109,101))and DY~=BZ then
             DY:Destroy()end end
-    for DZ,EA in ipairs(P:GetPlayers())do
+    for DZ,EA in ipairs(Players:GetPlayers())do
         if EA~=a then
             local EB=BZ:Clone()
             EB.Visible=true
@@ -513,7 +512,7 @@ local function DW()
             EB.Parent=BX
             EB.NameLabel.Text=EA.DisplayName.." @"..EA.Name
             task.spawn(function()
-                local EC,ED=pcall(function()return P:GetUserThumbnailAsync(EA.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)
+                local EC,ED=pcall(function()return Players:GetUserThumbnailAsync(EA.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)
                 if EC and ED and EB and EB.Parent then
                     EB.AvatarDot:ClearAllChildren()
                     local EE=Instance.new(string.char(73,109,97,103,101,76,97,98,101,108))
@@ -559,11 +558,11 @@ task.spawn(function()
     task.wait(0.5)
     DW()end)
 
-P.PlayerAdded:Connect(function()
+Players.PlayerAdded:Connect(function()
     task.wait(0.5)
     DW()end)
 
-P.PlayerRemoving:Connect(function(EM)
+Players.PlayerRemoving:Connect(function(EM)
     L2[EM.UserId]=nil
     K[EM]=nil
     for EN=#J,1,-1 do
@@ -575,7 +574,7 @@ a.CharacterAdded:Connect(function()
     task.wait(1)
     DW()end)
 
-U.InputBegan:Connect(function(EO,EP)
+UserInputService.InputBegan:Connect(function(EO,EP)
     if EP then return end
     if EO.KeyCode==Enum.KeyCode.F then
         CP()end end)
@@ -595,7 +594,7 @@ BH.InputBegan:Connect(function(EW)
             if EW.UserInputState==Enum.UserInputState.End then
                 EQ=false end end)end end)
 
-U.InputChanged:Connect(function(EX)
+UserInputService.InputChanged:Connect(function(EX)
     if EQ and (EX.UserInputType==Enum.UserInputType.MouseMovement or EX.UserInputType==Enum.UserInputType.Touch)then
         ET(EX)end end)
 
@@ -629,7 +628,7 @@ FC.Thickness=3.2
 FC.Transparency=0
 FC.Parent=EZ
 
-T:Create(FC,T.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
+TweenService:Create(FC,TweenService.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
 
 local FD=Instance.new(string.char(84,101,120,116,76,97,98,101,108))
 FD.Size=UDim2.new(1,0,0,35)
@@ -649,7 +648,7 @@ task.spawn(function()
     while true do
         FE.Rotation=25
         FE.Offset=Vector2.new(-1,0)
-        local FF=T:Create(FE,T.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})
+        local FF=TweenService:Create(FE,TweenService.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})
         FF:Play()
         FF.Completed:Wait()
         task.wait(0.5)end end)
@@ -674,8 +673,8 @@ FH.Font=Enum.Font.GothamMedium
 FH.TextSize=16
 FH.Parent=EZ
 
-L.RenderStepped:Connect(function(FI)
+RunService.RenderStepped:Connect(function(FI)
     local FJ=math.floor(1/FI)
-    local FK,FL=pcall(function()return math.floor(S.Network.ServerStatsItem[string.char(68,97,116,97,32,80,105,110,103)]:GetValue())end)
+    local FK,FL=pcall(function()return math.floor(Stats.Network.ServerStatsItem[string.char(68,97,116,97,32,80,105,110,103)]:GetValue())end)
     FH.Text=string.format(string.char(70,80,83,58,32,37,100,32,32,80,73,78,71,58,32,37,115),FJ,FK and tostring(FL)..string.char(109,115)or string.char(45,45))end)
 task.wait(0.1)
