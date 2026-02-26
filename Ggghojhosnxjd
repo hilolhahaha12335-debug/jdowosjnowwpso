@@ -1,756 +1,923 @@
-local a=game:GetService("R".."u".."n".."S".."e".."r".."v".."i".."c".."e")
-local b=game:GetService("P".."l".."a".."y".."e".."r".."s")
-local c=game:GetService("R".."e".."p".."l".."i".."c".."a".."t".."e".."d".."S".."t".."o".."r".."a".."g".."e")
-local d=game:GetService("U".."s".."e".."r".."I".."n".."p".."u".."t".."S".."e".."r".."v".."i".."c".."e")
-local e=game:GetService("T".."w".."e".."e".."n".."S".."e".."r".."v".."i".."c".."e")
-local f=game:GetService("W".."o".."r".."k".."s".."p".."a".."c".."e")
-local g=game:GetService("S".."t".."a".."t".."s")
+local A = game:GetService("R".."u".."n".."S".."e".."r".."v".."i".."c".."e")
+local B = game:GetService("P".."l".."a".."y".."e".."r".."s")
+local C = game:GetService("R".."e".."p".."l".."i".."c".."a".."t".."e".."d".."S".."t".."o".."r".."a".."g".."e")
+local D = game:GetService("U".."s".."e".."r".."I".."n".."p".."u".."t".."S".."e".."r".."v".."i".."c".."e")
+local E = game:GetService("T".."w".."e".."e".."n".."S".."e".."r".."v".."i".."c".."e")
+local F = game:GetService("W".."o".."r".."k".."s".."p".."a".."c".."e")
+local G = game:GetService("S".."t".."a".."t".."s")
 
-local h=b.LocalPlayer
-if not h.Character then h.CharacterAdded:Wait()end
+local H = B.LocalPlayer
+if not H.Character then
+    H.CharacterAdded:Wait()
+end
 task.wait(0.5)
 
-local i
-local j="f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
+local I
+local J = "f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
 
-local function k()
-    local l=c:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
-    if not l then return end
-    local m=l:FindFirstChild("N".."e".."t")
-    if not m then return end
-    local n=m:GetChildren()
-    for o=1,#n-1 do
-        local p=n[o]
-        local q=n[o+1]
-        if p:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")and q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
-            if q.Name=="R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s"then
-                i=p
-                return end end end
-    for o=1,#n-1 do
-        local p=n[o]
-        local q=n[o+1]
-        if p:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")and q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
-            if q.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e")then
-                i=p
-                return end end end end
+local function K()
+    local L = C:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
+    if not L then
+        return
+    end
+    local M = L:FindFirstChild("N".."e".."t")
+    if not M then
+        return
+    end
+    local N = M:GetChildren()
+    for O = 1, #N - 1 do
+        local P = N[O]
+        local Q = N[O + 1]
+        if P:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and Q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            if Q.Name == "R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s" then
+                I = P
+                return
+            end
+        end
+    end
+    for O = 1, #N - 1 do
+        local P = N[O]
+        local Q = N[O + 1]
+        if P:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and Q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            if Q.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e") then
+                I = P
+                return
+            end
+        end
+    end
+end
 
-local r=false
+local R = false
 task.spawn(function()
-    local s=10
-    local t=0
-    while t<s and not r do
-        k()
-        if i and i:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
-            r=true
-            break end
-        t=t+0.1
-        task.wait(0.1)end end)
+    local S = 10
+    local T = 0
+    while T < S and not R do
+        K()
+        if I and I:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
+            R = true
+            break
+        end
+        T = T + 0.1
+        task.wait(0.1)
+    end
+end)
 
-local u=false
-local v=0
-local w=3
-local x=15
+local U = false
+local V = false
+local W = 0
+local X = 3
 
-local y=nil
-local z={}
-local aa=h.DisplayName
+local Y = false
+local Z = 0
+local AA = 3
+local AB = 15
 
-local function ab()
-    local ac=f:FindFirstChild("P".."l".."o".."t".."s")
-    if not ac then return nil end
-    for ad,ae in pairs(ac:GetChildren())do
-        local af=ae:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
-        if af then
-            local ag=af:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
-            if ag then
-                local ah=ag:FindFirstChild("F".."r".."a".."m".."e")
-                if ah then
-                    local ai=ah:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
-                    if ai and ai:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l")then
-                        local aj=ai.Text
-                        if aj:find(aa)and aj:find("'".."s".." ".."B".."a".."s".."e")then
-                            return ae end end end end end end end
-    return nil end
+local AC = nil
+local AD = {}
+local AE = H.DisplayName
 
-local function ak(al)
-    local am={}
-    local an=al:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
-    if not an then return am end
-    for ao=1,10 do
-        local ap=an:FindFirstChild(tostring(ao))
-        if ap and ap:IsA("M".."o".."d".."e".."l")then
-            am[ao]=ap:GetPivot().Position end end
-    return am end
+local function AF()
+    local AG = F:FindFirstChild("P".."l".."o".."t".."s")
+    if not AG then
+        return nil
+    end
+    for AH, AI in pairs(AG:GetChildren()) do
+        local AJ = AI:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
+        if AJ then
+            local AK = AJ:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
+            if AK then
+                local AL = AK:FindFirstChild("F".."r".."a".."m".."e")
+                if AL then
+                    local AM = AL:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
+                    if AM and AM:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") then
+                        local AN = AM.Text
+                        if AN:find(AE) and AN:find("'".."s".." ".."B".."a".."s".."e") then
+                            return AI
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
 
-local function aq(ar)
-    local as=ar.Character
-    if not as then return nil end
-    return as:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")end
+local function AO(AP)
+    local AQ = {}
+    local AR = AP:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
+    if not AR then
+        return AQ
+    end
+    for AS = 1, 10 do
+        local AT = AR:FindFirstChild(tostring(AS))
+        if AT and AT:IsA("M".."o".."d".."e".."l") then
+            AQ[AS] = AT:GetPivot().Position
+        end
+    end
+    return AQ
+end
 
-local function at()
-    local au=h.Character
-    if not au or not au:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")then return nil end
-    local av=au.HumanoidRootPart
-    local aw,ax=nil,math.huge
-    for _,ay in ipairs(b:GetPlayers())do
-        if ay~=h and ay.Character then
-            local az=aq(ay)
-            if az then
-                local ba=(av.Position-az.Position).Magnitude
-                if ba<ax then
-                    ax=ba
-                    aw=ay end end end end
-    return aw end
+local function AU(AV)
+    local AW = AV.Character
+    if not AW then
+        return nil
+    end
+    return AW:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")
+end
 
-local function bb()
-    i:FireServer(j,bc,"b".."a".."l".."l".."o".."o".."n")end
+local function AX()
+    local AY = H.Character
+    if not AY or not AY:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t") then
+        return nil
+    end
+    local AZ = AY.HumanoidRootPart
+    local BA = nil
+    local BB = math.huge
+    for _, BC in ipairs(B:GetPlayers()) do
+        if BC ~= H and BC.Character then
+            local BD = AU(BC)
+            if BD then
+                local BE = (AZ.Position - BD.Position).Magnitude
+                if BE < BB then
+                    BB = BE
+                    BA = BC
+                end
+            end
+        end
+    end
+    return BA
+end
+
+local function BF(BG)
+    I:FireServer(J, BG, "b".."a".."l".."l".."o".."o".."n")
+end
 
 task.spawn(function()
     task.wait(2)
-    y=ab()
-    if y then
-        z=ak(y)end end)
+    AC = AF()
+    if AC then
+        AD = AO(AC)
+    end
+end)
 
 task.spawn(function()
     while true do
-        if u and r and y and next(z)then
-            for _,bd in ipairs(b:GetPlayers())do
-                if bd~=h and bd.Character then
-                    local be=aq(bd)
-                    if be then
-                        local bf=be.Position
-                        for _,bg in pairs(z)do
-                            local bh=(bf-bg).Magnitude
-                            if bh<x then
-                                if tick()-v>w then
-                                    for _,bi in ipairs({"b".."a".."l".."l".."o".."o".."n","i".."n".."v".."e".."r".."s".."e","r".."o".."c".."k".."e".."t","t".."i".."n".."y"})do
-                                        i:FireServer(j,bd,bi)
-                                        task.wait(0.05)end
-                                    v=tick()
-                                    break end end end end end end end
-        task.wait(0.1)end end)
+        if Y and R and AC and next(AD) then
+            for _, BH in ipairs(B:GetPlayers()) do
+                if BH ~= H and BH.Character then
+                    local BI = AU(BH)
+                    if BI then
+                        local BJ = BI.Position
+                        for _, BK in pairs(AD) do
+                            local BL = (BJ - BK).Magnitude
+                            if BL < AB then
+                                if tick() - Z > AA then
+                                    for _, BM in ipairs({"b".."a".."l".."l".."o".."o".."n", "i".."n".."v".."e".."r".."s".."e", "r".."o".."c".."k".."e".."t", "t".."i".."n".."y"}) do
+                                        I:FireServer(J, BH, BM)
+                                        task.wait(0.05)
+                                    end
+                                    Z = tick()
+                                    break
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        task.wait(0.1)
+    end
+end)
 
-local bj=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-local bk=false
-local bl=0
-local bm=3
+local BN = H:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
 
+local BO = false
 coroutine.wrap(function()
     while true do
         task.wait(0.001)
-        if bk then
-            for _,bn in ipairs(bj:GetDescendants())do
-                if bn:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l")and bn.Visible and bn.Text~=""then
-                    if bn.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r")then
-                        if tick()-bl>bm then
-                            local bo=at()
-                            if bo then
-                                i:FireServer(j,bo,"b".."a".."l".."l".."o".."o".."n")
-                                bl=tick()end
-                            break end end end end end end
-    end end)()
-
-local bp={}
-local bq={}
-local br={}
-
-local bs={}
-local function bt(bu)table.insert(bs,bu)end
-
-local bv=0
-a.Heartbeat:Connect(function(bw)
-    bv=(bv+(bw*180))%360
-    for bx=#bs,1,-1 do
-        local by=bs[bx]
-        if by and by.Parent then
-            by.Rotation=bv
-        else
-            table.remove(bs,bx)end end end)
-
-local function bz(ca,cb)
-    local cc=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-    cc.Name="S"..math.random(9999)
-    cc.Color=Color3.fromRGB(25,25,112)
-    cc.Thickness=cb or 3
-    cc.Transparency=0
-    cc.ApplyStrokeMode=Enum.ApplyStrokeMode.Border
-    cc.Parent=ca
-    local cd=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-    cd.Parent=cc
-    cd.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0)})
-    bt(cd)
-    return cc end
-
-local ce=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-local cf=Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
-cf.Name="A"..math.random(9999)
-cf.ResetOnSpawn=false
-cf.Parent=ce
-
-local cg=Instance.new("F".."r".."a".."m".."e")
-cg.Name="B"..math.random(9999)
-cg.Size=UDim2.new(0,280,0,290)
-cg.Position=UDim2.new(1,-300,0,80)
-cg.BackgroundTransparency=1
-cg.Parent=cf
-
-local ch=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-ch.CornerRadius=UDim.new(0,12)
-ch.Parent=cg
-
-local ci=Instance.new("F".."r".."a".."m".."e")
-ci.Name="C"..math.random(9999)
-ci.Size=UDim2.new(1,-12,1,-12)
-ci.BackgroundColor3=Color3.fromRGB(30,30,35)
-ci.BackgroundTransparency=0.1
-ci.BorderSizePixel=0
-ci.Parent=cg
-
-local cj=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cj.CornerRadius=UDim.new(0,12)
-cj.Parent=ci
-
-local ck=bz(ci,3)
-
-local cl=Instance.new("F".."r".."a".."m".."e")
-cl.Name="D"..math.random(9999)
-cl.Size=UDim2.new(1,0,0,60)
-cl.BackgroundColor3=Color3.fromRGB(40,40,48)
-cl.BackgroundTransparency=0.1
-cl.BorderSizePixel=0
-cl.Parent=ci
-
-local cm=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cm.CornerRadius=UDim.new(0,12)
-cm.Parent=cl
-
-local cn=bz(cl,2)
-
-local co=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-co.Name="E"..math.random(9999)
-co.Parent=cl
-co.BackgroundTransparency=1
-co.Position=UDim2.new(0,18,0,8)
-co.Size=UDim2.new(1,-36,0,26)
-co.Text="c".."h".."i".."r".."a".."q".." ".."H".."u".."b"
-co.Font=Enum.Font.GothamBold
-co.TextSize=16
-co.TextColor3=Color3.fromRGB(255,255,255)
-co.TextXAlignment=Enum.TextXAlignment.Left
-
-local cp=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-cp.Name="F"..math.random(9999)
-cp.Parent=cl
-cp.BackgroundTransparency=1
-cp.Position=UDim2.new(0,18,0,30)
-cp.Size=UDim2.new(1,-36,0,18)
-cp.Text="S".."e".."l".."e".."c".."t".." ".."p".."l".."a".."y".."e".."r".."s".." ".."b".."e".."l".."o".."w"
-cp.Font=Enum.Font.Gotham
-cp.TextSize=11
-cp.TextColor3=Color3.fromRGB(160,160,160)
-cp.TextXAlignment=Enum.TextXAlignment.Left
-
-local cq=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-cq.Name="G"..math.random(9999)
-cq.Parent=cl
-cq.BackgroundTransparency=1
-cq.Position=UDim2.new(0,18,0,48)
-cq.Size=UDim2.new(1,-36,0,8)
-cq.Text=""
-cq.Font=Enum.Font.Gotham
-cq.TextSize=9
-cq.TextColor3=Color3.fromRGB(180,180,180)
-cq.TextXAlignment=Enum.TextXAlignment.Left
-
-local cr=Instance.new("F".."r".."a".."m".."e")
-cr.Name="H"..math.random(9999)
-cr.Size=UDim2.new(1,-24,0,32)
-cr.Position=UDim2.new(0,12,0,72)
-cr.BackgroundColor3=Color3.fromRGB(25,25,30)
-cr.BackgroundTransparency=0.1
-cr.BorderSizePixel=0
-cr.Parent=ci
-
-local cs=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cs.CornerRadius=UDim.new(0,8)
-cs.Parent=cr
-
-local ct=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-ct.Name="I"..math.random(9999)
-ct.Parent=cr
-ct.BackgroundTransparency=1
-ct.Position=UDim2.new(0,12,0,0)
-ct.Size=UDim2.new(1,-60,1,0)
-ct.Text="A".."u".."t".."o".." ".."D".."e".."f".."e".."n".."s".."e"
-ct.Font=Enum.Font.GothamBold
-ct.TextSize=13
-ct.TextColor3=Color3.fromRGB(220,220,220)
-ct.TextXAlignment=Enum.TextXAlignment.Left
-
-local cu=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-cu.Name="J"..math.random(9999)
-cu.Parent=cr
-cu.Size=UDim2.new(0,50,0,24)
-cu.Position=UDim2.new(1,-58,0.5,-12)
-cu.BackgroundColor3=Color3.fromRGB(60,60,68)
-cu.Text=""
-cu.BorderSizePixel=0
-
-local cv=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cv.CornerRadius=UDim.new(0,12)
-cv.Parent=cu
-
-local cw=Instance.new("F".."r".."a".."m".."e")
-cw.Name="K"..math.random(9999)
-cw.Parent=cu
-cw.Size=UDim2.new(0,20,0,20)
-cw.Position=UDim2.new(0,2,0,2)
-cw.BackgroundColor3=Color3.fromRGB(180,180,180)
-cw.BorderSizePixel=0
-
-local cx=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cx.CornerRadius=UDim.new(0,10)
-cx.Parent=cw
-
-local cy=Instance.new("F".."r".."a".."m".."e")
-cy.Name="L"..math.random(9999)
-cy.Size=UDim2.new(1,-24,0,32)
-cy.Position=UDim2.new(0,12,0,114)
-cy.BackgroundColor3=Color3.fromRGB(25,25,30)
-cy.BackgroundTransparency=0.1
-cy.BorderSizePixel=0
-cy.Parent=ci
-
-local cz=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cz.CornerRadius=UDim.new(0,8)
-cz.Parent=cy
-
-local da=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-da.Name="M"..math.random(9999)
-da.Parent=cy
-da.BackgroundTransparency=1
-da.Position=UDim2.new(0,12,0,0)
-da.Size=UDim2.new(1,-60,1,0)
-da.Text="A".."n".."t".."i".."-".."T".."P".." ".."S".."c".."a".."m"
-da.Font=Enum.Font.GothamBold
-da.TextSize=13
-da.TextColor3=Color3.fromRGB(220,220,220)
-da.TextXAlignment=Enum.TextXAlignment.Left
-
-local db=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-db.Name="N"..math.random(9999)
-db.Parent=cy
-db.Size=UDim2.new(0,50,0,24)
-db.Position=UDim2.new(1,-58,0.5,-12)
-db.BackgroundColor3=Color3.fromRGB(60,60,68)
-db.Text=""
-db.BorderSizePixel=0
-
-local dc=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-dc.CornerRadius=UDim.new(0,12)
-dc.Parent=db
-
-local dd=Instance.new("F".."r".."a".."m".."e")
-dd.Name="O"..math.random(9999)
-dd.Parent=db
-dd.Size=UDim2.new(0,20,0,20)
-dd.Position=UDim2.new(0,2,0,2)
-dd.BackgroundColor3=Color3.fromRGB(180,180,180)
-dd.BorderSizePixel=0
-
-local de=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-de.CornerRadius=UDim.new(0,10)
-de.Parent=dd
-
-local df=Instance.new("F".."r".."a".."m".."e")
-df.Name="P"..math.random(9999)
-df.Size=UDim2.new(1,-24,1,-170)
-df.Position=UDim2.new(0,12,0,156)
-df.BackgroundColor3=Color3.fromRGB(25,25,30)
-df.BackgroundTransparency=0.1
-df.BorderSizePixel=0
-df.Parent=ci
-
-local dg=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-dg.CornerRadius=UDim.new(0,12)
-dg.Parent=df
-
-local dh=bz(df,2)
-
-local di=Instance.new("S".."c".."r".."o".."l".."l".."i".."n".."g".."F".."r".."a".."m".."e")
-di.Name="Q"..math.random(9999)
-di.Parent=df
-di.BackgroundTransparency=1
-di.Size=UDim2.new(1,-16,1,-16)
-di.Position=UDim2.new(0,8,0,8)
-di.CanvasSize=UDim2.new(0,0,0,0)
-di.ScrollBarThickness=6
-
-local dj=Instance.new("U".."I".."L".."i".."s".."t".."L".."a".."y".."o".."u".."t")
-dj.Parent=di
-dj.Padding=UDim.new(0,8)
-dj.SortOrder=Enum.SortOrder.Name
-
-local dk=Instance.new("F".."r".."a".."m".."e")
-dk.Name="T".."e".."m".."p".."l".."a".."t".."e"
-dk.Size=UDim2.new(1,0,0,40)
-dk.BackgroundColor3=Color3.fromRGB(40,40,48)
-dk.Visible=false
-dk.Parent=di
-
-local dl=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-dl.CornerRadius=UDim.new(0,8)
-dl.Parent=dk
-
-local dm=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-dm.Color=Color3.fromRGB(60,60,68)
-dm.Thickness=1
-dm.Parent=dk
-
-local dn=Instance.new("F".."r".."a".."m".."e")
-dn.Name="A".."v".."a".."t".."a".."r".."D".."o".."t"
-dn.Size=UDim2.new(0,28,0,28)
-dn.Position=UDim2.new(0,8,0,6)
-dn.BackgroundTransparency=1
-dn.Parent=dk
-
-local do=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-do.CornerRadius=UDim.new(0,14)
-do.Parent=dn
-
-local dp=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-dp.Name="N".."a".."m".."e".."L".."a".."b".."e".."l"
-dp.Parent=dk
-dp.BackgroundTransparency=1
-dp.Position=UDim2.new(0,48,0,6)
-dp.Size=UDim2.new(1,-100,0,28)
-dp.Font=Enum.Font.Gotham
-dp.TextSize=14
-dp.TextColor3=Color3.fromRGB(220,220,220)
-dp.TextXAlignment=Enum.TextXAlignment.Left
-
-local dq=Instance.new("F".."r".."a".."m".."e")
-dq.Name="C".."h".."e".."c".."k".."M".."a".."r".."k"
-dq.Parent=dk
-dq.BackgroundColor3=Color3.fromRGB(40,40,48)
-dq.BackgroundTransparency=0
-dq.BorderSizePixel=0
-dq.Position=UDim2.new(1,-38,0,6)
-dq.Size=UDim2.new(0,28,0,28)
-dq.Visible=false
-
-local dr=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-dr.CornerRadius=UDim.new(0,14)
-dr.Parent=dq
-
-local ds=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-ds.Name="S"..math.random(9999)
-ds.Color=Color3.fromRGB(25,25,112)
-ds.Thickness=2
-ds.Transparency=0
-ds.Parent=dq
-
-local dt=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-dt.Parent=ds
-dt.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.1,0),NumberSequenceKeypoint.new(0.9,0),NumberSequenceKeypoint.new(1,1)})
-bt(dt)
-
-local du=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-du.Name="N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l"
-du.Parent=dq
-du.BackgroundTransparency=1
-du.Size=UDim2.new(1,0,1,0)
-du.Font=Enum.Font.GothamBold
-du.TextSize=16
-du.TextColor3=Color3.fromRGB(255,255,255)
-du.Text=""
-
-local dv=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-dv.Name="R"..math.random(9999)
-dv.Parent=ci
-dv.Size=UDim2.new(1,-24,0,32)
-dv.Position=UDim2.new(0,12,1,-44)
-dv.BackgroundColor3=Color3.fromRGB(147,112,219)
-dv.Text="S".."P".."A".."M".." ".."(".."F"..")"
-dv.Font=Enum.Font.GothamBold
-dv.TextSize=14
-dv.TextColor3=Color3.fromRGB(255,255,255)
-dv.BorderSizePixel=0
-
-local dw=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-dw.CornerRadius=UDim.new(0,10)
-dw.Parent=dv
-
-cu.MouseButton1Click:Connect(function()
-    bk=not bk
-    local dx,dy,dz
-    if bk then
-        dx=UDim2.new(1,-22,0,2)
-        dy=Color3.fromRGB(76,175,80)
-        dz=Color3.fromRGB(255,255,255)
-    else
-        dx=UDim2.new(0,2,0,2)
-        dy=Color3.fromRGB(60,60,68)
-        dz=Color3.fromRGB(180,180,180)
+        if U then
+            for _, BP in ipairs(BN:GetDescendants()) do
+                if BP:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") and BP.Visible and BP.Text ~= "" then
+                    if BP.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r") then
+                        BO = true
+                        break
+                    end
+                end
+            end
+        end
     end
-    e:Create(cw,e.new(0.2,Enum.EasingStyle.Quad),{Position=dx}):Play()
-    e:Create(cu,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=dy}):Play()
-    e:Create(cw,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=dz}):Play()
-end)
-
-db.MouseButton1Click:Connect(function()
-    u=not u
-    if u and not y then
-        y=ab()
-        if y then
-            z=ak(y)
-        else
-            u=false
-            return end end
-    local ea,eb,ec
-    if u then
-        ea=UDim2.new(1,-22,0,2)
-        eb=Color3.fromRGB(76,175,80)
-        ec=Color3.fromRGB(255,255,255)
-    else
-        ea=UDim2.new(0,2,0,2)
-        eb=Color3.fromRGB(60,60,68)
-        ec=Color3.fromRGB(180,180,180)
-    end
-    e:Create(dd,e.new(0.2,Enum.EasingStyle.Quad),{Position=ea}):Play()
-    e:Create(db,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=eb}):Play()
-    e:Create(dd,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=ec}):Play()
-end)
-
-local function ed()
-    if not r then return end
-    local ee=at()
-    if ee then
-        coroutine.wrap(function()
-            i:FireServer(j,ee,"t".."i".."n".."y")
-            task.wait(0.1)
-            i:FireServer(j,ee,"i".."n".."v".."e".."r".."s".."e")
-            task.wait(0.1)
-            i:FireServer(j,ee,"r".."o".."c".."k".."e".."t")
-            task.wait(0.1)
-            i:FireServer(j,ee,"b".."a".."l".."l".."o".."o".."n")
-        end)()end end
-
-dv.MouseButton1Click:Connect(ed)
-
-d.InputBegan:Connect(function(ef,eg)
-    if eg then return end
-    if ef.KeyCode==Enum.KeyCode.F then
-        ed()end end)
-
-local function eh()
-    local ei=false
-    local ej={}
-    local ek={}
-    for el,em in pairs(br)do
-        table.insert(ek,{userId=el,order=em})end
-    table.sort(ek,function(en,eo)return en.order<eo.order end)
-    for _,ep in ipairs(ek)do
-        local eq=b:GetPlayerByUserId(ep.userId)
-        if eq and eq.Parent==b and eq~=h then
-            table.insert(ej,eq)
-        else
-            br[ep.userId]=nil
-            ei=true end end
-    bp=ej
-    bq={}
-    for _,er in ipairs(bp)do
-        bq[er]=true end
-    return ei end
-
-local function es()
-    eh()
-    for _,et in ipairs(di:GetChildren())do
-        if et:IsA("F".."r".."a".."m".."e")and et~=dk then
-            local eu=et:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
-            if eu then
-                eu.NumberLabel.Text=""
-                eu.Visible=false end end end
-    for ev,ew in ipairs(bp)do
-        if ew and ew.Parent==b then
-            local ex=di:FindFirstChild(ew.Name.."_row")
-            if ex then
-                local ey=ex:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
-                if ey then
-                    ey.Visible=true
-                    ey.NumberLabel.Text=tostring(ev)end end end end end
-
-local function ez()
-    eh()
-    for _,fa in ipairs(di:GetChildren())do
-        if fa:IsA("F".."r".."a".."m".."e")and fa~=dk then
-            fa:Destroy()end end
-    for _,fb in ipairs(b:GetPlayers())do
-        if fb~=h then
-            local fc=dk:Clone()
-            fc.Visible=true
-            fc.Name=fb.Name.."_row"
-            fc.Parent=di
-            fc.NameLabel.Text=fb.DisplayName.." @"..fb.Name
-            task.spawn(function()
-                local fd,fe=pcall(function()return b:GetUserThumbnailAsync(fb.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)
-                if fd and fe and fc and fc.Parent then
-                    fc.AvatarDot:ClearAllChildren()
-                    local ff=Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
-                    ff.Parent=fc.AvatarDot
-                    ff.Size=UDim2.new(1,0,1,0)
-                    ff.BackgroundTransparency=1
-                    ff.Image=fe
-                    local fg=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-                    fg.CornerRadius=UDim.new(0,14)
-                    fg.Parent=ff end end)
-            fc.InputBegan:Connect(function(fh)
-                if fh.UserInputType==Enum.UserInputType.MouseButton1 or fh.UserInputType==Enum.UserInputType.Touch then
-                    if br[fb.UserId]then
-                        br[fb.UserId]=nil
-                        bq[fb]=nil
-                        for fi,fj in ipairs(bp)do
-                            if fj==fb then
-                                table.remove(bp,fi)
-                                break end end
-                        for fk,fl in ipairs(bp)do
-                            br[fl.UserId]=fk end
-                    else
-                        if #bp<2 then
-                            local fm=#bp+1
-                            br[fb.UserId]=fm
-                            table.insert(bp,fb)
-                            bq[fb]=true end end
-                    es()end end)end end
-    es()
-    di.CanvasSize=UDim2.new(0,0,0,dj.AbsoluteContentSize.Y+12)end
-
-task.spawn(function()
-    task.wait(2)
-    y=ab()
-    if y then
-        z=ak(y)
-    else
-        cq.Text="P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"end end)
-
-task.spawn(function()
-    while not r do
-        task.wait(0.1)end
-    task.wait(0.5)
-    ez()end)
-
-b.PlayerAdded:Connect(function()
-    task.wait(0.5)
-    ez()end)
-
-b.PlayerRemoving:Connect(function(fn)
-    br[fn.UserId]=nil
-    bq[fn]=nil
-    for fo=#bp,1,-1 do
-        if bp[fo]==fn then
-            table.remove(bp,fo)end end
-    ez()end)
-
-h.CharacterAdded:Connect(function()
-    task.wait(1)
-    ez()end)
-
-local fp=false
-local fq,fr
-local function fs(ft)
-    local fu=ft.Position-fq
-    cg.Position=UDim2.new(fr.X.Scale,fr.X.Offset+fu.X,fr.Y.Scale,fr.Y.Offset+fu.Y)end
-
-cl.InputBegan:Connect(function(fv)
-    if fv.UserInputType==Enum.UserInputType.MouseButton1 or fv.UserInputType==Enum.UserInputType.Touch then
-        fp=true
-        fq=fv.Position
-        fr=cg.Position
-        fv.Changed:Connect(function()
-            if fv.UserInputState==Enum.UserInputState.End then
-                fp=false end end)end end)
-
-d.InputChanged:Connect(function(fw)
-    if fp and (fw.UserInputType==Enum.UserInputType.MouseMovement or fw.UserInputType==Enum.UserInputType.Touch)then
-        fs(fw)end end)
-
-local fx=Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
-fx.Name="C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
-fx.Parent=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-fx.ResetOnSpawn=false
-
-local fy=Instance.new("F".."r".."a".."m".."e")
-fy.Name="M".."a".."i".."n".."F".."r".."a".."m".."e"
-fy.Size=UDim2.new(0,360,0,89)
-fy.Position=UDim2.new(0.5,-190,0,0)
-fy.BackgroundColor3=Color3.fromRGB(10,10,10)
-fy.BackgroundTransparency=0.10
-fy.BorderSizePixel=0
-fy.Parent=fx
-
-local fz=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-fz.CornerRadius=UDim.new(0,20)
-fz.Parent=fy
-
-local ga=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-ga.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(20,20,20)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(60,60,60)),ColorSequenceKeypoint.new(1,Color3.fromRGB(20,20,20))})
-ga.Transparency=NumberSequence.new(0.2)
-ga.Rotation=45
-ga.Parent=fy
-
-local gb=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-gb.Color=Color3.fromRGB(25,25,112)
-gb.Thickness=3.2
-gb.Transparency=0
-gb.Parent=fy
-
-e:Create(gb,e.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
-
-local gc=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-gc.Size=UDim2.new(1,0,0,35)
-gc.Position=UDim2.new(0,0,0,10)
-gc.BackgroundTransparency=1
-gc.Text="C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
-gc.TextColor3=Color3.fromRGB(255,255,255)
-gc.Font=Enum.Font.GothamBold
-gc.TextSize=16
-gc.Parent=fy
-
-local gd=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-gd.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(140,140,140)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(160,160,160)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(140,140,140))})
-gd.Parent=gc
+end)()
 
 task.spawn(function()
     while true do
-        gd.Rotation=25
-        gd.Offset=Vector2.new(-1,0)
-        local ge=e:Create(gd,e.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})
-        ge:Play()
-        ge.Completed:Wait()
-        task.wait(0.5)end end)
+        if BO and R then
+            BO = false
+            if tick() - W > X then
+                local BQ = AX()
+                if BQ then
+                    coroutine.wrap(BF)(BQ)
+                    W = tick()
+                end
+            end
+        end
+        task.wait(0.05)
+    end
+end)
 
-local gf=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-gf.Size=UDim2.new(1,0,0,20)
-gf.Position=UDim2.new(0,0,0,42)
-gf.BackgroundTransparency=1
-gf.Text="d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
-gf.TextColor3=Color3.fromRGB(220,220,220)
-gf.Font=Enum.Font.Gotham
-gf.TextSize=13
-gf.Parent=fy
+local BR = {}
+local BS = {}
+local BT = {}
 
-local gg=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-gg.Size=UDim2.new(1,0,0,30)
-gg.Position=UDim2.new(0,0,0,62)
-gg.BackgroundTransparency=1
-gg.Text="F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
-gg.TextColor3=Color3.fromRGB(255,255,255)
-gg.Font=Enum.Font.GothamMedium
-gg.TextSize=16
-gg.Parent=fy
+local BU = {}
+local function BV(BW)
+    table.insert(BU, BW)
+end
 
-a.RenderStepped:Connect(function(gh)
-    local gi=math.floor(1/gh)
-    local gj,gk=pcall(function()return math.floor(g.Network.ServerStatsItem["D".."a".."t".."a".." ".."P".."i".."n".."g"]:GetValue())end)
-    gg.Text=string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s",gi,gj and tostring(gk).."m".."s" or "-".."-")end)
+local BX = 0
+A.Heartbeat:Connect(function(BY)
+    BX = (BX + (BY * 180)) % 360
+    for BZ = #BU, 1, -1 do
+        local CA = BU[BZ]
+        if CA and CA.Parent then
+            CA.Rotation = BX
+        else
+            table.remove(BU, BZ)
+        end
+    end
+end)
+
+local function CB(CC, CD)
+    local CE = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+    CE.Name = "S"..math.random(9999)
+    CE.Color = Color3.fromRGB(25, 25, 112)
+    CE.Thickness = CD or 3
+    CE.Transparency = 0
+    CE.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    CE.Parent = CC
+    local CF = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+    CF.Parent = CE
+    CF.Transparency = NumberSequence.new({
+        NumberSequenceKeypoint.new(0, 0),
+        NumberSequenceKeypoint.new(0.5, 0.8),
+        NumberSequenceKeypoint.new(1, 0)
+    })
+    BV(CF)
+    return CE
+end
+
+local CG = H:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+local CH = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
+CH.Name = "A"..math.random(9999)
+CH.ResetOnSpawn = false
+CH.Parent = CG
+
+local CI = Instance.new("F".."r".."a".."m".."e")
+CI.Name = "B"..math.random(9999)
+CI.Size = UDim2.new(0, 280, 0, 280)
+CI.Position = UDim2.new(1, -300, 0, 80)
+CI.BackgroundTransparency = 1
+CI.Parent = CH
+
+local CJ = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CJ.CornerRadius = UDim.new(0, 12)
+CJ.Parent = CI
+
+local CK = Instance.new("F".."r".."a".."m".."e")
+CK.Name = "C"..math.random(9999)
+CK.Size = UDim2.new(1, -12, 1, -12)
+CK.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+CK.BackgroundTransparency = 0.1
+CK.BorderSizePixel = 0
+CK.Parent = CI
+
+local CL = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CL.CornerRadius = UDim.new(0, 12)
+CL.Parent = CK
+
+local CM = CB(CK, 3)
+
+local CN = Instance.new("F".."r".."a".."m".."e")
+CN.Name = "D"..math.random(9999)
+CN.Size = UDim2.new(1, 0, 0, 60)
+CN.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
+CN.BackgroundTransparency = 0.1
+CN.BorderSizePixel = 0
+CN.Parent = CK
+
+local CO = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CO.CornerRadius = UDim.new(0, 12)
+CO.Parent = CN
+
+local CP = CB(CN, 2)
+
+local CQ = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+CQ.Name = "E"..math.random(9999)
+CQ.Parent = CN
+CQ.BackgroundTransparency = 1
+CQ.Position = UDim2.new(0, 18, 0, 8)
+CQ.Size = UDim2.new(1, -36, 0, 26)
+CQ.Text = "c".."h".."i".."r".."a".."q".." ".."H".."u".."b"
+CQ.Font = Enum.Font.GothamBold
+CQ.TextSize = 16
+CQ.TextColor3 = Color3.fromRGB(255, 255, 255)
+CQ.TextXAlignment = Enum.TextXAlignment.Left
+
+local CR = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+CR.Name = "F"..math.random(9999)
+CR.Parent = CN
+CR.BackgroundTransparency = 1
+CR.Position = UDim2.new(0, 18, 0, 30)
+CR.Size = UDim2.new(1, -36, 0, 18)
+CR.Text = "S".."e".."l".."e".."c".."t".." ".."p".."l".."a".."y".."e".."r".."s".." ".."b".."e".."l".."o".."w"
+CR.Font = Enum.Font.Gotham
+CR.TextSize = 11
+CR.TextColor3 = Color3.fromRGB(160, 160, 160)
+CR.TextXAlignment = Enum.TextXAlignment.Left
+
+local CS = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+CS.Name = "G"..math.random(9999)
+CS.Parent = CN
+CS.BackgroundTransparency = 1
+CS.Position = UDim2.new(0, 18, 0, 48)
+CS.Size = UDim2.new(1, -36, 0, 8)
+CS.Text = ""
+CS.Font = Enum.Font.Gotham
+CS.TextSize = 9
+CS.TextColor3 = Color3.fromRGB(180, 180, 180)
+CS.TextXAlignment = Enum.TextXAlignment.Left
+
+local CT = Instance.new("F".."r".."a".."m".."e")
+CT.Name = "H"..math.random(9999)
+CT.Size = UDim2.new(1, -24, 0, 32)
+CT.Position = UDim2.new(0, 12, 0, 72)
+CT.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+CT.BackgroundTransparency = 0.1
+CT.BorderSizePixel = 0
+CT.Parent = CK
+
+local CU = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CU.CornerRadius = UDim.new(0, 8)
+CU.Parent = CT
+
+local CV = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+CV.Name = "I"..math.random(9999)
+CV.Parent = CT
+CV.BackgroundTransparency = 1
+CV.Position = UDim2.new(0, 12, 0, 0)
+CV.Size = UDim2.new(1, -60, 1, 0)
+CV.Text = "A".."u".."t".."o".." ".."D".."e".."f".."e".."n".."s".."e"
+CV.Font = Enum.Font.GothamBold
+CV.TextSize = 13
+CV.TextColor3 = Color3.fromRGB(220, 220, 220)
+CV.TextXAlignment = Enum.TextXAlignment.Left
+
+local CW = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+CW.Name = "J"..math.random(9999)
+CW.Parent = CT
+CW.Size = UDim2.new(0, 50, 0, 24)
+CW.Position = UDim2.new(1, -58, 0.5, -12)
+CW.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
+CW.Text = ""
+CW.BorderSizePixel = 0
+
+local CX = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CX.CornerRadius = UDim.new(0, 12)
+CX.Parent = CW
+
+local CY = Instance.new("F".."r".."a".."m".."e")
+CY.Name = "K"..math.random(9999)
+CY.Parent = CW
+CY.Size = UDim2.new(0, 20, 0, 20)
+CY.Position = UDim2.new(0, 2, 0, 2)
+CY.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+CY.BorderSizePixel = 0
+
+local CZ = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+CZ.CornerRadius = UDim.new(0, 10)
+CZ.Parent = CY
+
+local DA = Instance.new("F".."r".."a".."m".."e")
+DA.Name = "L"..math.random(9999)
+DA.Size = UDim2.new(1, -24, 0, 32)
+DA.Position = UDim2.new(0, 12, 0, 114)
+DA.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+DA.BackgroundTransparency = 0.1
+DA.BorderSizePixel = 0
+DA.Parent = CK
+
+local DB = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DB.CornerRadius = UDim.new(0, 8)
+DB.Parent = DA
+
+local DC = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+DC.Name = "M"..math.random(9999)
+DC.Parent = DA
+DC.BackgroundTransparency = 1
+DC.Position = UDim2.new(0, 12, 0, 0)
+DC.Size = UDim2.new(1, -60, 1, 0)
+DC.Text = "A".."n".."t".."i".."-".."T".."P".." ".."S".."c".."a".."m"
+DC.Font = Enum.Font.GothamBold
+DC.TextSize = 13
+DC.TextColor3 = Color3.fromRGB(220, 220, 220)
+DC.TextXAlignment = Enum.TextXAlignment.Left
+
+local DD = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+DD.Name = "N"..math.random(9999)
+DD.Parent = DA
+DD.Size = UDim2.new(0, 50, 0, 24)
+DD.Position = UDim2.new(1, -58, 0.5, -12)
+DD.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
+DD.Text = ""
+DD.BorderSizePixel = 0
+
+local DE = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DE.CornerRadius = UDim.new(0, 12)
+DE.Parent = DD
+
+local DF = Instance.new("F".."r".."a".."m".."e")
+DF.Name = "O"..math.random(9999)
+DF.Parent = DD
+DF.Size = UDim2.new(0, 20, 0, 20)
+DF.Position = UDim2.new(0, 2, 0, 2)
+DF.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
+DF.BorderSizePixel = 0
+
+local DG = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DG.CornerRadius = UDim.new(0, 10)
+DG.Parent = DF
+
+local DH = Instance.new("F".."r".."a".."m".."e")
+DH.Name = "P"..math.random(9999)
+DH.Size = UDim2.new(1, -24, 1, -170)
+DH.Position = UDim2.new(0, 12, 0, 156)
+DH.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+DH.BackgroundTransparency = 0.1
+DH.BorderSizePixel = 0
+DH.Parent = CK
+
+local DI = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DI.CornerRadius = UDim.new(0, 12)
+DI.Parent = DH
+
+local DJ = CB(DH, 2)
+
+local DK = Instance.new("S".."c".."r".."o".."l".."l".."i".."n".."g".."F".."r".."a".."m".."e")
+DK.Name = "Q"..math.random(9999)
+DK.Parent = DH
+DK.BackgroundTransparency = 1
+DK.Size = UDim2.new(1, -16, 1, -16)
+DK.Position = UDim2.new(0, 8, 0, 8)
+DK.CanvasSize = UDim2.new(0, 0, 0, 0)
+DK.ScrollBarThickness = 6
+
+local DL = Instance.new("U".."I".."L".."i".."s".."t".."L".."a".."y".."o".."u".."t")
+DL.Parent = DK
+DL.Padding = UDim.new(0, 8)
+DL.SortOrder = Enum.SortOrder.Name
+
+local DM = Instance.new("F".."r".."a".."m".."e")
+DM.Name = "T".."e".."m".."p".."l".."a".."t".."e"
+DM.Size = UDim2.new(1, 0, 0, 40)
+DM.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
+DM.Visible = false
+DM.Parent = DK
+
+local DN = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DN.CornerRadius = UDim.new(0, 8)
+DN.Parent = DM
+
+local DO = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+DO.Color = Color3.fromRGB(60, 60, 68)
+DO.Thickness = 1
+DO.Parent = DM
+
+local DP = Instance.new("F".."r".."a".."m".."e")
+DP.Name = "A".."v".."a".."t".."a".."r".."D".."o".."t"
+DP.Size = UDim2.new(0, 28, 0, 28)
+DP.Position = UDim2.new(0, 8, 0, 6)
+DP.BackgroundTransparency = 1
+DP.Parent = DM
+
+local DQ = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DQ.CornerRadius = UDim.new(0, 14)
+DQ.Parent = DP
+
+local DR = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+DR.Name = "N".."a".."m".."e".."L".."a".."b".."e".."l"
+DR.Parent = DM
+DR.BackgroundTransparency = 1
+DR.Position = UDim2.new(0, 48, 0, 6)
+DR.Size = UDim2.new(1, -100, 0, 28)
+DR.Font = Enum.Font.Gotham
+DR.TextSize = 14
+DR.TextColor3 = Color3.fromRGB(220, 220, 220)
+DR.TextXAlignment = Enum.TextXAlignment.Left
+
+local DS = Instance.new("F".."r".."a".."m".."e")
+DS.Name = "C".."h".."e".."c".."k".."M".."a".."r".."k"
+DS.Parent = DM
+DS.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
+DS.BackgroundTransparency = 0
+DS.BorderSizePixel = 0
+DS.Position = UDim2.new(1, -38, 0, 6)
+DS.Size = UDim2.new(0, 28, 0, 28)
+DS.Visible = false
+
+local DT = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DT.CornerRadius = UDim.new(0, 14)
+DT.Parent = DS
+
+local DU = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+DU.Name = "S"..math.random(9999)
+DU.Color = Color3.fromRGB(25, 25, 112)
+DU.Thickness = 2
+DU.Transparency = 0
+DU.Parent = DS
+
+local DV = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+DV.Parent = DU
+DV.Transparency = NumberSequence.new({
+    NumberSequenceKeypoint.new(0, 1),
+    NumberSequenceKeypoint.new(0.1, 0),
+    NumberSequenceKeypoint.new(0.9, 0),
+    NumberSequenceKeypoint.new(1, 1)
+})
+BV(DV)
+
+local DW = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+DW.Name = "N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l"
+DW.Parent = DS
+DW.BackgroundTransparency = 1
+DW.Size = UDim2.new(1, 0, 1, 0)
+DW.Font = Enum.Font.GothamBold
+DW.TextSize = 16
+DW.TextColor3 = Color3.fromRGB(255, 255, 255)
+DW.Text = ""
+
+local DX = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+DX.Name = "R"..math.random(9999)
+DX.Parent = CK
+DX.Size = UDim2.new(1, -24, 0, 32)
+DX.Position = UDim2.new(0, 12, 1, -44)
+DX.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
+DX.Text = "S".."P".."A".."M".." ".."(".."F"..")"
+DX.Font = Enum.Font.GothamBold
+DX.TextSize = 14
+DX.TextColor3 = Color3.fromRGB(255, 255, 255)
+DX.BorderSizePixel = 0
+
+local DY = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+DY.CornerRadius = UDim.new(0, 10)
+DY.Parent = DX
+
+CW.MouseButton1Click:Connect(function()
+    U = not U
+    local DZ, EA, EB
+    if U then
+        DZ = UDim2.new(1, -22, 0, 2)
+        EA = Color3.fromRGB(76, 175, 80)
+        EB = Color3.fromRGB(255, 255, 255)
+    else
+        DZ = UDim2.new(0, 2, 0, 2)
+        EA = Color3.fromRGB(60, 60, 68)
+        EB = Color3.fromRGB(180, 180, 180)
+    end
+    E:Create(CY, E.new(0.2, Enum.EasingStyle.Quad), {Position = DZ}):Play()
+    E:Create(CW, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EA}):Play()
+    E:Create(CY, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EB}):Play()
+end)
+
+DD.MouseButton1Click:Connect(function()
+    Y = not Y
+    if Y and not AC then
+        AC = AF()
+        if AC then
+            AD = AO(AC)
+        else
+            Y = false
+            return
+        end
+    end
+    local EC, ED, EE
+    if Y then
+        EC = UDim2.new(1, -22, 0, 2)
+        ED = Color3.fromRGB(76, 175, 80)
+        EE = Color3.fromRGB(255, 255, 255)
+    else
+        EC = UDim2.new(0, 2, 0, 2)
+        ED = Color3.fromRGB(60, 60, 68)
+        EE = Color3.fromRGB(180, 180, 180)
+    end
+    E:Create(DF, E.new(0.2, Enum.EasingStyle.Quad), {Position = EC}):Play()
+    E:Create(DD, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = ED}):Play()
+    E:Create(DF, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EE}):Play()
+end)
+
+local function EF()
+    if not R then
+        return
+    end
+    local EG = AX()
+    if EG then
+        coroutine.wrap(function()
+            I:FireServer(J, EG, "t".."i".."n".."y")
+            task.wait(0.1)
+            I:FireServer(J, EG, "i".."n".."v".."e".."r".."s".."e")
+            task.wait(0.1)
+            I:FireServer(J, EG, "r".."o".."c".."k".."e".."t")
+            task.wait(0.1)
+            I:FireServer(J, EG, "b".."a".."l".."l".."o".."o".."n")
+        end)()
+    end
+end
+
+DX.MouseButton1Click:Connect(EF)
+
+D.InputBegan:Connect(function(EH, EI)
+    if EI then
+        return
+    end
+    if EH.KeyCode == Enum.KeyCode.F then
+        EF()
+    end
+end)
+
+local function EJ()
+    local EK = false
+    local EL = {}
+    local EM = {}
+    for EN, EO in pairs(BT) do
+        table.insert(EM, {userId = EN, order = EO})
+    end
+    table.sort(EM, function(EP, EQ)
+        return EP.order < EQ.order
+    end)
+    for _, ER in ipairs(EM) do
+        local ES = B:GetPlayerByUserId(ER.userId)
+        if ES and ES.Parent == B and ES ~= H then
+            table.insert(EL, ES)
+        else
+            BT[ER.userId] = nil
+            EK = true
+        end
+    end
+    BR = EL
+    BS = {}
+    for _, ET in ipairs(BR) do
+        BS[ET] = true
+    end
+    return EK
+end
+
+local function EU()
+    EJ()
+    for _, EV in ipairs(DK:GetChildren()) do
+        if EV:IsA("F".."r".."a".."m".."e") and EV ~= DM then
+            local EW = EV:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
+            if EW then
+                EW.NumberLabel.Text = ""
+                EW.Visible = false
+            end
+        end
+    end
+    for EX, EY in ipairs(BR) do
+        if EY and EY.Parent == B then
+            local EZ = DK:FindFirstChild(EY.Name.."_row")
+            if EZ then
+                local FA = EZ:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
+                if FA then
+                    FA.Visible = true
+                    FA.NumberLabel.Text = tostring(EX)
+                end
+            end
+        end
+    end
+end
+
+local function FB()
+    EJ()
+    for _, FC in ipairs(DK:GetChildren()) do
+        if FC:IsA("F".."r".."a".."m".."e") and FC ~= DM then
+            FC:Destroy()
+        end
+    end
+    for _, FD in ipairs(B:GetPlayers()) do
+        if FD ~= H then
+            local FE = DM:Clone()
+            FE.Visible = true
+            FE.Name = FD.Name.."_row"
+            FE.Parent = DK
+            FE.NameLabel.Text = FD.DisplayName.." @"..FD.Name
+            task.spawn(function()
+                local FF, FG = pcall(function()
+                    return B:GetUserThumbnailAsync(FD.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
+                end)
+                if FF and FG and FE and FE.Parent then
+                    FE.AvatarDot:ClearAllChildren()
+                    local FH = Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
+                    FH.Parent = FE.AvatarDot
+                    FH.Size = UDim2.new(1, 0, 1, 0)
+                    FH.BackgroundTransparency = 1
+                    FH.Image = FG
+                    local FI = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+                    FI.CornerRadius = UDim.new(0, 14)
+                    FI.Parent = FH
+                end
+            end)
+            FE.InputBegan:Connect(function(FJ)
+                if FJ.UserInputType == Enum.UserInputType.MouseButton1 or FJ.UserInputType == Enum.UserInputType.Touch then
+                    if BT[FD.UserId] then
+                        BT[FD.UserId] = nil
+                        BS[FD] = nil
+                        for FK, FL in ipairs(BR) do
+                            if FL == FD then
+                                table.remove(BR, FK)
+                                break
+                            end
+                        end
+                        for FM, FN in ipairs(BR) do
+                            BT[FN.UserId] = FM
+                        end
+                    else
+                        if #BR < 2 then
+                            local FO = #BR + 1
+                            BT[FD.UserId] = FO
+                            table.insert(BR, FD)
+                            BS[FD] = true
+                        end
+                    end
+                    EU()
+                end
+            end)
+        end
+    end
+    EU()
+    DK.CanvasSize = UDim2.new(0, 0, 0, DL.AbsoluteContentSize.Y + 12)
+end
+
+task.spawn(function()
+    task.wait(2)
+    AC = AF()
+    if AC then
+        AD = AO(AC)
+    else
+        CS.Text = "P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"
+    end
+end)
+
+task.spawn(function()
+    while not R do
+        task.wait(0.1)
+    end
+    task.wait(0.5)
+    FB()
+end)
+
+B.PlayerAdded:Connect(function()
+    task.wait(0.5)
+    FB()
+end)
+
+B.PlayerRemoving:Connect(function(FP)
+    BT[FP.UserId] = nil
+    BS[FP] = nil
+    for FQ = #BR, 1, -1 do
+        if BR[FQ] == FP then
+            table.remove(BR, FQ)
+        end
+    end
+    FB()
+end)
+
+H.CharacterAdded:Connect(function()
+    task.wait(1)
+    FB()
+end)
+
+local FR = false
+local FS, FT
+
+local function FU(FV)
+    local FW = FV.Position - FS
+    CI.Position = UDim2.new(FT.X.Scale, FT.X.Offset + FW.X, FT.Y.Scale, FT.Y.Offset + FW.Y)
+end
+
+CN.InputBegan:Connect(function(FX)
+    if FX.UserInputType == Enum.UserInputType.MouseButton1 or FX.UserInputType == Enum.UserInputType.Touch then
+        FR = true
+        FS = FX.Position
+        FT = CI.Position
+        FX.Changed:Connect(function()
+            if FX.UserInputState == Enum.UserInputState.End then
+                FR = false
+            end
+        end)
+    end
+end)
+
+D.InputChanged:Connect(function(FY)
+    if FR and (FY.UserInputType == Enum.UserInputType.MouseMovement or FY.UserInputType == Enum.UserInputType.Touch) then
+        FU(FY)
+    end
+end)
+
+local FZ = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
+FZ.Name = "C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
+FZ.Parent = H:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+FZ.ResetOnSpawn = false
+
+local GA = Instance.new("F".."r".."a".."m".."e")
+GA.Name = "M".."a".."i".."n".."F".."r".."a".."m".."e"
+GA.Size = UDim2.new(0, 360, 0, 89)
+GA.Position = UDim2.new(0.5, -190, 0, 0)
+GA.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+GA.BackgroundTransparency = 0.10
+GA.BorderSizePixel = 0
+GA.Parent = FZ
+
+local GB = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+GB.CornerRadius = UDim.new(0, 20)
+GB.Parent = GA
+
+local GC = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+GC.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(20, 20, 20)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60, 60, 60)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 20))
+})
+GC.Transparency = NumberSequence.new(0.2)
+GC.Rotation = 45
+GC.Parent = GA
+
+local GD = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+GD.Color = Color3.fromRGB(25, 25, 112)
+GD.Thickness = 3.2
+GD.Transparency = 0
+GD.Parent = GA
+
+E:Create(GD, E.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
+    Transparency = 0.6,
+    Thickness = 2.5
+}):Play()
+
+local GE = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GE.Size = UDim2.new(1, 0, 0, 35)
+GE.Position = UDim2.new(0, 0, 0, 10)
+GE.BackgroundTransparency = 1
+GE.Text = "C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
+GE.TextColor3 = Color3.fromRGB(255, 255, 255)
+GE.Font = Enum.Font.GothamBold
+GE.TextSize = 16
+GE.Parent = GA
+
+local GF = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+GF.Color = ColorSequence.new({
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(140, 140, 140)),
+    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 255)),
+    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(160, 160, 160)),
+    ColorSequenceKeypoint.new(0.8, Color3.fromRGB(255, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 140, 140))
+})
+GF.Parent = GE
+
+task.spawn(function()
+    while true do
+        GF.Rotation = 25
+        GF.Offset = Vector2.new(-1, 0)
+        local GG = E:Create(GF, E.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+            Offset = Vector2.new(1, 0)
+        })
+        GG:Play()
+        GG.Completed:Wait()
+        task.wait(0.5)
+    end
+end)
+
+local GH = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GH.Size = UDim2.new(1, 0, 0, 20)
+GH.Position = UDim2.new(0, 0, 0, 42)
+GH.BackgroundTransparency = 1
+GH.Text = "d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
+GH.TextColor3 = Color3.fromRGB(220, 220, 220)
+GH.Font = Enum.Font.Gotham
+GH.TextSize = 13
+GH.Parent = GA
+
+local GI = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GI.Size = UDim2.new(1, 0, 0, 30)
+GI.Position = UDim2.new(0, 0, 0, 62)
+GI.BackgroundTransparency = 1
+GI.Text = "F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
+GI.TextColor3 = Color3.fromRGB(255, 255, 255)
+GI.Font = Enum.Font.GothamMedium
+GI.TextSize = 16
+GI.Parent = GA
+
+A.RenderStepped:Connect(function(GJ)
+    local GK = math.floor(1 / GJ)
+    local GL, GM = pcall(function()
+        return math.floor(G.Network.ServerStatsItem["D".."a".."t".."a".." ".."P".."i".."n".."g"]:GetValue())
+    end)
+    GI.Text = string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s", GK, GL and tostring(GM).."m".."s" or "-".."-")
+end)
 task.wait(0.1)
