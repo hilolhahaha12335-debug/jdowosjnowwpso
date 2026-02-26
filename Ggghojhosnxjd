@@ -1,1055 +1,756 @@
-local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local UserInputService = game:GetService("UserInputService")
-local TweenService = game:GetService("TweenService")
-local Workspace = game:GetService("Workspace")
-local Stats = game:GetService("Stats")
+local a=game:GetService("R".."u".."n".."S".."e".."r".."v".."i".."c".."e")
+local b=game:GetService("P".."l".."a".."y".."e".."r".."s")
+local c=game:GetService("R".."e".."p".."l".."i".."c".."a".."t".."e".."d".."S".."t".."o".."r".."a".."g".."e")
+local d=game:GetService("U".."s".."e".."r".."I".."n".."p".."u".."t".."S".."e".."r".."v".."i".."c".."e")
+local e=game:GetService("T".."w".."e".."e".."n".."S".."e".."r".."v".."i".."c".."e")
+local f=game:GetService("W".."o".."r".."k".."s".."p".."a".."c".."e")
+local g=game:GetService("S".."t".."a".."t".."s")
 
-local localPlayer = Players.LocalPlayer
-if not localPlayer.Character then localPlayer.CharacterAdded:Wait() end
+local h=b.LocalPlayer
+if not h.Character then h.CharacterAdded:Wait()end
 task.wait(0.5)
 
-local adminRemote
-local adminUUID = "f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
+local i
+local j="f".."8".."8".."8".."e".."e".."6".."e".."-".."c".."8".."6".."d".."-".."4".."6".."e".."1".."-".."9".."3".."d".."7".."-".."0".."6".."3".."9".."d".."6".."6".."3".."5".."d".."4".."2"
 
-local function findAdminRemote()
-    local Packages = ReplicatedStorage:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
-    if not Packages then return end
-    local Net = Packages:FindFirstChild("N".."e".."t")
-    if not Net then return end
-    local children = Net:GetChildren()
-    for i = 1, #children - 1 do
-        local current = children[i]
-        local next = children[i + 1]
-        if current:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and next:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            if next.Name == "R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s" then
-                adminRemote = current
-                return
-            end
-        end
-    end
-    for i = 1, #children - 1 do
-        local current = children[i]
-        local next = children[i + 1]
-        if current:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") and next:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            if next.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e") then
-                adminRemote = current
-                return
-            end
-        end
-    end
-end
+local function k()
+    local l=c:FindFirstChild("P".."a".."c".."k".."a".."g".."e".."s")
+    if not l then return end
+    local m=l:FindFirstChild("N".."e".."t")
+    if not m then return end
+    local n=m:GetChildren()
+    for o=1,#n-1 do
+        local p=n[o]
+        local q=n[o+1]
+        if p:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")and q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
+            if q.Name=="R".."E".."/".."A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e".."/".."D".."e".."a".."l".."W".."i".."t".."h".."T".."h".."i".."s"then
+                i=p
+                return end end end
+    for o=1,#n-1 do
+        local p=n[o]
+        local q=n[o+1]
+        if p:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")and q:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
+            if q.Name:match("A".."d".."m".."i".."n".."P".."a".."n".."e".."l".."S".."e".."r".."v".."i".."c".."e")then
+                i=p
+                return end end end end
 
-local remoteReady = false
+local r=false
 task.spawn(function()
-    local maxWait = 10
-    local elapsed = 0
-    while elapsed < maxWait and not remoteReady do
-        findAdminRemote()
-        if adminRemote and adminRemote:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t") then
-            remoteReady = true
-            break
-        end
-        elapsed = elapsed + 0.1
-        task.wait(0.1)
-    end
-end)
+    local s=10
+    local t=0
+    while t<s and not r do
+        k()
+        if i and i:IsA("R".."e".."m".."o".."t".."e".."E".."v".."e".."n".."t")then
+            r=true
+            break end
+        t=t+0.1
+        task.wait(0.1)end end)
 
-local baseDefenderEnabled = false
-local baseDefenderLastUse = {}
-local baseDefenderCooldown = 10
+local u=false
+local v=0
+local w=3
+local x=15
 
-local antiTPScamEnabled = false
-local antiTPLastDefenseTime = 0
-local antiTPCooldown = 3
-local antiTPDistanceThreshold = 15
+local y=nil
+local z={}
+local aa=h.DisplayName
 
-local myPlot = nil
-local myPlotAnimalPodiums = {}
-local myDisplayName = localPlayer.DisplayName
+local function ab()
+    local ac=f:FindFirstChild("P".."l".."o".."t".."s")
+    if not ac then return nil end
+    for ad,ae in pairs(ac:GetChildren())do
+        local af=ae:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
+        if af then
+            local ag=af:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
+            if ag then
+                local ah=ag:FindFirstChild("F".."r".."a".."m".."e")
+                if ah then
+                    local ai=ah:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
+                    if ai and ai:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l")then
+                        local aj=ai.Text
+                        if aj:find(aa)and aj:find("'".."s".." ".."B".."a".."s".."e")then
+                            return ae end end end end end end end
+    return nil end
 
-local function findMyPlot()
-    local plotsFolder = Workspace:FindFirstChild("P".."l".."o".."t".."s")
-    if not plotsFolder then return nil end
-    for _, plot in pairs(plotsFolder:GetChildren()) do
-        local plotSign = plot:FindFirstChild("P".."l".."o".."t".."S".."i".."g".."n")
-        if plotSign then
-            local surfaceGui = plotSign:FindFirstChild("S".."u".."r".."f".."a".."c".."e".."G".."u".."i")
-            if surfaceGui then
-                local frame = surfaceGui:FindFirstChild("F".."r".."a".."m".."e")
-                if frame then
-                    local textLabel = frame:FindFirstChild("T".."e".."x".."t".."L".."a".."b".."e".."l")
-                    if textLabel and textLabel:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") then
-                        local plotText = textLabel.Text
-                        if plotText:find(myDisplayName) and plotText:find("'".."s".." ".."B".."a".."s".."e") then
-                            return plot
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return nil
-end
+local function ak(al)
+    local am={}
+    local an=al:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
+    if not an then return am end
+    for ao=1,10 do
+        local ap=an:FindFirstChild(tostring(ao))
+        if ap and ap:IsA("M".."o".."d".."e".."l")then
+            am[ao]=ap:GetPivot().Position end end
+    return am end
 
-local function getMyPlotAnimalPodiums(plot)
-    local podiumPositions = {}
-    local animalPodiumsFolder = plot:FindFirstChild("A".."n".."i".."m".."a".."l".."P".."o".."d".."i".."u".."m".."s")
-    if not animalPodiumsFolder then return podiumPositions end
-    for i = 1, 10 do
-        local podium = animalPodiumsFolder:FindFirstChild(tostring(i))
-        if podium and podium:IsA("M".."o".."d".."e".."l") then
-            podiumPositions[i] = podium:GetPivot().Position
-        end
-    end
-    return podiumPositions
-end
+local function aq(ar)
+    local as=ar.Character
+    if not as then return nil end
+    return as:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")end
 
-local function getPlayerRootPart(plr)
-    local char = plr.Character
-    if not char then return nil end
-    return char:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")
-end
+local function at()
+    local au=h.Character
+    if not au or not au:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t")then return nil end
+    local av=au.HumanoidRootPart
+    local aw,ax=nil,math.huge
+    for _,ay in ipairs(b:GetPlayers())do
+        if ay~=h and ay.Character then
+            local az=aq(ay)
+            if az then
+                local ba=(av.Position-az.Position).Magnitude
+                if ba<ax then
+                    ax=ba
+                    aw=ay end end end end
+    return aw end
 
-local function getPlayersInMyPlot()
-    if not myPlot then return {} end
-    local players = {}
-    for _, p in ipairs(Players:GetPlayers()) do
-        if p ~= localPlayer and p.Character then
-            local hrp = getPlayerRootPart(p)
-            if hrp then
-                for _, podiumPos in ipairs(myPlotAnimalPodiums) do
-                    if (hrp.Position - podiumPos).Magnitude < 8 then
-                        table.insert(players, p)
-                        break
-                    end
-                end
-            end
-        end
-    end
-    return players
-end
-
-local function getNearestPlayer()
-    local char = localPlayer.Character
-    if not char or not char:FindFirstChild("H".."u".."m".."a".."n".."o".."i".."d".."R".."o".."o".."t".."P".."a".."r".."t") then return nil end
-    local hrp = char.HumanoidRootPart
-    local nearest, shortest = nil, math.huge
-    for _, p in ipairs(Players:GetPlayers()) do
-        if p ~= localPlayer and p.Character then
-            local phrp = getPlayerRootPart(p)
-            if phrp then
-                local dist = (hrp.Position - phrp.Position).Magnitude
-                if dist < shortest then
-                    shortest = dist
-                    nearest = p
-                end
-            end
-        end
-    end
-    return nearest
-end
-
-local function executeBaseDefenderNear(target)
-    adminRemote:FireServer(adminUUID, target, "r".."a".."g".."d".."o".."l".."l")
-    task.wait(0.1)
-    adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
-    task.wait(0.1)
-    adminRemote:FireServer(adminUUID, target, "j".."a".."i".."l")
-end
-
-local function executeBaseDefenderFar(target)
-    adminRemote:FireServer(adminUUID, target, "j".."a".."i".."l")
-end
-
-local function executeAutoDefense(target)
-    adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
-end
-
-local function getDistanceToBase(player)
-    if not player.Character then return math.huge end
-    local hrp = getPlayerRootPart(player)
-    if not hrp then return math.huge end
-    local minDist = math.huge
-    for _, podiumPos in ipairs(myPlotAnimalPodiums) do
-        local d = (hrp.Position - podiumPos).Magnitude
-        if d < minDist then minDist = d end
-    end
-    return minDist
-end
+local function bb()
+    i:FireServer(j,bc,"b".."a".."l".."l".."o".."o".."n")end
 
 task.spawn(function()
     task.wait(2)
-    myPlot = findMyPlot()
-    if myPlot then
-        myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
-    end
-end)
-
-coroutine.wrap(function()
-    while true do
-        if baseDefenderEnabled and myPlot then
-            local playersInPlot = getPlayersInMyPlot()
-            if #playersInPlot >= 2 then
-                local distances = {}
-                for _, plr in ipairs(playersInPlot) do
-                    distances[plr] = getDistanceToBase(plr)
-                end
-                table.sort(playersInPlot, function(a, b)
-                    return distances[a] < distances[b]
-                end)
-                local now = tick()
-                local closest = playersInPlot[1]
-                local furthest = playersInPlot[#playersInPlot]
-                if closest and (not baseDefenderLastUse[closest.UserId] or (now - baseDefenderLastUse[closest.UserId]) > baseDefenderCooldown) then
-                    coroutine.wrap(executeBaseDefenderNear)(closest)
-                    baseDefenderLastUse[closest.UserId] = now
-                end
-                if furthest and furthest ~= closest and (not baseDefenderLastUse[furthest.UserId] or (now - baseDefenderLastUse[furthest.UserId]) > baseDefenderCooldown) then
-                    coroutine.wrap(executeBaseDefenderFar)(furthest)
-                    baseDefenderLastUse[furthest.UserId] = now
-                end
-            elseif #playersInPlot == 1 then
-                local now = tick()
-                local player = playersInPlot[1]
-                if not baseDefenderLastUse[player.UserId] or (now - baseDefenderLastUse[player.UserId]) > baseDefenderCooldown then
-                    coroutine.wrap(executeBaseDefenderNear)(player)
-                    baseDefenderLastUse[player.UserId] = now
-                end
-            end
-        end
-        task.wait()
-    end
-end)()
-
-local gui = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-local stealingDetected = false
-local lastDefenseTime = 0
-local defenseCooldown = 3
-
-coroutine.wrap(function()
-    while true do
-        task.wait(0.01)
-        if stealingDetected == false then
-            for _, g in ipairs(gui:GetDescendants()) do
-                if g:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l") and g.Visible and g.Text ~= "" then
-                    if g.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r") then
-                        stealingDetected = true
-                        break
-                    end
-                end
-            end
-        end
-    end
-end)()
+    y=ab()
+    if y then
+        z=ak(y)end end)
 
 task.spawn(function()
     while true do
-        if antiTPScamEnabled and remoteReady and myPlot and next(myPlotAnimalPodiums) then
-            for _, plr in ipairs(Players:GetPlayers()) do
-                if plr ~= localPlayer and plr.Character then
-                    local targetRoot = getPlayerRootPart(plr)
-                    if targetRoot then
-                        local playerPos = targetRoot.Position
-                        for _, podiumPos in pairs(myPlotAnimalPodiums) do
-                            local distance = (playerPos - podiumPos).Magnitude
-                            if distance < antiTPDistanceThreshold then
-                                if tick() - antiTPLastDefenseTime > antiTPCooldown then
-                                    for _, cmd in ipairs({"b".."a".."l".."l".."o".."o".."n", "i".."n".."v".."e".."r".."s".."e", "r".."o".."c".."k".."e".."t", "t".."i".."n".."y"}) do
-                                        adminRemote:FireServer(adminUUID, plr, cmd)
-                                        task.wait(0.05)
-                                    end
-                                    antiTPLastDefenseTime = tick()
-                                    break
-                                end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        task.wait(0.1)
-    end
-end)
+        if u and r and y and next(z)then
+            for _,bd in ipairs(b:GetPlayers())do
+                if bd~=h and bd.Character then
+                    local be=aq(bd)
+                    if be then
+                        local bf=be.Position
+                        for _,bg in pairs(z)do
+                            local bh=(bf-bg).Magnitude
+                            if bh<x then
+                                if tick()-v>w then
+                                    for _,bi in ipairs({"b".."a".."l".."l".."o".."o".."n","i".."n".."v".."e".."r".."s".."e","r".."o".."c".."k".."e".."t","t".."i".."n".."y"})do
+                                        i:FireServer(j,bd,bi)
+                                        task.wait(0.05)end
+                                    v=tick()
+                                    break end end end end end end end
+        task.wait(0.1)end end)
 
-task.spawn(function()
+local bj=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+local bk=false
+local bl=0
+local bm=3
+
+coroutine.wrap(function()
     while true do
-        if stealingDetected and remoteReady then
-            stealingDetected = false
-            if tick() - lastDefenseTime > defenseCooldown then
-                local target = getNearestPlayer()
-                if target then
-                    coroutine.wrap(executeAutoDefense)(target)
-                    lastDefenseTime = tick()
-                end
-            end
-        end
-        task.wait(0.05)
-    end
-end)
+        task.wait(0.001)
+        if bk then
+            for _,bn in ipairs(bj:GetDescendants())do
+                if bn:IsA("T".."e".."x".."t".."L".."a".."b".."e".."l")and bn.Visible and bn.Text~=""then
+                    if bn.Text:find("S".."o".."m".."e".."o".."n".."e".." ".."i".."s".." ".."s".."t".."e".."a".."l".."i".."n".."g".." ".."y".."o".."u".."r")then
+                        if tick()-bl>bm then
+                            local bo=at()
+                            if bo then
+                                i:FireServer(j,bo,"b".."a".."l".."l".."o".."o".."n")
+                                bl=tick()end
+                            break end end end end end end
+    end end)()
 
-local selectedPlayers = {}
-local selectedSet = {}
-local selectedUserIds = {}
+local bp={}
+local bq={}
+local br={}
 
-local activeGradients = {}
-local function registerGradient(gradient)
-    table.insert(activeGradients, gradient)
-end
+local bs={}
+local function bt(bu)table.insert(bs,bu)end
 
-local animationAngle = 0
-RunService.Heartbeat:Connect(function(dt)
-    animationAngle = (animationAngle + (dt * 180)) % 360
-    for i = #activeGradients, 1, -1 do
-        local grad = activeGradients[i]
-        if grad and grad.Parent then
-            grad.Rotation = animationAngle
+local bv=0
+a.Heartbeat:Connect(function(bw)
+    bv=(bv+(bw*180))%360
+    for bx=#bs,1,-1 do
+        local by=bs[bx]
+        if by and by.Parent then
+            by.Rotation=bv
         else
-            table.remove(activeGradients, i)
-        end
-    end
-end)
+            table.remove(bs,bx)end end end)
 
-local function addAnimatedStroke(frame, thickness)
-    local stroke = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-    stroke.Name = "S"..math.random(9999)
-    stroke.Color = Color3.fromRGB(25, 25, 112)
-    stroke.Thickness = thickness or 3
-    stroke.Transparency = 0
-    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    stroke.Parent = frame
-    local gradient = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-    gradient.Parent = stroke
-    gradient.Transparency = NumberSequence.new({
-        NumberSequenceKeypoint.new(0, 0),
-        NumberSequenceKeypoint.new(0.5, 0.8),
-        NumberSequenceKeypoint.new(1, 0)
-    })
-    registerGradient(gradient)
-    return stroke
-end
+local function bz(ca,cb)
+    local cc=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+    cc.Name="S"..math.random(9999)
+    cc.Color=Color3.fromRGB(25,25,112)
+    cc.Thickness=cb or 3
+    cc.Transparency=0
+    cc.ApplyStrokeMode=Enum.ApplyStrokeMode.Border
+    cc.Parent=ca
+    local cd=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+    cd.Parent=cc
+    cd.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.5,0.8),NumberSequenceKeypoint.new(1,0)})
+    bt(cd)
+    return cc end
 
-local playerGui = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-local screenGui = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
-screenGui.Name = "A"..math.random(9999)
-screenGui.ResetOnSpawn = false
-screenGui.Parent = playerGui
+local ce=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+local cf=Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
+cf.Name="A"..math.random(9999)
+cf.ResetOnSpawn=false
+cf.Parent=ce
 
-local outer = Instance.new("F".."r".."a".."m".."e")
-outer.Name = "B"..math.random(9999)
-outer.Size = UDim2.new(0, 280, 0, 340)
-outer.Position = UDim2.new(1, -300, 0, 80)
-outer.BackgroundTransparency = 1
-outer.Parent = screenGui
+local cg=Instance.new("F".."r".."a".."m".."e")
+cg.Name="B"..math.random(9999)
+cg.Size=UDim2.new(0,280,0,290)
+cg.Position=UDim2.new(1,-300,0,80)
+cg.BackgroundTransparency=1
+cg.Parent=cf
 
-local outerCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-outerCorner.CornerRadius = UDim.new(0, 12)
-outerCorner.Parent = outer
+local ch=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+ch.CornerRadius=UDim.new(0,12)
+ch.Parent=cg
 
-local card = Instance.new("F".."r".."a".."m".."e")
-card.Name = "C"..math.random(9999)
-card.Size = UDim2.new(1, -12, 1, -12)
-card.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
-card.BackgroundTransparency = 0.1
-card.BorderSizePixel = 0
-card.Parent = outer
+local ci=Instance.new("F".."r".."a".."m".."e")
+ci.Name="C"..math.random(9999)
+ci.Size=UDim2.new(1,-12,1,-12)
+ci.BackgroundColor3=Color3.fromRGB(30,30,35)
+ci.BackgroundTransparency=0.1
+ci.BorderSizePixel=0
+ci.Parent=cg
 
-local cardCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-cardCorner.CornerRadius = UDim.new(0, 12)
-cardCorner.Parent = card
+local cj=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cj.CornerRadius=UDim.new(0,12)
+cj.Parent=ci
 
-local cardStroke = addAnimatedStroke(card, 3)
+local ck=bz(ci,3)
 
-local topLeftAccent = Instance.new("F".."r".."a".."m".."e")
-topLeftAccent.Name = "D"..math.random(9999)
-topLeftAccent.Size = UDim2.new(1, 0, 0, 60)
-topLeftAccent.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
-topLeftAccent.BackgroundTransparency = 0.1
-topLeftAccent.BorderSizePixel = 0
-topLeftAccent.Parent = card
+local cl=Instance.new("F".."r".."a".."m".."e")
+cl.Name="D"..math.random(9999)
+cl.Size=UDim2.new(1,0,0,60)
+cl.BackgroundColor3=Color3.fromRGB(40,40,48)
+cl.BackgroundTransparency=0.1
+cl.BorderSizePixel=0
+cl.Parent=ci
 
-local topLeftAccentCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-topLeftAccentCorner.CornerRadius = UDim.new(0, 12)
-topLeftAccentCorner.Parent = topLeftAccent
+local cm=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cm.CornerRadius=UDim.new(0,12)
+cm.Parent=cl
 
-local titleStroke = addAnimatedStroke(topLeftAccent, 2)
+local cn=bz(cl,2)
 
-local title = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-title.Name = "E"..math.random(9999)
-title.Parent = topLeftAccent
-title.BackgroundTransparency = 1
-title.Position = UDim2.new(0, 18, 0, 8)
-title.Size = UDim2.new(1, -36, 0, 26)
-title.Text = "c".."h".."i".."r".."a".."q".." ".."H".."u".."b"
-title.Font = Enum.Font.GothamBold
-title.TextSize = 16
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.TextXAlignment = Enum.TextXAlignment.Left
+local co=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+co.Name="E"..math.random(9999)
+co.Parent=cl
+co.BackgroundTransparency=1
+co.Position=UDim2.new(0,18,0,8)
+co.Size=UDim2.new(1,-36,0,26)
+co.Text="c".."h".."i".."r".."a".."q".." ".."H".."u".."b"
+co.Font=Enum.Font.GothamBold
+co.TextSize=16
+co.TextColor3=Color3.fromRGB(255,255,255)
+co.TextXAlignment=Enum.TextXAlignment.Left
 
-local subtitle = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-subtitle.Name = "F"..math.random(9999)
-subtitle.Parent = topLeftAccent
-subtitle.BackgroundTransparency = 1
-subtitle.Position = UDim2.new(0, 18, 0, 30)
-subtitle.Size = UDim2.new(1, -36, 0, 18)
-subtitle.Text = "S".."e".."l".."e".."c".."t".." ".."p".."l".."a".."y".."e".."r".."s".." ".."b".."e".."l".."o".."w"
-subtitle.Font = Enum.Font.Gotham
-subtitle.TextSize = 11
-subtitle.TextColor3 = Color3.fromRGB(160, 160, 160)
-subtitle.TextXAlignment = Enum.TextXAlignment.Left
+local cp=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+cp.Name="F"..math.random(9999)
+cp.Parent=cl
+cp.BackgroundTransparency=1
+cp.Position=UDim2.new(0,18,0,30)
+cp.Size=UDim2.new(1,-36,0,18)
+cp.Text="S".."e".."l".."e".."c".."t".." ".."p".."l".."a".."y".."e".."r".."s".." ".."b".."e".."l".."o".."w"
+cp.Font=Enum.Font.Gotham
+cp.TextSize=11
+cp.TextColor3=Color3.fromRGB(160,160,160)
+cp.TextXAlignment=Enum.TextXAlignment.Left
 
-local plotStatus = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-plotStatus.Name = "G"..math.random(9999)
-plotStatus.Parent = topLeftAccent
-plotStatus.BackgroundTransparency = 1
-plotStatus.Position = UDim2.new(0, 18, 0, 48)
-plotStatus.Size = UDim2.new(1, -36, 0, 8)
-plotStatus.Text = ""
-plotStatus.Font = Enum.Font.Gotham
-plotStatus.TextSize = 9
-plotStatus.TextColor3 = Color3.fromRGB(180, 180, 180)
-plotStatus.TextXAlignment = Enum.TextXAlignment.Left
+local cq=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+cq.Name="G"..math.random(9999)
+cq.Parent=cl
+cq.BackgroundTransparency=1
+cq.Position=UDim2.new(0,18,0,48)
+cq.Size=UDim2.new(1,-36,0,8)
+cq.Text=""
+cq.Font=Enum.Font.Gotham
+cq.TextSize=9
+cq.TextColor3=Color3.fromRGB(180,180,180)
+cq.TextXAlignment=Enum.TextXAlignment.Left
 
-local baseDefenderFrame = Instance.new("F".."r".."a".."m".."e")
-baseDefenderFrame.Name = "H"..math.random(9999)
-baseDefenderFrame.Size = UDim2.new(1, -24, 0, 32)
-baseDefenderFrame.Position = UDim2.new(0, 12, 0, 72)
-baseDefenderFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-baseDefenderFrame.BackgroundTransparency = 0.1
-baseDefenderFrame.BorderSizePixel = 0
-baseDefenderFrame.Parent = card
+local cr=Instance.new("F".."r".."a".."m".."e")
+cr.Name="H"..math.random(9999)
+cr.Size=UDim2.new(1,-24,0,32)
+cr.Position=UDim2.new(0,12,0,72)
+cr.BackgroundColor3=Color3.fromRGB(25,25,30)
+cr.BackgroundTransparency=0.1
+cr.BorderSizePixel=0
+cr.Parent=ci
 
-local baseDefenderCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-baseDefenderCorner.CornerRadius = UDim.new(0, 8)
-baseDefenderCorner.Parent = baseDefenderFrame
+local cs=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cs.CornerRadius=UDim.new(0,8)
+cs.Parent=cr
 
-local baseDefenderLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-baseDefenderLabel.Name = "I"..math.random(9999)
-baseDefenderLabel.Parent = baseDefenderFrame
-baseDefenderLabel.BackgroundTransparency = 1
-baseDefenderLabel.Position = UDim2.new(0, 12, 0, 0)
-baseDefenderLabel.Size = UDim2.new(1, -60, 1, 0)
-baseDefenderLabel.Text = "B".."a".."s".."e".." ".."D".."e".."f".."e".."n".."d".."e".."r"
-baseDefenderLabel.Font = Enum.Font.GothamBold
-baseDefenderLabel.TextSize = 13
-baseDefenderLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-baseDefenderLabel.TextXAlignment = Enum.TextXAlignment.Left
+local ct=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+ct.Name="I"..math.random(9999)
+ct.Parent=cr
+ct.BackgroundTransparency=1
+ct.Position=UDim2.new(0,12,0,0)
+ct.Size=UDim2.new(1,-60,1,0)
+ct.Text="A".."u".."t".."o".." ".."D".."e".."f".."e".."n".."s".."e"
+ct.Font=Enum.Font.GothamBold
+ct.TextSize=13
+ct.TextColor3=Color3.fromRGB(220,220,220)
+ct.TextXAlignment=Enum.TextXAlignment.Left
 
-local baseDefenderButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-baseDefenderButton.Name = "J"..math.random(9999)
-baseDefenderButton.Parent = baseDefenderFrame
-baseDefenderButton.Size = UDim2.new(0, 50, 0, 24)
-baseDefenderButton.Position = UDim2.new(1, -58, 0.5, -12)
-baseDefenderButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
-baseDefenderButton.Text = ""
-baseDefenderButton.BorderSizePixel = 0
+local cu=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+cu.Name="J"..math.random(9999)
+cu.Parent=cr
+cu.Size=UDim2.new(0,50,0,24)
+cu.Position=UDim2.new(1,-58,0.5,-12)
+cu.BackgroundColor3=Color3.fromRGB(60,60,68)
+cu.Text=""
+cu.BorderSizePixel=0
 
-local baseDefenderBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-baseDefenderBtnCorner.CornerRadius = UDim.new(0, 12)
-baseDefenderBtnCorner.Parent = baseDefenderButton
+local cv=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cv.CornerRadius=UDim.new(0,12)
+cv.Parent=cu
 
-local baseDefenderIndicator = Instance.new("F".."r".."a".."m".."e")
-baseDefenderIndicator.Name = "K"..math.random(9999)
-baseDefenderIndicator.Parent = baseDefenderButton
-baseDefenderIndicator.Size = UDim2.new(0, 20, 0, 20)
-baseDefenderIndicator.Position = UDim2.new(0, 2, 0, 2)
-baseDefenderIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
-baseDefenderIndicator.BorderSizePixel = 0
+local cw=Instance.new("F".."r".."a".."m".."e")
+cw.Name="K"..math.random(9999)
+cw.Parent=cu
+cw.Size=UDim2.new(0,20,0,20)
+cw.Position=UDim2.new(0,2,0,2)
+cw.BackgroundColor3=Color3.fromRGB(180,180,180)
+cw.BorderSizePixel=0
 
-local baseDefenderIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-baseDefenderIndicatorCorner.CornerRadius = UDim.new(0, 10)
-baseDefenderIndicatorCorner.Parent = baseDefenderIndicator
+local cx=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cx.CornerRadius=UDim.new(0,10)
+cx.Parent=cw
 
-local autoDefenseFrame = Instance.new("F".."r".."a".."m".."e")
-autoDefenseFrame.Name = "L"..math.random(9999)
-autoDefenseFrame.Size = UDim2.new(1, -24, 0, 32)
-autoDefenseFrame.Position = UDim2.new(0, 12, 0, 114)
-autoDefenseFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-autoDefenseFrame.BackgroundTransparency = 0.1
-autoDefenseFrame.BorderSizePixel = 0
-autoDefenseFrame.Parent = card
+local cy=Instance.new("F".."r".."a".."m".."e")
+cy.Name="L"..math.random(9999)
+cy.Size=UDim2.new(1,-24,0,32)
+cy.Position=UDim2.new(0,12,0,114)
+cy.BackgroundColor3=Color3.fromRGB(25,25,30)
+cy.BackgroundTransparency=0.1
+cy.BorderSizePixel=0
+cy.Parent=ci
 
-local autoDefenseCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-autoDefenseCorner.CornerRadius = UDim.new(0, 8)
-autoDefenseCorner.Parent = autoDefenseFrame
+local cz=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+cz.CornerRadius=UDim.new(0,8)
+cz.Parent=cy
 
-local autoDefenseLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-autoDefenseLabel.Name = "M"..math.random(9999)
-autoDefenseLabel.Parent = autoDefenseFrame
-autoDefenseLabel.BackgroundTransparency = 1
-autoDefenseLabel.Position = UDim2.new(0, 12, 0, 0)
-autoDefenseLabel.Size = UDim2.new(1, -60, 1, 0)
-autoDefenseLabel.Text = "A".."u".."t".."o".." ".."D".."e".."f".."e".."n".."s".."e"
-autoDefenseLabel.Font = Enum.Font.GothamBold
-autoDefenseLabel.TextSize = 13
-autoDefenseLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-autoDefenseLabel.TextXAlignment = Enum.TextXAlignment.Left
+local da=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+da.Name="M"..math.random(9999)
+da.Parent=cy
+da.BackgroundTransparency=1
+da.Position=UDim2.new(0,12,0,0)
+da.Size=UDim2.new(1,-60,1,0)
+da.Text="A".."n".."t".."i".."-".."T".."P".." ".."S".."c".."a".."m"
+da.Font=Enum.Font.GothamBold
+da.TextSize=13
+da.TextColor3=Color3.fromRGB(220,220,220)
+da.TextXAlignment=Enum.TextXAlignment.Left
 
-local autoDefenseButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-autoDefenseButton.Name = "N"..math.random(9999)
-autoDefenseButton.Parent = autoDefenseFrame
-autoDefenseButton.Size = UDim2.new(0, 50, 0, 24)
-autoDefenseButton.Position = UDim2.new(1, -58, 0.5, -12)
-autoDefenseButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
-autoDefenseButton.Text = ""
-autoDefenseButton.BorderSizePixel = 0
+local db=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+db.Name="N"..math.random(9999)
+db.Parent=cy
+db.Size=UDim2.new(0,50,0,24)
+db.Position=UDim2.new(1,-58,0.5,-12)
+db.BackgroundColor3=Color3.fromRGB(60,60,68)
+db.Text=""
+db.BorderSizePixel=0
 
-local autoDefenseBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-autoDefenseBtnCorner.CornerRadius = UDim.new(0, 12)
-autoDefenseBtnCorner.Parent = autoDefenseButton
+local dc=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+dc.CornerRadius=UDim.new(0,12)
+dc.Parent=db
 
-local autoDefenseIndicator = Instance.new("F".."r".."a".."m".."e")
-autoDefenseIndicator.Name = "O"..math.random(9999)
-autoDefenseIndicator.Parent = autoDefenseButton
-autoDefenseIndicator.Size = UDim2.new(0, 20, 0, 20)
-autoDefenseIndicator.Position = UDim2.new(0, 2, 0, 2)
-autoDefenseIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
-autoDefenseIndicator.BorderSizePixel = 0
+local dd=Instance.new("F".."r".."a".."m".."e")
+dd.Name="O"..math.random(9999)
+dd.Parent=db
+dd.Size=UDim2.new(0,20,0,20)
+dd.Position=UDim2.new(0,2,0,2)
+dd.BackgroundColor3=Color3.fromRGB(180,180,180)
+dd.BorderSizePixel=0
 
-local autoDefenseIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-autoDefenseIndicatorCorner.CornerRadius = UDim.new(0, 10)
-autoDefenseIndicatorCorner.Parent = autoDefenseIndicator
+local de=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+de.CornerRadius=UDim.new(0,10)
+de.Parent=dd
 
-local antiTPFrame = Instance.new("F".."r".."a".."m".."e")
-antiTPFrame.Name = "P"..math.random(9999)
-antiTPFrame.Size = UDim2.new(1, -24, 0, 32)
-antiTPFrame.Position = UDim2.new(0, 12, 0, 156)
-antiTPFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-antiTPFrame.BackgroundTransparency = 0.1
-antiTPFrame.BorderSizePixel = 0
-antiTPFrame.Parent = card
+local df=Instance.new("F".."r".."a".."m".."e")
+df.Name="P"..math.random(9999)
+df.Size=UDim2.new(1,-24,1,-170)
+df.Position=UDim2.new(0,12,0,156)
+df.BackgroundColor3=Color3.fromRGB(25,25,30)
+df.BackgroundTransparency=0.1
+df.BorderSizePixel=0
+df.Parent=ci
 
-local antiTPCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-antiTPCorner.CornerRadius = UDim.new(0, 8)
-antiTPCorner.Parent = antiTPFrame
+local dg=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+dg.CornerRadius=UDim.new(0,12)
+dg.Parent=df
 
-local antiTPLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-antiTPLabel.Name = "Q"..math.random(9999)
-antiTPLabel.Parent = antiTPFrame
-antiTPLabel.BackgroundTransparency = 1
-antiTPLabel.Position = UDim2.new(0, 12, 0, 0)
-antiTPLabel.Size = UDim2.new(1, -60, 1, 0)
-antiTPLabel.Text = "A".."n".."t".."i".."-".."T".."P".." ".."S".."c".."a".."m"
-antiTPLabel.Font = Enum.Font.GothamBold
-antiTPLabel.TextSize = 13
-antiTPLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-antiTPLabel.TextXAlignment = Enum.TextXAlignment.Left
+local dh=bz(df,2)
 
-local antiTPButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-antiTPButton.Name = "R"..math.random(9999)
-antiTPButton.Parent = antiTPFrame
-antiTPButton.Size = UDim2.new(0, 50, 0, 24)
-antiTPButton.Position = UDim2.new(1, -58, 0.5, -12)
-antiTPButton.BackgroundColor3 = Color3.fromRGB(60, 60, 68)
-antiTPButton.Text = ""
-antiTPButton.BorderSizePixel = 0
+local di=Instance.new("S".."c".."r".."o".."l".."l".."i".."n".."g".."F".."r".."a".."m".."e")
+di.Name="Q"..math.random(9999)
+di.Parent=df
+di.BackgroundTransparency=1
+di.Size=UDim2.new(1,-16,1,-16)
+di.Position=UDim2.new(0,8,0,8)
+di.CanvasSize=UDim2.new(0,0,0,0)
+di.ScrollBarThickness=6
 
-local antiTPBtnCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-antiTPBtnCorner.CornerRadius = UDim.new(0, 12)
-antiTPBtnCorner.Parent = antiTPButton
+local dj=Instance.new("U".."I".."L".."i".."s".."t".."L".."a".."y".."o".."u".."t")
+dj.Parent=di
+dj.Padding=UDim.new(0,8)
+dj.SortOrder=Enum.SortOrder.Name
 
-local antiTPIndicator = Instance.new("F".."r".."a".."m".."e")
-antiTPIndicator.Name = "S"..math.random(9999)
-antiTPIndicator.Parent = antiTPButton
-antiTPIndicator.Size = UDim2.new(0, 20, 0, 20)
-antiTPIndicator.Position = UDim2.new(0, 2, 0, 2)
-antiTPIndicator.BackgroundColor3 = Color3.fromRGB(180, 180, 180)
-antiTPIndicator.BorderSizePixel = 0
+local dk=Instance.new("F".."r".."a".."m".."e")
+dk.Name="T".."e".."m".."p".."l".."a".."t".."e"
+dk.Size=UDim2.new(1,0,0,40)
+dk.BackgroundColor3=Color3.fromRGB(40,40,48)
+dk.Visible=false
+dk.Parent=di
 
-local antiTPIndicatorCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-antiTPIndicatorCorner.CornerRadius = UDim.new(0, 10)
-antiTPIndicatorCorner.Parent = antiTPIndicator
+local dl=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+dl.CornerRadius=UDim.new(0,8)
+dl.Parent=dk
 
-local body = Instance.new("F".."r".."a".."m".."e")
-body.Name = "T"..math.random(9999)
-body.Size = UDim2.new(1, -24, 1, -210)
-body.Position = UDim2.new(0, 12, 0, 198)
-body.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-body.BackgroundTransparency = 0.1
-body.BorderSizePixel = 0
-body.Parent = card
+local dm=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+dm.Color=Color3.fromRGB(60,60,68)
+dm.Thickness=1
+dm.Parent=dk
 
-local bodyCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-bodyCorner.CornerRadius = UDim.new(0, 12)
-bodyCorner.Parent = body
+local dn=Instance.new("F".."r".."a".."m".."e")
+dn.Name="A".."v".."a".."t".."a".."r".."D".."o".."t"
+dn.Size=UDim2.new(0,28,0,28)
+dn.Position=UDim2.new(0,8,0,6)
+dn.BackgroundTransparency=1
+dn.Parent=dk
 
-local bodyStroke = addAnimatedStroke(body, 2)
+local do=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+do.CornerRadius=UDim.new(0,14)
+do.Parent=dn
 
-local list = Instance.new("S".."c".."r".."o".."l".."l".."i".."n".."g".."F".."r".."a".."m".."e")
-list.Name = "U"..math.random(9999)
-list.Parent = body
-list.BackgroundTransparency = 1
-list.Size = UDim2.new(1, -16, 1, -16)
-list.Position = UDim2.new(0, 8, 0, 8)
-list.CanvasSize = UDim2.new(0, 0, 0, 0)
-list.ScrollBarThickness = 6
+local dp=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+dp.Name="N".."a".."m".."e".."L".."a".."b".."e".."l"
+dp.Parent=dk
+dp.BackgroundTransparency=1
+dp.Position=UDim2.new(0,48,0,6)
+dp.Size=UDim2.new(1,-100,0,28)
+dp.Font=Enum.Font.Gotham
+dp.TextSize=14
+dp.TextColor3=Color3.fromRGB(220,220,220)
+dp.TextXAlignment=Enum.TextXAlignment.Left
 
-local layout = Instance.new("U".."I".."L".."i".."s".."t".."L".."a".."y".."o".."u".."t")
-layout.Parent = list
-layout.Padding = UDim.new(0, 8)
-layout.SortOrder = Enum.SortOrder.Name
+local dq=Instance.new("F".."r".."a".."m".."e")
+dq.Name="C".."h".."e".."c".."k".."M".."a".."r".."k"
+dq.Parent=dk
+dq.BackgroundColor3=Color3.fromRGB(40,40,48)
+dq.BackgroundTransparency=0
+dq.BorderSizePixel=0
+dq.Position=UDim2.new(1,-38,0,6)
+dq.Size=UDim2.new(0,28,0,28)
+dq.Visible=false
 
-local template = Instance.new("F".."r".."a".."m".."e")
-template.Name = "T".."e".."m".."p".."l".."a".."t".."e"
-template.Size = UDim2.new(1, 0, 0, 40)
-template.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
-template.Visible = false
-template.Parent = list
+local dr=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+dr.CornerRadius=UDim.new(0,14)
+dr.Parent=dq
 
-local templateCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-templateCorner.CornerRadius = UDim.new(0, 8)
-templateCorner.Parent = template
+local ds=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+ds.Name="S"..math.random(9999)
+ds.Color=Color3.fromRGB(25,25,112)
+ds.Thickness=2
+ds.Transparency=0
+ds.Parent=dq
 
-local templateStroke = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-templateStroke.Color = Color3.fromRGB(60, 60, 68)
-templateStroke.Thickness = 1
-templateStroke.Parent = template
+local dt=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+dt.Parent=ds
+dt.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1),NumberSequenceKeypoint.new(0.1,0),NumberSequenceKeypoint.new(0.9,0),NumberSequenceKeypoint.new(1,1)})
+bt(dt)
 
-local avatarDot = Instance.new("F".."r".."a".."m".."e")
-avatarDot.Name = "A".."v".."a".."t".."a".."r".."D".."o".."t"
-avatarDot.Size = UDim2.new(0, 28, 0, 28)
-avatarDot.Position = UDim2.new(0, 8, 0, 6)
-avatarDot.BackgroundTransparency = 1
-avatarDot.Parent = template
+local du=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+du.Name="N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l"
+du.Parent=dq
+du.BackgroundTransparency=1
+du.Size=UDim2.new(1,0,1,0)
+du.Font=Enum.Font.GothamBold
+du.TextSize=16
+du.TextColor3=Color3.fromRGB(255,255,255)
+du.Text=""
 
-local avatarCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-avatarCorner.CornerRadius = UDim.new(0, 14)
-avatarCorner.Parent = avatarDot
+local dv=Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
+dv.Name="R"..math.random(9999)
+dv.Parent=ci
+dv.Size=UDim2.new(1,-24,0,32)
+dv.Position=UDim2.new(0,12,1,-44)
+dv.BackgroundColor3=Color3.fromRGB(147,112,219)
+dv.Text="S".."P".."A".."M".." ".."(".."F"..")"
+dv.Font=Enum.Font.GothamBold
+dv.TextSize=14
+dv.TextColor3=Color3.fromRGB(255,255,255)
+dv.BorderSizePixel=0
 
-local nameLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-nameLabel.Name = "N".."a".."m".."e".."L".."a".."b".."e".."l"
-nameLabel.Parent = template
-nameLabel.BackgroundTransparency = 1
-nameLabel.Position = UDim2.new(0, 48, 0, 6)
-nameLabel.Size = UDim2.new(1, -100, 0, 28)
-nameLabel.Font = Enum.Font.Gotham
-nameLabel.TextSize = 14
-nameLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+local dw=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+dw.CornerRadius=UDim.new(0,10)
+dw.Parent=dv
 
-local checkMark = Instance.new("F".."r".."a".."m".."e")
-checkMark.Name = "C".."h".."e".."c".."k".."M".."a".."r".."k"
-checkMark.Parent = template
-checkMark.BackgroundColor3 = Color3.fromRGB(40, 40, 48)
-checkMark.BackgroundTransparency = 0
-checkMark.BorderSizePixel = 0
-checkMark.Position = UDim2.new(1, -38, 0, 6)
-checkMark.Size = UDim2.new(0, 28, 0, 28)
-checkMark.Visible = false
-
-local checkCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-checkCorner.CornerRadius = UDim.new(0, 14)
-checkCorner.Parent = checkMark
-
-local checkStroke = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-checkStroke.Name = "S"..math.random(9999)
-checkStroke.Color = Color3.fromRGB(25, 25, 112)
-checkStroke.Thickness = 2
-checkStroke.Transparency = 0
-checkStroke.Parent = checkMark
-
-local checkGradient = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-checkGradient.Parent = checkStroke
-checkGradient.Transparency = NumberSequence.new({
-    NumberSequenceKeypoint.new(0, 1),
-    NumberSequenceKeypoint.new(0.1, 0),
-    NumberSequenceKeypoint.new(0.9, 0),
-    NumberSequenceKeypoint.new(1, 1)
-})
-registerGradient(checkGradient)
-
-local checkLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-checkLabel.Name = "N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l"
-checkLabel.Parent = checkMark
-checkLabel.BackgroundTransparency = 1
-checkLabel.Size = UDim2.new(1, 0, 1, 0)
-checkLabel.Font = Enum.Font.GothamBold
-checkLabel.TextSize = 16
-checkLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-checkLabel.Text = ""
-
-local spamButton = Instance.new("T".."e".."x".."t".."B".."u".."t".."t".."o".."n")
-spamButton.Name = "V"..math.random(9999)
-spamButton.Parent = card
-spamButton.Size = UDim2.new(1, -24, 0, 32)
-spamButton.Position = UDim2.new(0, 12, 1, -44)
-spamButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
-spamButton.Text = "S".."P".."A".."M".." ".."(".."F"..")"
-spamButton.Font = Enum.Font.GothamBold
-spamButton.TextSize = 14
-spamButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-spamButton.BorderSizePixel = 0
-
-local spamCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-spamCorner.CornerRadius = UDim.new(0, 10)
-spamCorner.Parent = spamButton
-
-baseDefenderButton.MouseButton1Click:Connect(function()
-    baseDefenderEnabled = not baseDefenderEnabled
-    local targetPos, targetColor, targetIndicatorColor
-    if baseDefenderEnabled then
-        targetPos = UDim2.new(1, -22, 0, 2)
-        targetColor = Color3.fromRGB(76, 175, 80)
-        targetIndicatorColor = Color3.fromRGB(255, 255, 255)
-        if not myPlot then
-            myPlot = findMyPlot()
-            if myPlot then
-                myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
-            end
-        end
+cu.MouseButton1Click:Connect(function()
+    bk=not bk
+    local dx,dy,dz
+    if bk then
+        dx=UDim2.new(1,-22,0,2)
+        dy=Color3.fromRGB(76,175,80)
+        dz=Color3.fromRGB(255,255,255)
     else
-        targetPos = UDim2.new(0, 2, 0, 2)
-        targetColor = Color3.fromRGB(60, 60, 68)
-        targetIndicatorColor = Color3.fromRGB(180, 180, 180)
+        dx=UDim2.new(0,2,0,2)
+        dy=Color3.fromRGB(60,60,68)
+        dz=Color3.fromRGB(180,180,180)
     end
-    TweenService:Create(baseDefenderIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
-    TweenService:Create(baseDefenderButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
-    TweenService:Create(baseDefenderIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
+    e:Create(cw,e.new(0.2,Enum.EasingStyle.Quad),{Position=dx}):Play()
+    e:Create(cu,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=dy}):Play()
+    e:Create(cw,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=dz}):Play()
 end)
 
-autoDefenseButton.MouseButton1Click:Connect(function()
-    stealingDetected = not stealingDetected
-    local targetPos, targetColor, targetIndicatorColor
-    if stealingDetected then
-        targetPos = UDim2.new(1, -22, 0, 2)
-        targetColor = Color3.fromRGB(76, 175, 80)
-        targetIndicatorColor = Color3.fromRGB(255, 255, 255)
-    else
-        targetPos = UDim2.new(0, 2, 0, 2)
-        targetColor = Color3.fromRGB(60, 60, 68)
-        targetIndicatorColor = Color3.fromRGB(180, 180, 180)
-    end
-    TweenService:Create(autoDefenseIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
-    TweenService:Create(autoDefenseButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
-    TweenService:Create(autoDefenseIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
-end)
-
-antiTPButton.MouseButton1Click:Connect(function()
-    antiTPScamEnabled = not antiTPScamEnabled
-    if antiTPScamEnabled and not myPlot then
-        myPlot = findMyPlot()
-        if myPlot then
-            myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
+db.MouseButton1Click:Connect(function()
+    u=not u
+    if u and not y then
+        y=ab()
+        if y then
+            z=ak(y)
         else
-            antiTPScamEnabled = false
-            return
-        end
-    end
-    local targetPos, targetColor, targetIndicatorColor
-    if antiTPScamEnabled then
-        targetPos = UDim2.new(1, -22, 0, 2)
-        targetColor = Color3.fromRGB(76, 175, 80)
-        targetIndicatorColor = Color3.fromRGB(255, 255, 255)
+            u=false
+            return end end
+    local ea,eb,ec
+    if u then
+        ea=UDim2.new(1,-22,0,2)
+        eb=Color3.fromRGB(76,175,80)
+        ec=Color3.fromRGB(255,255,255)
     else
-        targetPos = UDim2.new(0, 2, 0, 2)
-        targetColor = Color3.fromRGB(60, 60, 68)
-        targetIndicatorColor = Color3.fromRGB(180, 180, 180)
+        ea=UDim2.new(0,2,0,2)
+        eb=Color3.fromRGB(60,60,68)
+        ec=Color3.fromRGB(180,180,180)
     end
-    TweenService:Create(antiTPIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = targetPos}):Play()
-    TweenService:Create(antiTPButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetColor}):Play()
-    TweenService:Create(antiTPIndicator, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = targetIndicatorColor}):Play()
+    e:Create(dd,e.new(0.2,Enum.EasingStyle.Quad),{Position=ea}):Play()
+    e:Create(db,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=eb}):Play()
+    e:Create(dd,e.new(0.2,Enum.EasingStyle.Quad),{BackgroundColor3=ec}):Play()
 end)
 
-local function executeSpam()
-    if not remoteReady then return end
-    local target = getNearestPlayer()
-    if target then
+local function ed()
+    if not r then return end
+    local ee=at()
+    if ee then
         coroutine.wrap(function()
-            adminRemote:FireServer(adminUUID, target, "t".."i".."n".."y")
+            i:FireServer(j,ee,"t".."i".."n".."y")
             task.wait(0.1)
-            adminRemote:FireServer(adminUUID, target, "i".."n".."v".."e".."r".."s".."e")
+            i:FireServer(j,ee,"i".."n".."v".."e".."r".."s".."e")
             task.wait(0.1)
-            adminRemote:FireServer(adminUUID, target, "r".."o".."c".."k".."e".."t")
+            i:FireServer(j,ee,"r".."o".."c".."k".."e".."t")
             task.wait(0.1)
-            adminRemote:FireServer(adminUUID, target, "b".."a".."l".."l".."o".."o".."n")
-        end)()
-    end
-end
+            i:FireServer(j,ee,"b".."a".."l".."l".."o".."o".."n")
+        end)()end end
 
-spamButton.MouseButton1Click:Connect(executeSpam)
+dv.MouseButton1Click:Connect(ed)
 
-UserInputService.InputBegan:Connect(function(input, gpe)
-    if gpe then return end
-    if input.KeyCode == Enum.KeyCode.F then
-        executeSpam()
-    end
-end)
+d.InputBegan:Connect(function(ef,eg)
+    if eg then return end
+    if ef.KeyCode==Enum.KeyCode.F then
+        ed()end end)
 
-local function cleanupInvalidPlayers()
-    local changed = false
-    local newSelectedPlayers = {}
-    local orderedUserIds = {}
-    for userId, order in pairs(selectedUserIds) do
-        table.insert(orderedUserIds, {userId = userId, order = order})
-    end
-    table.sort(orderedUserIds, function(a, b) return a.order < b.order end)
-    for _, data in ipairs(orderedUserIds) do
-        local plr = Players:GetPlayerByUserId(data.userId)
-        if plr and plr.Parent == Players and plr ~= localPlayer then
-            table.insert(newSelectedPlayers, plr)
+local function eh()
+    local ei=false
+    local ej={}
+    local ek={}
+    for el,em in pairs(br)do
+        table.insert(ek,{userId=el,order=em})end
+    table.sort(ek,function(en,eo)return en.order<eo.order end)
+    for _,ep in ipairs(ek)do
+        local eq=b:GetPlayerByUserId(ep.userId)
+        if eq and eq.Parent==b and eq~=h then
+            table.insert(ej,eq)
         else
-            selectedUserIds[data.userId] = nil
-            changed = true
-        end
-    end
-    selectedPlayers = newSelectedPlayers
-    selectedSet = {}
-    for _, plr in ipairs(selectedPlayers) do
-        selectedSet[plr] = true
-    end
-    return changed
-end
+            br[ep.userId]=nil
+            ei=true end end
+    bp=ej
+    bq={}
+    for _,er in ipairs(bp)do
+        bq[er]=true end
+    return ei end
 
-local function updateCheckmarks()
-    cleanupInvalidPlayers()
-    for _, r in ipairs(list:GetChildren()) do
-        if r:IsA("F".."r".."a".."m".."e") and r ~= template then
-            local checkFrame = r:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
-            if checkFrame then
-                checkFrame.NumberLabel.Text = ""
-                checkFrame.Visible = false
-            end
-        end
-    end
-    for i, plr in ipairs(selectedPlayers) do
-        if plr and plr.Parent == Players then
-            local row = list:FindFirstChild(plr.Name.."_row")
-            if row then
-                local checkFrame = row:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
-                if checkFrame then
-                    checkFrame.Visible = true
-                    checkFrame.NumberLabel.Text = tostring(i)
-                end
-            end
-        end
-    end
-end
+local function es()
+    eh()
+    for _,et in ipairs(di:GetChildren())do
+        if et:IsA("F".."r".."a".."m".."e")and et~=dk then
+            local eu=et:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
+            if eu then
+                eu.NumberLabel.Text=""
+                eu.Visible=false end end end
+    for ev,ew in ipairs(bp)do
+        if ew and ew.Parent==b then
+            local ex=di:FindFirstChild(ew.Name.."_row")
+            if ex then
+                local ey=ex:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
+                if ey then
+                    ey.Visible=true
+                    ey.NumberLabel.Text=tostring(ev)end end end end end
 
-local function refreshList()
-    cleanupInvalidPlayers()
-    for _, child in ipairs(list:GetChildren()) do
-        if child:IsA("F".."r".."a".."m".."e") and child ~= template then
-            child:Destroy()
-        end
-    end
-    for _, plr in ipairs(Players:GetPlayers()) do
-        if plr ~= localPlayer then
-            local row = template:Clone()
-            row.Visible = true
-            row.Name = plr.Name.."_row"
-            row.Parent = list
-            row.NameLabel.Text = plr.DisplayName.." @"..plr.Name
+local function ez()
+    eh()
+    for _,fa in ipairs(di:GetChildren())do
+        if fa:IsA("F".."r".."a".."m".."e")and fa~=dk then
+            fa:Destroy()end end
+    for _,fb in ipairs(b:GetPlayers())do
+        if fb~=h then
+            local fc=dk:Clone()
+            fc.Visible=true
+            fc.Name=fb.Name.."_row"
+            fc.Parent=di
+            fc.NameLabel.Text=fb.DisplayName.." @"..fb.Name
             task.spawn(function()
-                local success, thumb = pcall(function()
-                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
-                end)
-                if success and thumb and row and row.Parent then
-                    row.AvatarDot:ClearAllChildren()
-                    local img = Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
-                    img.Parent = row.AvatarDot
-                    img.Size = UDim2.new(1, 0, 1, 0)
-                    img.BackgroundTransparency = 1
-                    img.Image = thumb
-                    local imgCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-                    imgCorner.CornerRadius = UDim.new(0, 14)
-                    imgCorner.Parent = img
-                end
-            end)
-            row.InputBegan:Connect(function(input)
-                if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                    if selectedUserIds[plr.UserId] then
-                        selectedUserIds[plr.UserId] = nil
-                        selectedSet[plr] = nil
-                        for i, p in ipairs(selectedPlayers) do
-                            if p == plr then
-                                table.remove(selectedPlayers, i)
-                                break
-                            end
-                        end
-                        for i, p in ipairs(selectedPlayers) do
-                            selectedUserIds[p.UserId] = i
-                        end
+                local fd,fe=pcall(function()return b:GetUserThumbnailAsync(fb.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size100x100)end)
+                if fd and fe and fc and fc.Parent then
+                    fc.AvatarDot:ClearAllChildren()
+                    local ff=Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
+                    ff.Parent=fc.AvatarDot
+                    ff.Size=UDim2.new(1,0,1,0)
+                    ff.BackgroundTransparency=1
+                    ff.Image=fe
+                    local fg=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+                    fg.CornerRadius=UDim.new(0,14)
+                    fg.Parent=ff end end)
+            fc.InputBegan:Connect(function(fh)
+                if fh.UserInputType==Enum.UserInputType.MouseButton1 or fh.UserInputType==Enum.UserInputType.Touch then
+                    if br[fb.UserId]then
+                        br[fb.UserId]=nil
+                        bq[fb]=nil
+                        for fi,fj in ipairs(bp)do
+                            if fj==fb then
+                                table.remove(bp,fi)
+                                break end end
+                        for fk,fl in ipairs(bp)do
+                            br[fl.UserId]=fk end
                     else
-                        if #selectedPlayers < 2 then
-                            local newOrder = #selectedPlayers + 1
-                            selectedUserIds[plr.UserId] = newOrder
-                            table.insert(selectedPlayers, plr)
-                            selectedSet[plr] = true
-                        end
-                    end
-                    updateCheckmarks()
-                end
-            end)
-        end
-    end
-    updateCheckmarks()
-    list.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y + 12)
-end
+                        if #bp<2 then
+                            local fm=#bp+1
+                            br[fb.UserId]=fm
+                            table.insert(bp,fb)
+                            bq[fb]=true end end
+                    es()end end)end end
+    es()
+    di.CanvasSize=UDim2.new(0,0,0,dj.AbsoluteContentSize.Y+12)end
 
 task.spawn(function()
     task.wait(2)
-    myPlot = findMyPlot()
-    if myPlot then
-        myPlotAnimalPodiums = getMyPlotAnimalPodiums(myPlot)
+    y=ab()
+    if y then
+        z=ak(y)
     else
-        plotStatus.Text = "P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"
-    end
-end)
+        cq.Text="P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"end end)
 
 task.spawn(function()
-    while not remoteReady do
-        task.wait(0.1)
-    end
+    while not r do
+        task.wait(0.1)end
     task.wait(0.5)
-    refreshList()
-end)
+    ez()end)
 
-Players.PlayerAdded:Connect(function()
+b.PlayerAdded:Connect(function()
     task.wait(0.5)
-    refreshList()
-end)
+    ez()end)
 
-Players.PlayerRemoving:Connect(function(removedPlayer)
-    selectedUserIds[removedPlayer.UserId] = nil
-    selectedSet[removedPlayer] = nil
-    for i = #selectedPlayers, 1, -1 do
-        if selectedPlayers[i] == removedPlayer then
-            table.remove(selectedPlayers, i)
-        end
-    end
-    refreshList()
-end)
+b.PlayerRemoving:Connect(function(fn)
+    br[fn.UserId]=nil
+    bq[fn]=nil
+    for fo=#bp,1,-1 do
+        if bp[fo]==fn then
+            table.remove(bp,fo)end end
+    ez()end)
 
-localPlayer.CharacterAdded:Connect(function()
+h.CharacterAdded:Connect(function()
     task.wait(1)
-    refreshList()
-end)
+    ez()end)
 
-local dragging = false
-local dragStart, startPos
+local fp=false
+local fq,fr
+local function fs(ft)
+    local fu=ft.Position-fq
+    cg.Position=UDim2.new(fr.X.Scale,fr.X.Offset+fu.X,fr.Y.Scale,fr.Y.Offset+fu.Y)end
 
-local function update(input)
-    local delta = input.Position - dragStart
-    outer.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-end
+cl.InputBegan:Connect(function(fv)
+    if fv.UserInputType==Enum.UserInputType.MouseButton1 or fv.UserInputType==Enum.UserInputType.Touch then
+        fp=true
+        fq=fv.Position
+        fr=cg.Position
+        fv.Changed:Connect(function()
+            if fv.UserInputState==Enum.UserInputState.End then
+                fp=false end end)end end)
 
-topLeftAccent.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        dragging = true
-        dragStart = input.Position
-        startPos = outer.Position
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                dragging = false
-            end
-        end)
-    end
-end)
+d.InputChanged:Connect(function(fw)
+    if fp and (fw.UserInputType==Enum.UserInputType.MouseMovement or fw.UserInputType==Enum.UserInputType.Touch)then
+        fs(fw)end end)
 
-UserInputService.InputChanged:Connect(function(input)
-    if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-        update(input)
-    end
-end)
+local fx=Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
+fx.Name="C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
+fx.Parent=h:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+fx.ResetOnSpawn=false
 
-local topGui = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
-topGui.Name = "C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
-topGui.Parent = localPlayer:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-topGui.ResetOnSpawn = false
+local fy=Instance.new("F".."r".."a".."m".."e")
+fy.Name="M".."a".."i".."n".."F".."r".."a".."m".."e"
+fy.Size=UDim2.new(0,360,0,89)
+fy.Position=UDim2.new(0.5,-190,0,0)
+fy.BackgroundColor3=Color3.fromRGB(10,10,10)
+fy.BackgroundTransparency=0.10
+fy.BorderSizePixel=0
+fy.Parent=fx
 
-local topFrame = Instance.new("F".."r".."a".."m".."e")
-topFrame.Name = "M".."a".."i".."n".."F".."r".."a".."m".."e"
-topFrame.Size = UDim2.new(0, 360, 0, 89)
-topFrame.Position = UDim2.new(0.5, -190, 0, 0)
-topFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-topFrame.BackgroundTransparency = 0.10
-topFrame.BorderSizePixel = 0
-topFrame.Parent = topGui
+local fz=Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+fz.CornerRadius=UDim.new(0,20)
+fz.Parent=fy
 
-local topCorner = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-topCorner.CornerRadius = UDim.new(0, 20)
-topCorner.Parent = topFrame
+local ga=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+ga.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(20,20,20)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(60,60,60)),ColorSequenceKeypoint.new(1,Color3.fromRGB(20,20,20))})
+ga.Transparency=NumberSequence.new(0.2)
+ga.Rotation=45
+ga.Parent=fy
 
-local topGradient = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-topGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(20, 20, 20)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60, 60, 60)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 20))
-})
-topGradient.Transparency = NumberSequence.new(0.2)
-topGradient.Rotation = 45
-topGradient.Parent = topFrame
+local gb=Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+gb.Color=Color3.fromRGB(25,25,112)
+gb.Thickness=3.2
+gb.Transparency=0
+gb.Parent=fy
 
-local topStroke = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-topStroke.Color = Color3.fromRGB(25, 25, 112)
-topStroke.Thickness = 3.2
-topStroke.Transparency = 0
-topStroke.Parent = topFrame
+e:Create(gb,e.new(2,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut,-1,true),{Transparency=0.6,Thickness=2.5}):Play()
 
-TweenService:Create(topStroke, TweenInfo.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
-    Transparency = 0.6,
-    Thickness = 2.5
-}):Play()
+local gc=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+gc.Size=UDim2.new(1,0,0,35)
+gc.Position=UDim2.new(0,0,0,10)
+gc.BackgroundTransparency=1
+gc.Text="C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
+gc.TextColor3=Color3.fromRGB(255,255,255)
+gc.Font=Enum.Font.GothamBold
+gc.TextSize=16
+gc.Parent=fy
 
-local topTitle = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-topTitle.Size = UDim2.new(1, 0, 0, 35)
-topTitle.Position = UDim2.new(0, 0, 0, 10)
-topTitle.BackgroundTransparency = 1
-topTitle.Text = "C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
-topTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-topTitle.Font = Enum.Font.GothamBold
-topTitle.TextSize = 16
-topTitle.Parent = topFrame
-
-local titleGradient = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-titleGradient.Color = ColorSequence.new({
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(140, 140, 140)),
-    ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 255)),
-    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(160, 160, 160)),
-    ColorSequenceKeypoint.new(0.8, Color3.fromRGB(255, 255, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 140, 140))
-})
-titleGradient.Parent = topTitle
+local gd=Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+gd.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(140,140,140)),ColorSequenceKeypoint.new(0.2,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(0.5,Color3.fromRGB(160,160,160)),ColorSequenceKeypoint.new(0.8,Color3.fromRGB(255,255,255)),ColorSequenceKeypoint.new(1,Color3.fromRGB(140,140,140))})
+gd.Parent=gc
 
 task.spawn(function()
     while true do
-        titleGradient.Rotation = 25
-        titleGradient.Offset = Vector2.new(-1, 0)
-        local anim = TweenService:Create(titleGradient, TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
-            Offset = Vector2.new(1, 0)
-        })
-        anim:Play()
-        anim.Completed:Wait()
-        task.wait(0.5)
-    end
-end)
+        gd.Rotation=25
+        gd.Offset=Vector2.new(-1,0)
+        local ge=e:Create(gd,e.new(4,Enum.EasingStyle.Sine,Enum.EasingDirection.InOut),{Offset=Vector2.new(1,0)})
+        ge:Play()
+        ge.Completed:Wait()
+        task.wait(0.5)end end)
 
-local subText = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-subText.Size = UDim2.new(1, 0, 0, 20)
-subText.Position = UDim2.new(0, 0, 0, 42)
-subText.BackgroundTransparency = 1
-subText.Text = "d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
-subText.TextColor3 = Color3.fromRGB(220, 220, 220)
-subText.Font = Enum.Font.Gotham
-subText.TextSize = 13
-subText.Parent = topFrame
+local gf=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+gf.Size=UDim2.new(1,0,0,20)
+gf.Position=UDim2.new(0,0,0,42)
+gf.BackgroundTransparency=1
+gf.Text="d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
+gf.TextColor3=Color3.fromRGB(220,220,220)
+gf.Font=Enum.Font.Gotham
+gf.TextSize=13
+gf.Parent=fy
 
-local statsLabel = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-statsLabel.Size = UDim2.new(1, 0, 0, 30)
-statsLabel.Position = UDim2.new(0, 0, 0, 62)
-statsLabel.BackgroundTransparency = 1
-statsLabel.Text = "F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
-statsLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-statsLabel.Font = Enum.Font.GothamMedium
-statsLabel.TextSize = 16
-statsLabel.Parent = topFrame
+local gg=Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+gg.Size=UDim2.new(1,0,0,30)
+gg.Position=UDim2.new(0,0,0,62)
+gg.BackgroundTransparency=1
+gg.Text="F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
+gg.TextColor3=Color3.fromRGB(255,255,255)
+gg.Font=Enum.Font.GothamMedium
+gg.TextSize=16
+gg.Parent=fy
 
-RunService.RenderStepped:Connect(function(dt)
-    local fps = math.floor(1 / dt)
-    local success, ping = pcall(function()
-        return math.floor(Stats.Network.ServerStatsItem["D".."a".."t".."a".." ".."P".."i".."n".."g"]:GetValue())
-    end)
-    statsLabel.Text = string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s", fps, success and tostring(ping).."m".."s" or "-".."-")
-end)
+a.RenderStepped:Connect(function(gh)
+    local gi=math.floor(1/gh)
+    local gj,gk=pcall(function()return math.floor(g.Network.ServerStatsItem["D".."a".."t".."a".." ".."P".."i".."n".."g"]:GetValue())end)
+    gg.Text=string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s",gi,gj and tostring(gk).."m".."s" or "-".."-")end)
 task.wait(0.1)
