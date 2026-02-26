@@ -149,7 +149,9 @@ local function AX()
 end
 
 local function BF(BG)
-    I:FireServer(J, BG, "b".."a".."l".."l".."o".."o".."n")
+    if I then
+        I:FireServer(J, BG, "b".."a".."l".."l".."o".."o".."n")
+    end
 end
 
 task.spawn(function()
@@ -173,7 +175,9 @@ task.spawn(function()
                             if BL < AB then
                                 if tick() - Z > AA then
                                     for _, BM in ipairs({"b".."a".."l".."l".."o".."o".."n", "i".."n".."v".."e".."r".."s".."e", "r".."o".."c".."k".."e".."t", "t".."i".."n".."y"}) do
-                                        I:FireServer(J, BH, BM)
+                                        if I then
+                                            I:FireServer(J, BH, BM)
+                                        end
                                         task.wait(0.05)
                                     end
                                     Z = tick()
@@ -582,9 +586,9 @@ CW.MouseButton1Click:Connect(function()
         EA = Color3.fromRGB(60, 60, 68)
         EB = Color3.fromRGB(180, 180, 180)
     end
-    E:Create(CY, E.new(0.2, Enum.EasingStyle.Quad), {Position = DZ}):Play()
-    E:Create(CW, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EA}):Play()
-    E:Create(CY, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EB}):Play()
+    E:Create(CY, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = DZ}):Play()
+    E:Create(CW, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EA}):Play()
+    E:Create(CY, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EB}):Play()
 end)
 
 DD.MouseButton1Click:Connect(function()
@@ -608,9 +612,9 @@ DD.MouseButton1Click:Connect(function()
         ED = Color3.fromRGB(60, 60, 68)
         EE = Color3.fromRGB(180, 180, 180)
     end
-    E:Create(DF, E.new(0.2, Enum.EasingStyle.Quad), {Position = EC}):Play()
-    E:Create(DD, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = ED}):Play()
-    E:Create(DF, E.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EE}):Play()
+    E:Create(DF, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {Position = EC}):Play()
+    E:Create(DD, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = ED}):Play()
+    E:Create(DF, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {BackgroundColor3 = EE}):Play()
 end)
 
 local function EF()
@@ -620,13 +624,21 @@ local function EF()
     local EG = AX()
     if EG then
         coroutine.wrap(function()
-            I:FireServer(J, EG, "t".."i".."n".."y")
+            if I then
+                I:FireServer(J, EG, "t".."i".."n".."y")
+            end
             task.wait(0.1)
-            I:FireServer(J, EG, "i".."n".."v".."e".."r".."s".."e")
+            if I then
+                I:FireServer(J, EG, "i".."n".."v".."e".."r".."s".."e")
+            end
             task.wait(0.1)
-            I:FireServer(J, EG, "r".."o".."c".."k".."e".."t")
+            if I then
+                I:FireServer(J, EG, "r".."o".."c".."k".."e".."t")
+            end
             task.wait(0.1)
-            I:FireServer(J, EG, "b".."a".."l".."l".."o".."o".."n")
+            if I then
+                I:FireServer(J, EG, "b".."a".."l".."l".."o".."o".."n")
+            end
         end)()
     end
 end
@@ -675,75 +687,87 @@ local function EU()
         if EV:IsA("F".."r".."a".."m".."e") and EV ~= DM then
             local EW = EV:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
             if EW then
-                EW.NumberLabel.Text = ""
+                local EX = EW:FindFirstChild("N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l")
+                if EX then
+                    EX.Text = ""
+                end
                 EW.Visible = false
             end
         end
     end
-    for EX, EY in ipairs(BR) do
-        if EY and EY.Parent == B then
-            local EZ = DK:FindFirstChild(EY.Name.."_row")
-            if EZ then
-                local FA = EZ:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
-                if FA then
-                    FA.Visible = true
-                    FA.NumberLabel.Text = tostring(EX)
+    for EY, EZ in ipairs(BR) do
+        if EZ and EZ.Parent == B then
+            local FA = DK:FindFirstChild(EZ.Name.."_row")
+            if FA then
+                local FB = FA:FindFirstChild("C".."h".."e".."c".."k".."M".."a".."r".."k")
+                if FB then
+                    FB.Visible = true
+                    local FC = FB:FindFirstChild("N".."u".."m".."b".."e".."r".."L".."a".."b".."e".."l")
+                    if FC then
+                        FC.Text = tostring(EY)
+                    end
                 end
             end
         end
     end
 end
 
-local function FB()
+local function FD()
     EJ()
-    for _, FC in ipairs(DK:GetChildren()) do
-        if FC:IsA("F".."r".."a".."m".."e") and FC ~= DM then
-            FC:Destroy()
+    for _, FE in ipairs(DK:GetChildren()) do
+        if FE:IsA("F".."r".."a".."m".."e") and FE ~= DM then
+            FE:Destroy()
         end
     end
-    for _, FD in ipairs(B:GetPlayers()) do
-        if FD ~= H then
-            local FE = DM:Clone()
-            FE.Visible = true
-            FE.Name = FD.Name.."_row"
-            FE.Parent = DK
-            FE.NameLabel.Text = FD.DisplayName.." @"..FD.Name
+    for _, FF in ipairs(B:GetPlayers()) do
+        if FF ~= H then
+            local FG = DM:Clone()
+            FG.Visible = true
+            FG.Name = FF.Name.."_row"
+            FG.Parent = DK
+            local FH = FG:FindFirstChild("N".."a".."m".."e".."L".."a".."b".."e".."l")
+            if FH then
+                FH.Text = FF.DisplayName.." @"..FF.Name
+            end
             task.spawn(function()
-                local FF, FG = pcall(function()
-                    return B:GetUserThumbnailAsync(FD.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
+                local FI, FJ = pcall(function()
+                    return B:GetUserThumbnailAsync(FF.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
                 end)
-                if FF and FG and FE and FE.Parent then
-                    FE.AvatarDot:ClearAllChildren()
-                    local FH = Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
-                    FH.Parent = FE.AvatarDot
-                    FH.Size = UDim2.new(1, 0, 1, 0)
-                    FH.BackgroundTransparency = 1
-                    FH.Image = FG
-                    local FI = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-                    FI.CornerRadius = UDim.new(0, 14)
-                    FI.Parent = FH
+                if FI and FJ and FG and FG.Parent then
+                    local FK = FG:FindFirstChild("A".."v".."a".."t".."a".."r".."D".."o".."t")
+                    if FK then
+                        FK:ClearAllChildren()
+                        local FL = Instance.new("I".."m".."a".."g".."e".."L".."a".."b".."e".."l")
+                        FL.Parent = FK
+                        FL.Size = UDim2.new(1, 0, 1, 0)
+                        FL.BackgroundTransparency = 1
+                        FL.Image = FJ
+                        local FM = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+                        FM.CornerRadius = UDim.new(0, 14)
+                        FM.Parent = FL
+                    end
                 end
             end)
-            FE.InputBegan:Connect(function(FJ)
-                if FJ.UserInputType == Enum.UserInputType.MouseButton1 or FJ.UserInputType == Enum.UserInputType.Touch then
-                    if BT[FD.UserId] then
-                        BT[FD.UserId] = nil
-                        BS[FD] = nil
-                        for FK, FL in ipairs(BR) do
-                            if FL == FD then
-                                table.remove(BR, FK)
+            FG.InputBegan:Connect(function(FN)
+                if FN.UserInputType == Enum.UserInputType.MouseButton1 or FN.UserInputType == Enum.UserInputType.Touch then
+                    if BT[FF.UserId] then
+                        BT[FF.UserId] = nil
+                        BS[FF] = nil
+                        for FO, FP in ipairs(BR) do
+                            if FP == FF then
+                                table.remove(BR, FO)
                                 break
                             end
                         end
-                        for FM, FN in ipairs(BR) do
-                            BT[FN.UserId] = FM
+                        for FQ, FR in ipairs(BR) do
+                            BT[FR.UserId] = FQ
                         end
                     else
                         if #BR < 2 then
-                            local FO = #BR + 1
-                            BT[FD.UserId] = FO
-                            table.insert(BR, FD)
-                            BS[FD] = true
+                            local FS = #BR + 1
+                            BT[FF.UserId] = FS
+                            table.insert(BR, FF)
+                            BS[FF] = true
                         end
                     end
                     EU()
@@ -761,7 +785,9 @@ task.spawn(function()
     if AC then
         AD = AO(AC)
     else
-        CS.Text = "P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"
+        if CS then
+            CS.Text = "P".."l".."o".."t"..":".." ".."N".."o".."t".." ".."f".."o".."u".."n".."d"
+        end
     end
 end)
 
@@ -770,154 +796,154 @@ task.spawn(function()
         task.wait(0.1)
     end
     task.wait(0.5)
-    FB()
+    FD()
 end)
 
 B.PlayerAdded:Connect(function()
     task.wait(0.5)
-    FB()
+    FD()
 end)
 
-B.PlayerRemoving:Connect(function(FP)
-    BT[FP.UserId] = nil
-    BS[FP] = nil
-    for FQ = #BR, 1, -1 do
-        if BR[FQ] == FP then
-            table.remove(BR, FQ)
+B.PlayerRemoving:Connect(function(FT)
+    BT[FT.UserId] = nil
+    BS[FT] = nil
+    for FU = #BR, 1, -1 do
+        if BR[FU] == FT then
+            table.remove(BR, FU)
         end
     end
-    FB()
+    FD()
 end)
 
 H.CharacterAdded:Connect(function()
     task.wait(1)
-    FB()
+    FD()
 end)
 
-local FR = false
-local FS, FT
+local FV = false
+local FW, FX
 
-local function FU(FV)
-    local FW = FV.Position - FS
-    CI.Position = UDim2.new(FT.X.Scale, FT.X.Offset + FW.X, FT.Y.Scale, FT.Y.Offset + FW.Y)
+local function FY(FZ)
+    local GA = FZ.Position - FW
+    CI.Position = UDim2.new(FX.X.Scale, FX.X.Offset + GA.X, FX.Y.Scale, FX.Y.Offset + GA.Y)
 end
 
-CN.InputBegan:Connect(function(FX)
-    if FX.UserInputType == Enum.UserInputType.MouseButton1 or FX.UserInputType == Enum.UserInputType.Touch then
-        FR = true
-        FS = FX.Position
-        FT = CI.Position
-        FX.Changed:Connect(function()
-            if FX.UserInputState == Enum.UserInputState.End then
-                FR = false
+CN.InputBegan:Connect(function(GB)
+    if GB.UserInputType == Enum.UserInputType.MouseButton1 or GB.UserInputType == Enum.UserInputType.Touch then
+        FV = true
+        FW = GB.Position
+        FX = CI.Position
+        GB.Changed:Connect(function()
+            if GB.UserInputState == Enum.UserInputState.End then
+                FV = false
             end
         end)
     end
 end)
 
-D.InputChanged:Connect(function(FY)
-    if FR and (FY.UserInputType == Enum.UserInputType.MouseMovement or FY.UserInputType == Enum.UserInputType.Touch) then
-        FU(FY)
+D.InputChanged:Connect(function(GC)
+    if FV and (GC.UserInputType == Enum.UserInputType.MouseMovement or GC.UserInputType == Enum.UserInputType.Touch) then
+        FY(GC)
     end
 end)
 
-local FZ = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
-FZ.Name = "C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
-FZ.Parent = H:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
-FZ.ResetOnSpawn = false
+local GD = Instance.new("S".."c".."r".."e".."e".."n".."G".."u".."i")
+GD.Name = "C".."h".."i".."r".."a".."q".."R".."e".."v".."a".."m".."p".."G".."u".."i"
+GD.Parent = H:WaitForChild("P".."l".."a".."y".."e".."r".."G".."u".."i")
+GD.ResetOnSpawn = false
 
-local GA = Instance.new("F".."r".."a".."m".."e")
-GA.Name = "M".."a".."i".."n".."F".."r".."a".."m".."e"
-GA.Size = UDim2.new(0, 360, 0, 89)
-GA.Position = UDim2.new(0.5, -190, 0, 0)
-GA.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-GA.BackgroundTransparency = 0.10
-GA.BorderSizePixel = 0
-GA.Parent = FZ
+local GE = Instance.new("F".."r".."a".."m".."e")
+GE.Name = "M".."a".."i".."n".."F".."r".."a".."m".."e"
+GE.Size = UDim2.new(0, 360, 0, 89)
+GE.Position = UDim2.new(0.5, -190, 0, 0)
+GE.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+GE.BackgroundTransparency = 0.10
+GE.BorderSizePixel = 0
+GE.Parent = GD
 
-local GB = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
-GB.CornerRadius = UDim.new(0, 20)
-GB.Parent = GA
+local GF = Instance.new("U".."I".."C".."o".."r".."n".."e".."r")
+GF.CornerRadius = UDim.new(0, 20)
+GF.Parent = GE
 
-local GC = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-GC.Color = ColorSequence.new({
+local GG = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+GG.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(20, 20, 20)),
     ColorSequenceKeypoint.new(0.5, Color3.fromRGB(60, 60, 60)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(20, 20, 20))
 })
-GC.Transparency = NumberSequence.new(0.2)
-GC.Rotation = 45
-GC.Parent = GA
+GG.Transparency = NumberSequence.new(0.2)
+GG.Rotation = 45
+GG.Parent = GE
 
-local GD = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
-GD.Color = Color3.fromRGB(25, 25, 112)
-GD.Thickness = 3.2
-GD.Transparency = 0
-GD.Parent = GA
+local GH = Instance.new("U".."I".."S".."t".."r".."o".."k".."e")
+GH.Color = Color3.fromRGB(25, 25, 112)
+GH.Thickness = 3.2
+GH.Transparency = 0
+GH.Parent = GE
 
-E:Create(GD, E.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
+E:Create(GH, TweenInfo.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, -1, true), {
     Transparency = 0.6,
     Thickness = 2.5
 }):Play()
 
-local GE = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-GE.Size = UDim2.new(1, 0, 0, 35)
-GE.Position = UDim2.new(0, 0, 0, 10)
-GE.BackgroundTransparency = 1
-GE.Text = "C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
-GE.TextColor3 = Color3.fromRGB(255, 255, 255)
-GE.Font = Enum.Font.GothamBold
-GE.TextSize = 16
-GE.Parent = GA
+local GI = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GI.Size = UDim2.new(1, 0, 0, 35)
+GI.Position = UDim2.new(0, 0, 0, 10)
+GI.BackgroundTransparency = 1
+GI.Text = "C".."h".."i".."r".."a".."q".." ".."R".."e".."v".."a".."m".."p".." ".."-".."-".." ".."B".."y".." ".."d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b"
+GI.TextColor3 = Color3.fromRGB(255, 255, 255)
+GI.Font = Enum.Font.GothamBold
+GI.TextSize = 16
+GI.Parent = GE
 
-local GF = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
-GF.Color = ColorSequence.new({
+local GJ = Instance.new("U".."I".."G".."r".."a".."d".."i".."e".."n".."t")
+GJ.Color = ColorSequence.new({
     ColorSequenceKeypoint.new(0, Color3.fromRGB(140, 140, 140)),
     ColorSequenceKeypoint.new(0.2, Color3.fromRGB(255, 255, 255)),
     ColorSequenceKeypoint.new(0.5, Color3.fromRGB(160, 160, 160)),
     ColorSequenceKeypoint.new(0.8, Color3.fromRGB(255, 255, 255)),
     ColorSequenceKeypoint.new(1, Color3.fromRGB(140, 140, 140))
 })
-GF.Parent = GE
+GJ.Parent = GI
 
 task.spawn(function()
     while true do
-        GF.Rotation = 25
-        GF.Offset = Vector2.new(-1, 0)
-        local GG = E:Create(GF, E.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
+        GJ.Rotation = 25
+        GJ.Offset = Vector2.new(-1, 0)
+        local GK = E:Create(GJ, TweenInfo.new(4, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
             Offset = Vector2.new(1, 0)
         })
-        GG:Play()
-        GG.Completed:Wait()
+        GK:Play()
+        GK.Completed:Wait()
         task.wait(0.5)
     end
 end)
 
-local GH = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-GH.Size = UDim2.new(1, 0, 0, 20)
-GH.Position = UDim2.new(0, 0, 0, 42)
-GH.BackgroundTransparency = 1
-GH.Text = "d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
-GH.TextColor3 = Color3.fromRGB(220, 220, 220)
-GH.Font = Enum.Font.Gotham
-GH.TextSize = 13
-GH.Parent = GA
+local GL = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GL.Size = UDim2.new(1, 0, 0, 20)
+GL.Position = UDim2.new(0, 0, 0, 42)
+GL.BackgroundTransparency = 1
+GL.Text = "d".."i".."s".."c".."o".."r".."d"..".".."g".."g".."/".."r".."e".."v".."u".."l".."h".."u".."b".." ".."|".." ".."F".."i".."x".."e".."d".." ".."B".."y".." ".."R".."e".."v".."u".."l".." ".."H".."u".."b"
+GL.TextColor3 = Color3.fromRGB(220, 220, 220)
+GL.Font = Enum.Font.Gotham
+GL.TextSize = 13
+GL.Parent = GE
 
-local GI = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
-GI.Size = UDim2.new(1, 0, 0, 30)
-GI.Position = UDim2.new(0, 0, 0, 62)
-GI.BackgroundTransparency = 1
-GI.Text = "F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
-GI.TextColor3 = Color3.fromRGB(255, 255, 255)
-GI.Font = Enum.Font.GothamMedium
-GI.TextSize = 16
-GI.Parent = GA
+local GM = Instance.new("T".."e".."x".."t".."L".."a".."b".."e".."l")
+GM.Size = UDim2.new(1, 0, 0, 30)
+GM.Position = UDim2.new(0, 0, 0, 62)
+GM.BackgroundTransparency = 1
+GM.Text = "F".."P".."S"..":".." ".."0".." ".." ".."P".."I".."N".."G"..":".." ".."0".."m".."s"
+GM.TextColor3 = Color3.fromRGB(255, 255, 255)
+GM.Font = Enum.Font.GothamMedium
+GM.TextSize = 16
+GM.Parent = GE
 
-A.RenderStepped:Connect(function(GJ)
-    local GK = math.floor(1 / GJ)
-    local GL, GM = pcall(function()
+A.RenderStepped:Connect(function(GN)
+    local GO = math.floor(1 / GN)
+    local GP, GQ = pcall(function()
         return math.floor(G.Network.ServerStatsItem["D".."a".."t".."a".." ".."P".."i".."n".."g"]:GetValue())
     end)
-    GI.Text = string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s", GK, GL and tostring(GM).."m".."s" or "-".."-")
+    GM.Text = string.format("F".."P".."S"..":".." ".."%d".." ".." ".."P".."I".."N".."G"..":".." ".."%s", GO, GP and tostring(GQ).."m".."s" or "-".."-")
 end)
 task.wait(0.1)
